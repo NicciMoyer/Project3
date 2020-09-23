@@ -20,4 +20,20 @@ router.post("/api/signup", function(req, res) {
         });
     });
 
+router.post("/api/newclass", function(req,res) {
+    db.Class.create({
+        title: req.body.title,
+        weight: req.body.weight,
+        ClassId: req.body.classId
+    })
+})
+
+router.post("/api/newassignment", function(req,res) {
+    db.Class.create({
+        title: req.body.title,
+        UserId: req.user.id
+    })
+})
+
+
 module.exports=router;
