@@ -24,7 +24,7 @@ router.post("/api/newclass", function(req,res) {
     db.Class.create({
         title: req.body.title,
         weight: req.body.weight,
-        ClassId: req.body.classId
+        UserId: req.user.id
     })
 })
 
