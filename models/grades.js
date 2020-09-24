@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes){
             }
         },
         score: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.FLOAT,
             allowNull: false,
             validate: {
               min:0,
