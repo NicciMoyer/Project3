@@ -4,11 +4,13 @@ var router = express.Router();
 
 
 router.post("/api/signup", function(req, res) {
+    console.log(req.body)
+    console.log(req.body.email)
     db.User.create({
         email: req.body.email,
         password: req.body.password,
         userName: req.body.userName,
-        firstName: req.body.firstname,
+        firstName: req.body.firstName,
         lastName: req.body.lastName,
         isTeacher: req.body.isTeacher
     })

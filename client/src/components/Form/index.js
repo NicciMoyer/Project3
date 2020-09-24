@@ -9,6 +9,13 @@ export function Input(props) {
     </div>
   );
 }
+export function PasswordInput(props) {
+  return (
+    <div className="form-group">
+      <input type="password" className="form-control" {...props} />
+    </div>
+  );
+}
 
 export function TextArea(props) {
   return (
