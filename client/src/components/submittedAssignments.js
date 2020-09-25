@@ -2,6 +2,8 @@ import React from "react";
 
 function submittedAssignments() {
 
+
+    
     return (
         <div>
             <h2>Assignments for ${this.class}</h2>

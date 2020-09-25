@@ -3,41 +3,35 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import coloredPencilsBottom from "../images/colored-pencils-bottom.jpg";
 import Roster from "../roster"
+import submittedAssignments from "../submittedAssignments";
 
 
 
-function teacherLanding() {
+function TeacherLanding() {
   return (
     <div styles={{ backgroundImage: `url(${coloredPencilsBottom})` }}>
 
-      <h1>Welcome, Ms. Frizzle!</h1>
+      <h1>Welcome, ${teacher.name}!</h1>
 
 
       <row>
         <col className="classcol" size="col-md-2 col-12">
+          <ClassList></ClassList>
 
-          <h3>My Classes</h3>
-          <br></br>
-          <ul>
-            <li>Biology</li>
-            <li>Anatomy</li>
-            <li>Biology II</li>
-
-          </ul>
         </col>
         <col className="Studentscol" size="col-md-5 col-12">
           <Roster></Roster>
-          
+
         </col>
         <col className="assignmentscol" size="col-md-5 col-12">
+          <SubmittedAssignments></SubmittedAssignments>
 
-          
         </col>
       </row>
     </div>
   );
 }
-export default teacherLanding;
+export default TeacherLanding;
 
 
 

@@ -7,26 +7,24 @@ function Roster () {
         <h3>Students for ${this.class}</h3>
         <br></br>
         <ul>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
-            <li>Student</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+            <li>${student.name}</li>
+           
           </ul>
           </div>
 
