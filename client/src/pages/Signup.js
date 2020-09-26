@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Input, PasswordInput, FormBtn } from "../components/Form";
 import { Link } from "react-router-dom";
 import { Container } from "../components/Grid";
@@ -9,6 +9,7 @@ import axios from "axios"
 function Signup(){
 
     const [formObject, setFormObject] = useState({})
+    const [errState, setErrState]= useState("")
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -17,15 +18,19 @@ function Signup(){
 
       function handleFormSubmit(event) {
         event.preventDefault();
+        setErrState("");
         if (formObject.email && formObject.userName && formObject.firstName &&formObject.lastName && formObject.isTeacher && formObject.password && formObject.password2) {
-            if(formObject.password !== formObject.password2){
-                console.log("Passwords do not match")
+          if(formObject.password !== formObject.password2){
+                setErrState("Passwords do not match")
             }else{
-            console.log(formObject)}
             formObject.isTeacher=true;
             const newObject={...formObject, isTeacher:true}
             axios.post("/api/signup", newObject)
             .then(console.log("ok"))
+            .catch(err => {
+              console.log(err)
+            })
+            }
         }
       };
 
@@ -77,6 +82,7 @@ function Signup(){
                 onClick={handleFormSubmit}
               >Sign Up</FormBtn>
       </form>
+      <div className="errorBox">{errState}</div>
       </Container>
     
     )

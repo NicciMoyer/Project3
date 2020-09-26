@@ -12,7 +12,7 @@ function App() {
 
       <Route exact path = "/" component={Signup}/>
       <Route exact path = "/login" component={Login}/>
-
+      <Route exact path= "/books" component={Books}/>
     </div>
     </Router>
   );
