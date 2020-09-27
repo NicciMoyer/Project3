@@ -14,7 +14,7 @@ export function YesNo(props) {
   return(
   <div classname="form-group">
     <label for={props.name}>{props.label}</label>
-    <select className="form-control" {...props}>
+    <select className="form-control" value={props.option2} {...props}>
       <option>{props.option1}</option>
       <option>{props.option2}</option>
     </select>

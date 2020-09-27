@@ -49,25 +49,25 @@ function Signup(){
       <form>
             <Input
             onChange={handleInputChange}
-            id="email"
+            name="email"
             placeholder="email (required)"
             label="Email Address"
             />
             <Input
             onChange={handleInputChange}
-            id="userName"
+            name="userName"
             placeholder="username"
             label="User Name"
             />
             <Input
             onChange={handleInputChange}
-            id="firstName"
+            name="firstName"
             placeholder="First Name"
             label="First Name"
             />
             <Input
             onChange={handleInputChange}
-            id="lastName"
+            name="lastName"
             placeholder="Last Name"
             label="Last Name"
             />
@@ -75,29 +75,29 @@ function Signup(){
             option1="Teacher"
             option2="Student"
             onChange={handleInputChange}
-            id="isTeacher"
-            placeholder="teacher(Y/N)"
+            name="isTeacher"
             label="Student or teacher?"
             />
             <br/>
             <PasswordInput
             onChange={handleInputChange}
-            id="password"
+            name="password"
             placeholder="password"
             label="Enter a password"
             />
             <PasswordInput
             onChange={handleInputChange}
-            id="password2"
+            name="password2"
             placeholder="enter password again"
             label="Enter password again"
             />
-                <FormBtn
-                disabled={!(formObject.email && formObject.userName && formObject.firstName &&formObject.lastName && formObject.isTeacher && formObject.password && formObject.password2)}
+            <FormBtn
+                disabled={!(formObject.email && formObject.userName && formObject.firstName &&formObject.lastName  && formObject.password && formObject.password2)}
                 onClick={handleFormSubmit}
               >Sign Up</FormBtn>
-      </form>
+      
       <div className="errorBox">{errState}</div>
+      </form>
       </Container>
     
     )
