@@ -5,13 +5,26 @@ import React from "react";
 export function Input(props) {
   return (
     <div className="form-group">
+      <label for={props.name}>{props.label}</label>
       <input className="form-control" {...props} />
     </div>
   );
 }
+export function YesNo(props) {
+  return(
+  <div classname="form-group">
+    <label for={props.name}>{props.label}</label>
+    <select className="form-control" {...props}>
+      <option>{props.option1}</option>
+      <option>{props.option2}</option>
+    </select>
+  </div>
+  )
+}
 export function PasswordInput(props) {
   return (
     <div className="form-group">
+      <label for={props.name}>{props.label}</label>
       <input type="password" className="form-control" {...props} />
     </div>
   );

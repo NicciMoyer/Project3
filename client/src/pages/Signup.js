@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Input, PasswordInput, FormBtn } from "../components/Form";
+import { Input, PasswordInput, FormBtn, YesNo } from "../components/Form";
 import { Link } from "react-router-dom";
 import { Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
@@ -23,14 +23,19 @@ function Signup(){
           if(formObject.password !== formObject.password2){
                 setErrState("Passwords do not match")
             }else{
-            formObject.isTeacher=true;
-            const newObject={...formObject, isTeacher:true}
+              if(formObject.isTeacher==="Teacher"){
+                formObject.isTeacher=true;
+              }else{
+                formObject.isTeacher=false;
+              }
+            }
+            const newObject={...formObject}
             axios.post("/api/signup", newObject)
             .then(console.log("ok"))
             .catch(err => {
               console.log(err)
             })
-            }
+            
         }
       };
 
@@ -44,38 +49,48 @@ function Signup(){
       <form>
             <Input
             onChange={handleInputChange}
-            name="email"
+            id="email"
             placeholder="email (required)"
+            label="Email Address"
             />
             <Input
             onChange={handleInputChange}
-            name="userName"
+            id="userName"
             placeholder="username"
+            label="User Name"
             />
             <Input
             onChange={handleInputChange}
-            name="firstName"
+            id="firstName"
             placeholder="First Name"
+            label="First Name"
             />
             <Input
             onChange={handleInputChange}
-            name="lastName"
+            id="lastName"
             placeholder="Last Name"
+            label="Last Name"
             />
-            <Input
+            <YesNo
+            option1="Teacher"
+            option2="Student"
             onChange={handleInputChange}
-            name="isTeacher"
+            id="isTeacher"
             placeholder="teacher(Y/N)"
+            label="Student or teacher?"
             />
+            <br/>
             <PasswordInput
             onChange={handleInputChange}
-            name="password"
+            id="password"
             placeholder="password"
+            label="Enter a password"
             />
             <PasswordInput
             onChange={handleInputChange}
-            name="password2"
+            id="password2"
             placeholder="enter password again"
+            label="Enter password again"
             />
                 <FormBtn
                 disabled={!(formObject.email && formObject.userName && formObject.firstName &&formObject.lastName && formObject.isTeacher && formObject.password && formObject.password2)}
