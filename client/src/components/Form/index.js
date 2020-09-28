@@ -10,6 +10,16 @@ export function Input(props) {
     </div>
   );
 }
+
+//this is an input that will have the option to clear if the blank formobject item is passed through as value.
+export function InputClear(props) {
+  return (
+    <div className="form-group">
+      <label htmlFor={props.name}>{props.label}</label>
+      <input type="text" className="form-control" {...props}/>
+    </div>
+  );
+}
 export function YesNo(props) {
   return(
   <div className="form-group">

@@ -42,15 +42,23 @@ router.post("/api/login", passport.authenticate("local"), (req,res) => {
 router.post("/api/newclass", function(req,res) {
     db.Class.create({
         title: req.body.title,
-        weight: req.body.weight,
+        subtitle: req.body.subtitle,
         UserId: req.user.id
+    })
+    .then(function(data){
+        res.send(data)
     })
 })
 
 router.post("/api/newassignment", function(req,res) {
     db.Class.create({
         title: req.body.title,
+        weight: req.body.weight,
+        notes: req.body.notes,
         UserId: req.user.id
+    })
+    .then(function(data){
+        res.send(data)
     })
 })
 
