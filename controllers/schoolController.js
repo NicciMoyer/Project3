@@ -28,12 +28,13 @@ router.post("/api/signup", function(req, res) {
 router.post("/api/login", passport.authenticate("local"), (req,res) => {
     if(res){    
         res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
-      console.log("something")
-    (res.redirect("/dashboard"))
-    .catch(err => console.log(err))
+        id: req.user.id,
+        userName: req.user.userName,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        prefix: req.user.prefix,
+        isTeacher: req.user.isTeacher
+      })
     }
 })
 

@@ -1,11 +1,14 @@
-import React, { useState} from "react"
+import React, { useState, useContext} from "react"
 import { Input, PasswordInput, FormBtn } from "../components/Form";
 import { Link, Redirect } from "react-router-dom";
 import { Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import axios from "axios"
+import UserContext from "../contexts/UserContext"
 
-function Login(){
+function Login(props){
+    const{id, prefix, firstName, lastName, userName, isTeacher} =useContext(UserContext)
+
     const [formObject, setFormObject] = useState({});
     const [errState, setErrState]= useState("");
     const [loginSuccess, setLoginSuccess] =useState(false)
@@ -20,6 +23,7 @@ function Login(){
             axios.post("/api/login", {...formObject})
             .then((res) => {if(res.status === 200){
               console.log(res)
+              props.setUserState({userName: res.data.userName, prefix: res.data.prefix, firstName: res.data.firstName, lastName: res.data.lastName, id: res.data.id, isTeacher: res.data.isTeacher})
               setLoginSuccess(true)
             }})
             .catch(err=> {
@@ -29,7 +33,7 @@ function Login(){
 
     return(
       <Container>
-        {loginSuccess ? <Redirect to ="/dashboard" /> :
+          {loginSuccess ? isTeacher ? <Redirect to ="/teacherdashboard" />: <Redirect to ="/studentdashboard"/> :
         <>
         <Jumbotron>
         <h1>Login</h1>
