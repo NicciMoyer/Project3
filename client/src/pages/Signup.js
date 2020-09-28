@@ -71,6 +71,12 @@ function Signup(){
             placeholder="Last Name"
             label="Last Name"
             />
+            <Input
+            onChange={handleInputChange}
+            name="prefix"
+            placeholder="Prefix (ex. Mr. Mrs, etc.)"
+            label="Prefix"
+            />
             <YesNo
             option1="Teacher"
             option2="Student"
