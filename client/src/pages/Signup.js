@@ -34,7 +34,7 @@ function Signup(props){
             const newObject={...formObject}
             axios.post("/api/signup", newObject)
             .then((res) => {
-              props.setUserState({userName: res.data.userName, prefix: res.data.prefix, firstName: res.data.firstName, lastName: res.data.lastName, id: res.data.id, isTeacher: res.data.isTeacher})
+              props.setUserState({userName: res.data.userName, prefix: res.data.prefix, firstName: res.data.firstName, lastName: res.data.lastName, userId: res.data.id, isTeacher: res.data.isTeacher})
               setLoginSuccess(true)
             })
             .catch(err => {
@@ -91,7 +91,6 @@ function Signup(props){
             name="isTeacher"
             label="Student or teacher?"
             />
-            <br/>
             <PasswordInput
             onChange={handleInputChange}
             name="password"

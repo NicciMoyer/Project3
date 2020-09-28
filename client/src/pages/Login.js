@@ -23,7 +23,7 @@ function Login(props){
             axios.post("/api/login", {...formObject})
             .then((res) => {if(res.status === 200){
               console.log(res)
-              props.setUserState({userName: res.data.userName, prefix: res.data.prefix, firstName: res.data.firstName, lastName: res.data.lastName, id: res.data.id, isTeacher: res.data.isTeacher})
+              props.setUserState({userName: res.data.userName, prefix: res.data.prefix, firstName: res.data.firstName, lastName: res.data.lastName, userId: res.data.id, isTeacher: res.data.isTeacher})
               setLoginSuccess(true)
             }})
             .catch(err=> {

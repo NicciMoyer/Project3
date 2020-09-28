@@ -3,11 +3,13 @@ import UserContext from "../contexts/UserContext"
 import { InputClear, FormBtn } from "../components/Form";
 import { Container, Col , Row} from "../components/Grid";
 import axios from "axios";
+import ClassCard from "../components/ClassCard"
+import {Link} from "react-router-dom"
 
 
 
 function TeacherDashboard(){
-    const{id, prefix, firstName, lastName, userName, isTeacher} =useContext(UserContext)
+    const{userId, prefix, firstName, lastName, userName, isTeacher} =useContext(UserContext)
     const [formObject, setFormObject] = useState({});
     const [classList, setClassList] =useState([])
 
@@ -17,9 +19,10 @@ function TeacherDashboard(){
       };
 
     useEffect(() => {
-        axios.get("/api/teacherclass/"+id)
+        axios.get("/api/teacherclass/"+userId)
         .then((res) => {
             console.log(res.data)
+            setClassList(res.data)
         })
     },[])
     
@@ -40,7 +43,7 @@ function TeacherDashboard(){
         <h2>Hello, {prefix} {firstName} {lastName}</h2>
         <h3>Username: {userName} </h3>
         <p>You {isTeacher ? "are" : "are not"} a teacher</p>
-        <p>id: {id}</p>
+        <p>id: {userId}</p>
         <Row>
         <Col size="md-6 sm-12">
         <h2>Create New Class</h2>
@@ -67,6 +70,13 @@ function TeacherDashboard(){
         </Col>
         <Col size="md-6 sm-12">
         <h2>Your Classes</h2>
+        {classList.map((item) => (
+            <>
+        <Link to={"/classes/"+item.id} key={item.id}>
+        <ClassCard title={item.title} subtitle={item.subtitle} key={item.id}/>
+        </Link>
+        </>
+        ))}
         </Col></Row>
         </Container>
 

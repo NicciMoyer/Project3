@@ -75,7 +75,7 @@ router.get("/api/classes/:id", function(req,res){
 //get class info by id
 router.get("/api/class/:id", function(req,res){
     db.Class.findOne({
-        where: {ClassId: req.params.id}
+        where: {id: req.params.id}
     }).then((data) => {
         res.json(data)
     });

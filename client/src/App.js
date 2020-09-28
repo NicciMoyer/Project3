@@ -6,6 +6,7 @@ import TeacherDashboard from "./pages/TeacherDashboard"
 import Signup from "./pages/Signup"
 import Login from "./pages/Login"
 import UserContext from "./contexts/UserContext"
+import ClassPage from "./pages/ClassPage"
 
 function App() {
   const [userState, setUserState] =useState({
@@ -13,7 +14,7 @@ function App() {
     prefix: "",
     firstName: "",
     lastName: "",
-    id: "",
+    userId: "",
     isTeacher: false
   })
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route exact path = "/login"><Login setUserState={setUserState}/></Route>
       <Route exact path= "/studentdashboard" component={StudentDashboard}/>
       <Route exact path= "/teacherdashboard" component={TeacherDashboard}/>
+      <Route exact path= "/classes/:id" component={ClassPage}/>
     </div>
     </Router>
     </UserContext.Provider>
