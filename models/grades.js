@@ -7,6 +7,13 @@ module.exports = function (sequelize, DataTypes){
               len: [1]
             }
         },
+        notes: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+              len: [0, 240]
+            }
+        },
         score: {
             type: DataTypes.FLOAT,
             allowNull: false,

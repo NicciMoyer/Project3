@@ -69,6 +69,24 @@ router.get("/api/class/:id", function(req,res){
     });
 })
 
+//find all classes by teacher
+router.get("/api/teacherclass/:id", function(req,res){
+    db.Class.findAll({
+        where: {UserId: req.params.id}
+    }).then((data) => {
+        res.json(data)
+    });
+})
+
+//find all assignments by class
+router.get("/api/assignments/:id", function(req,res){
+    db.Assignment.findAll({
+        where: {ClassId: req.params.id}
+    }).then((data) => {
+        res.json(data)
+    });
+})
+
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {
