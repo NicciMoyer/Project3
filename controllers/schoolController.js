@@ -51,6 +51,25 @@ router.post("/api/newassignment", function(req,res) {
 })
 
 
+//get all class IDs for classes student is in.
+router.get("/api/classes/:id", function(req,res){
+    db.ClassRoster.findAll({
+        where: {UserId: req.params.id}
+    }).then((data) => {
+        res.json(data)
+    });
+});
+
+//get class info by id
+router.get("/api/class/:id", function(req,res){
+    db.Class.findOne({
+        where: {ClassId: req.params.id}
+    }).then((data) => {
+        res.json(data)
+    });
+})
+
+
 // If no API routes are hit, send the React app
 router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
