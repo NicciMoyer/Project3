@@ -26,12 +26,15 @@ router.post("/api/signup", function(req, res) {
     });
 
 router.post("/api/login", passport.authenticate("local"), (req,res) => {
-    if(res){    res.json({
+    if(res){    
+        res.json({
         email: req.user.email,
         id: req.user.id
-      });}
-    // (res.redirect("/books"))
-    // .catch(err => console.log(err))
+      });
+      console.log("something")
+    (res.redirect("/dashboard"))
+    .catch(err => console.log(err))
+    }
 })
 
 

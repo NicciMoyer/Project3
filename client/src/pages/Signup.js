@@ -1,15 +1,16 @@
 import React, { useState } from "react"
 import { Input, PasswordInput, FormBtn, YesNo } from "../components/Form";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
 import axios from "axios"
 
 function Signup(){
 
     const [formObject, setFormObject] = useState({})
     const [errState, setErrState]= useState("")
+    const [loginSuccess, setLoginSuccess] =useState(false)
+
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -19,7 +20,7 @@ function Signup(){
       function handleFormSubmit(event) {
         event.preventDefault();
         setErrState("");
-        if (formObject.email && formObject.userName && formObject.firstName &&formObject.lastName && formObject.isTeacher && formObject.password && formObject.password2) {
+        if (formObject.email && formObject.userName && formObject.firstName &&formObject.lastName && formObject.password && formObject.password2) {
           if(formObject.password !== formObject.password2){
                 setErrState("Passwords do not match")
             }else{
@@ -31,7 +32,8 @@ function Signup(){
             }
             const newObject={...formObject}
             axios.post("/api/signup", newObject)
-            .then(console.log("ok"))
+            .then(
+              setLoginSuccess(true))
             .catch(err => {
               console.log(err)
             })
@@ -41,6 +43,8 @@ function Signup(){
 
     return(
         <Container>
+                  {loginSuccess ? <Redirect to ="/dashboard" /> :
+        <>
         <Jumbotron>
         <h1>Sign Up</h1>
         <h2>or</h2>
@@ -78,8 +82,8 @@ function Signup(){
             label="Prefix"
             />
             <YesNo
-            option1="Teacher"
-            option2="Student"
+            option1="Student"
+            option2="Teacher"
             onChange={handleInputChange}
             name="isTeacher"
             label="Student or teacher?"
@@ -103,7 +107,7 @@ function Signup(){
               >Sign Up</FormBtn>
       
       <div className="errorBox">{errState}</div>
-      </form>
+      </form></>}
       </Container>
     
     )

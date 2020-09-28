@@ -1,14 +1,14 @@
 import React, { useState} from "react"
 import { Input, PasswordInput, FormBtn } from "../components/Form";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
 import axios from "axios"
 
 function Login(){
     const [formObject, setFormObject] = useState({});
     const [errState, setErrState]= useState("");
+    const [loginSuccess, setLoginSuccess] =useState(false)
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -18,14 +18,19 @@ function Login(){
         event.preventDefault();
         setErrState("");
             axios.post("/api/login", {...formObject})
-            .then((res) => {if(res.status === 200){console.log("logged in")}})
+            .then((res) => {if(res.status === 200){
+              console.log(res)
+              setLoginSuccess(true)
+            }})
             .catch(err=> {
               setErrState("Incorrect username and/or password")
               console.log(err)})
       };
 
     return(
-        <Container>
+      <Container>
+        {loginSuccess ? <Redirect to ="/dashboard" /> :
+        <>
         <Jumbotron>
         <h1>Login</h1>
         <h2>or</h2>
@@ -47,7 +52,7 @@ function Login(){
                 onClick={handleFormSubmit}
               >Log In</FormBtn>
       </form>
-      <div className="errorBox">{errState}</div>
+      <div className="errorBox">{errState}</div></>}
       </Container>
     )
 

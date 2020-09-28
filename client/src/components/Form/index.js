@@ -5,16 +5,16 @@ import React from "react";
 export function Input(props) {
   return (
     <div className="form-group">
-      <label for={props.name}>{props.label}</label>
+      <label htmlFor={props.name}>{props.label}</label>
       <input className="form-control" {...props} />
     </div>
   );
 }
 export function YesNo(props) {
   return(
-  <div classname="form-group">
-    <label for={props.name}>{props.label}</label>
-    <select className="form-control" value={props.option2} {...props}>
+  <div className="form-group">
+    <label htmlFor={props.name}>{props.label}</label>
+    <select className="form-control" defaultValue={props.option1} {...props}>
       <option>{props.option1}</option>
       <option>{props.option2}</option>
     </select>
@@ -24,7 +24,7 @@ export function YesNo(props) {
 export function PasswordInput(props) {
   return (
     <div className="form-group">
-      <label for={props.name}>{props.label}</label>
+      <label htmlFor={props.name}>{props.label}</label>
       <input type="password" className="form-control" {...props} />
     </div>
   );
