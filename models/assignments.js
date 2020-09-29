@@ -26,6 +26,12 @@ module.exports = function (sequelize, DataTypes){
     });
     //associate with user ID from teacher
     Assignment.associate = function(models){
+        Assignment.belongsTo(models.Class, {
+            foreignKey:{
+                as: "class",
+                allowNull: false
+            }
+        })
         Assignment.belongsTo(models.User, {
             foreignKey:{
                 as: "teacher",
