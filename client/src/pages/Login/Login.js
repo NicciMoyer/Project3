@@ -5,6 +5,9 @@ import { Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import axios from "axios"
 import UserContext from "../../contexts/UserContext"
+import coloredPencilsBottom from "../../images/coloredPencilsBottom.jpg";
+import style from "./style.module.css";
+
 
 function Login(props){
     const{id, prefix, firstName, lastName, userName, isTeacher} =useContext(UserContext)
@@ -32,7 +35,7 @@ function Login(props){
       };
 
     return(
-      <Container>
+      <Container styles={{ backgroundImage: `url(${coloredPencilsBottom})` }}>
           {loginSuccess ? isTeacher ? <Redirect to ="/teacherdashboard" />: <Redirect to ="/studentdashboard"/> :
         <>
         <Jumbotron>
@@ -41,17 +44,21 @@ function Login(props){
         <h1><Link to="/">Sign Up</Link></h1>
       </Jumbotron>
       <form>
-            <Input id= "EmailInput"
+  
+            <Input className= {style.passwordInput}
             onChange={handleInputChange}
             name="email"
             placeholder="email (required)"
+            label="Email address:  "
             />
-            <PasswordInput id= "PasswordInput"
-            onChange={handleInputChange}
-            name="password"
-            placeholder="password"
-        />
-                      <FormBtn id= "SignUpButton"
+       
+        <PasswordInput className= {style.emailInput}
+        onChange={handleInputChange}
+        name="password"
+        placeholder="password"
+        label="Password:  "
+    />
+                      <FormBtn className= {style.signUpButton}
                 disabled={!(formObject.email && formObject.password)}
                 onClick={handleFormSubmit}
               >Log In</FormBtn>

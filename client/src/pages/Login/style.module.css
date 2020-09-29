@@ -1,17 +1,19 @@
-#EmailInput{
+
+.passwordInput{
     width: 5em;
     padding: 1em;
-    background-color: red;
+    background-color: pink;
+  
+}; 
+.emailInput{
+    width: 5em;
+    padding: 1em;
+    background-color: yellow;
   
 }; 
 
-#PasswordInput{
-    width: 5em;
-    padding: 1em;
-    background-color: blue;
-};
 
-#SignUpButton{
+.signUpButton{
     width: 2em;
     padding: 1em;
     background-image: url ('/images/rainbow-starburst-background') no-repeat;

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import StudentDashboard from "./pages/StudentDashboard"
 import TeacherDashboard from "./pages/TeacherDashboard"
 import Signup from "./pages/Signup/Signup"
@@ -21,12 +21,13 @@ function App() {
     <UserContext.Provider value={userState}>
     <Router>
     <div className="App">
-
+      <Switch>
       <Route exact path = "/" ><Signup setUserState={setUserState}/></Route>
       <Route exact path = "/login"><Login setUserState={setUserState}/></Route>
       <Route exact path= "/studentdashboard" component={StudentDashboard}/>
       <Route exact path= "/teacherdashboard" component={TeacherDashboard}/>
       <Route exact path= "/classes/:id" component={ClassPage}/>
+      </Switch> 
     </div>
     </Router>
     </UserContext.Provider>
