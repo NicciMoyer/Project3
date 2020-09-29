@@ -17,12 +17,13 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Add routes, both API and view
-app.use(schoolController);
+
 app.use(
   session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(schoolController);
 
 
 // Start the API server

@@ -25,6 +25,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    prefix: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     isTeacher: {
       type: DataTypes.BOOLEAN,
       allowNull: false,

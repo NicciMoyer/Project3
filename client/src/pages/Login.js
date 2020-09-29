@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react"
-import { Input, TextArea, FormBtn } from "../components/Form";
-import { Link } from "react-router-dom";
+import React, { useState, useContext} from "react"
+import { Input, PasswordInput, FormBtn } from "../components/Form";
+import { Link, Redirect } from "react-router-dom";
 import { Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
+import axios from "axios"
+import UserContext from "../contexts/UserContext"
 
-function Login(){
-    const [formObject, setFormObject] = useState({})
+function Login(props){
+    const{id, prefix, firstName, lastName, userName, isTeacher} =useContext(UserContext)
 
+    const [formObject, setFormObject] = useState({});
+    const [errState, setErrState]= useState("");
+    const [loginSuccess, setLoginSuccess] =useState(false)
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -15,17 +19,26 @@ function Login(){
 
       function handleFormSubmit(event) {
         event.preventDefault();
-        if (formObject.email && formObject.password) {
-            console.log(formObject)
-        }
+        setErrState("");
+            axios.post("/api/login", {...formObject})
+            .then((res) => {if(res.status === 200){
+              console.log(res)
+              props.setUserState({userName: res.data.userName, prefix: res.data.prefix, firstName: res.data.firstName, lastName: res.data.lastName, userId: res.data.id, isTeacher: res.data.isTeacher})
+              setLoginSuccess(true)
+            }})
+            .catch(err=> {
+              setErrState("Incorrect username and/or password")
+              console.log(err)})
       };
 
     return(
-        <Container>
+      <Container>
+          {loginSuccess ? isTeacher ? <Redirect to ="/teacherdashboard" />: <Redirect to ="/studentdashboard"/> :
+        <>
         <Jumbotron>
         <h1>Login</h1>
         <h2>or</h2>
-        <h1><Link to="/">Sign </Link></h1>
+        <h1><Link to="/">Sign Up</Link></h1>
       </Jumbotron>
       <form>
             <Input
@@ -33,7 +46,7 @@ function Login(){
             name="email"
             placeholder="email (required)"
             />
-            <Input
+            <PasswordInput
             onChange={handleInputChange}
             name="password"
             placeholder="password"
@@ -43,6 +56,7 @@ function Login(){
                 onClick={handleFormSubmit}
               >Log In</FormBtn>
       </form>
+      <div className="errorBox">{errState}</div></>}
       </Container>
     )
 
