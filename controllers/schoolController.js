@@ -3,6 +3,7 @@ var express = require("express");
 const passport = require("../config/passport");
 var router = express.Router();
 const path = require("path");
+const { abort } = require("process");
 
 
 router.post("/api/signup", function(req, res) {
@@ -62,6 +63,13 @@ router.post("/api/newassignment", function(req,res) {
     })
 })
 
+router.post("/api/roster", function(req,res){
+    db.ClassRoster.create({
+        UserId: req.body.studentId,
+        ClassId:req.body.ClassId
+    })
+})
+
 
 //get all class IDs for classes student is in.
 router.get("/api/classes/:id", function(req,res){
@@ -98,6 +106,29 @@ router.get("/api/assignments/:id", function(req,res){
         res.json(data)
     });
 })
+
+//get all students
+router.get("/api/students", function(req,res){
+    db.User.findAll({
+        where: {isTeacher: false}
+    })
+    .then((data) =>{
+        res.json(data)
+    });
+})
+
+//get all students in class
+router.get("/api/roster/:id", function(req,res){
+    db.classRoster.findAll({
+        where: {
+            UserId: req.params.id
+        }
+    })
+    .then((data) =>{
+        res.json(data)
+    });
+})
+
 
 
 // If no API routes are hit, send the React app
