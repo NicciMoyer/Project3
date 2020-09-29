@@ -1,0 +1,61 @@
+#EmailInput{
+    width: 5em;
+    padding: 1em;
+    background-color: blue;
+  
+}; 
+
+#UserNameInput{
+    width: 5em;
+    padding: 1em;
+    background-color: rgb(226, 83, 31); 
+   
+}; 
+
+#FirstNameInput{
+    width: 5em;
+    padding: 1em;
+    background-color: yellow;
+ 
+};
+
+#LastNameInput{
+    width: 5em;
+    padding: 1em;
+    background-color: rgb(1, 82, 1);
+    
+};
+
+#PrefixInput{
+    width: 5em;
+    padding: 1em;
+    background-color: rgb(20, 184, 134);
+   
+};
+
+#RoleSelector{
+    width: 5em;
+    padding: 1em;
+    background-color: blue;
+  
+};
+
+#PasswordInput1{
+    width: 5em;
+    padding: 1em;
+    background-color: rgb(100, 2, 100);
+  
+};
+
+#PasswordInput2{
+    width: 5em;
+    padding: 1em;
+    background-color: rgb(236, 52, 153);
+
+};
+
+#SignUpButton{
+    width: 2em;
+    padding: 1em;
+    background-image: url ('/images/rainbow-starburst-background') no-repeat;
+};

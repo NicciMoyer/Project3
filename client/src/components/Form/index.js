@@ -1,20 +1,21 @@
 import React from "react";
+import "./style.css"
 
 // This file exports the Input, TextArea, and FormBtn components
 
 export function Input(props) {
   return (
-    <div className="form-group">
+    <div className="form">
       <label htmlFor={props.name}>{props.label}</label>
-      <input className="form-control" {...props} />
+      <input className="form" {...props} />
     </div>
   );
 }
 export function NumInput(props) {
   return (
-    <div className="form-group">
+    <div className="form">
       <label htmlFor={props.name}>{props.label}</label>
-      <input type="number" className="form-control" {...props} />
+      <input type="number" className="form" {...props} />
     </div>
   );
 }
@@ -22,17 +23,17 @@ export function NumInput(props) {
 //this is an input that will have the option to clear if the blank formobject item is passed through as value.
 export function InputClear(props) {
   return (
-    <div className="form-group">
+    <div className="form">
       <label htmlFor={props.name}>{props.label}</label>
-      <input type="text" className="form-control" {...props}/>
+      <input type="text" className="form" {...props}/>
     </div>
   );
 }
 export function YesNo(props) {
   return(
-  <div className="form-group">
+  <div className="form">
     <label htmlFor={props.name}>{props.label}</label>
-    <select className="form-control" defaultValue={props.option1} {...props}>
+    <select className="form" defaultValue={props.option1} {...props}>
       <option>{props.option1}</option>
       <option>{props.option2}</option>
     </select>
@@ -41,17 +42,17 @@ export function YesNo(props) {
 }
 export function PasswordInput(props) {
   return (
-    <div className="form-group">
+    <div className="form">
       <label htmlFor={props.name}>{props.label}</label>
-      <input type="password" className="form-control" {...props} />
+      <input type="password" className="form" {...props} />
     </div>
   );
 }
 
 export function TextArea(props) {
   return (
-    <div className="form-group">
-      <textarea className="form-control" rows="20" {...props} />
+    <div className="form">
+      <textarea className="form" rows="20" {...props} />
     </div>
   );
 }
