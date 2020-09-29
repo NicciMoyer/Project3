@@ -85,7 +85,13 @@ function AssignmentPage(){
                 </Col>
                 <Col size="md-6 sm-12">
                 <h2>Grades</h2>
-                {studentList.filter(item => (classRoster.includes(item.id))).map((student) => <GradeCard name={student.firstName + " " + student.lastName} grade={""} status={""}/>)}
+                {studentList.filter(item => (classRoster.includes(item.id))).map((student) => <GradeCard 
+                name={student.firstName + " " + student.lastName} 
+                grade={100} 
+                status={"Assigned"}
+                notes={""}
+                key={student.id}
+                />)}
 
                 </Col>
             </Row>
