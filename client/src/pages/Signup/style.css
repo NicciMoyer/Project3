@@ -1,0 +1,51 @@
+.emailInput{
+    width: 4em;
+    outline: red;
+    outline-width: 1em
+}; 
+
+.userNameInput{
+    width: 4em;
+    outline: rgb(226, 83, 31); 
+    outline-width: 1em
+}; 
+
+.firstNameInput{
+    width: 4em;
+    outline: yellow;
+    outline-width: 1em
+};
+
+.lastNameInput{
+    width: 4em;
+    outline: rgb(1, 82, 1);
+    outline-width: 1em
+};
+
+.prefixInput{
+    width: 4em;
+    outline: rgb(20, 184, 134);
+    outline-width: 1em
+};
+
+.roleSelector{
+    width: 4em;
+    outline: blue;
+    outline-width: 1em
+};
+
+.passwordInput1{
+    width: 4em;
+    outline: rgb(100, 2, 100);
+    outline-width: 1em
+};
+.passwordInput2{
+    width: 4em;
+    outline: rgb(236, 52, 153);
+    outline-width: 1em
+}
+
+.signUpButton{
+    width: 2em;
+    background-image: url ('/images/rainbow-starburst-background') no-repeat;
+};

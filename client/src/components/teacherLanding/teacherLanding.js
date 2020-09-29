@@ -11,23 +11,7 @@ function TeacherLanding() {
   return (
     <div styles={{ backgroundImage: `url(${coloredPencilsBottom})` }}>
 
-      <h1>Welcome, ${teacher.name}!</h1>
-
-
-      <row>
-        <col className="classcol" size="col-md-2 col-12">
-          <ClassList></ClassList>
-
-        </col>
-        <col className="Studentscol" size="col-md-5 col-12">
-          <Roster></Roster>
-
-        </col>
-        <col className="assignmentscol" size="col-md-5 col-12">
-          <SubmittedAssignments></SubmittedAssignments>
-
-        </col>
-      </row>
+      
     </div>
   );
 }
