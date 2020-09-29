@@ -1,8 +1,6 @@
 import React from "react";
 
-function submittedAssignments() {
-
-
+function SubmittedAssignments() {
     
     return (
         <div>
@@ -32,4 +30,4 @@ function submittedAssignments() {
     )
 };
 
-export default submittedAssignments;
+export default SubmittedAssignments;
