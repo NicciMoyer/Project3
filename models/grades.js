@@ -32,8 +32,6 @@ module.exports = function (sequelize, DataTypes){
                 allowNull: false
             }
         })
-    }
-    Grade.associate = function(models){
         Grade.belongsTo(models.Assignment, {
             foreignKey:{
                 as: "assignment",

@@ -1,6 +1,10 @@
 import React from "react"
 
 function GradeCard(props){
+
+
+
+
     return(
 <div className="card">
   <div className="card-body">
@@ -11,7 +15,7 @@ function GradeCard(props){
     <select className="form" defaultValue={props.status}>
       <option>Assigned</option>
       <option>Incomplete</option>
-      <option>Coomplete</option>
+      <option>Complete</option>
     </select>
   </div>
 
