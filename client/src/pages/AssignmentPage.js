@@ -13,6 +13,7 @@ function AssignmentPage(){
     const [formObject, setFormObject] = useState({});
     const [studentList, setStudentList] =useState([])
     const [classRoster, setClassRoster] =useState([])
+    const [gradeList, setGradeList] =useState({})
 
 
     useEffect(() => {
@@ -27,7 +28,14 @@ function AssignmentPage(){
         axios.get("/api/roster/"+classid)
         .then((res) =>{
             setClassRoster(res.data.map((item) =>item.UserId))
+            getGrades();
         })
+    }
+
+    function getGrades(){
+        classRoster.forEach(student => {
+            axios.get("/api/")
+        });
     }
 
     function handleInputChange(event) {
