@@ -4,6 +4,8 @@ import axios from "axios"
 import { Container, Col , Row} from "../components/Grid";
 import UserContext from "../contexts/UserContext";
 import {FormBtn, Input, NumInput} from "../components/Form";
+import coloredPencilsBottom from "../images/coloredPencilsBottom.jpg";
+
 
 
 function ClassPage(){
@@ -64,7 +66,7 @@ function ClassPage(){
     }
 
     return(
-        <div>
+        <div styles={{ backgroundImage: `url(${coloredPencilsBottom})` }}>
         <h3>Hello, class ID is {id}</h3>
         <h3>Class Name is {className}</h3>
         <h3>You {owner? "are" : "are not" } the teacher of this class</h3>

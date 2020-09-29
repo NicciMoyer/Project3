@@ -3,8 +3,9 @@ import UserContext from "../contexts/UserContext"
 import { InputClear, FormBtn } from "../components/Form";
 import { Container, Col , Row} from "../components/Grid";
 import axios from "axios";
-import ClassCard from "../components/ClassCard"
-import {Link} from "react-router-dom"
+import ClassCard from "../components/ClassCard";
+import {Link} from "react-router-dom";
+import coloredPencilsBottom from "../images/coloredPencilsBottom.jpg";
 
 
 
@@ -39,7 +40,7 @@ function TeacherDashboard(){
       }
 
     return(
-        <Container>
+        <Container styles={{ backgroundImage: `url(${coloredPencilsBottom})` }}>
         <h2>Hello, {prefix} {firstName} {lastName}</h2>
         <h3>Username: {userName} </h3>
         <p>You {isTeacher ? "are" : "are not"} a teacher</p>
