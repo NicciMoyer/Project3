@@ -89,6 +89,12 @@ function ClassPage(){
       function handleFormSubmit(event){
         event.preventDefault();
         console.log(id)
+        const newAssignment={
+            title: formObject.title,
+            notes: formObject.notes,
+            weight: formObject.weight,
+            id:id
+        }
         // setFormObject({...formObject, id:id})
         axios.post("/api/newassignment", {
             title: formObject.title,
@@ -98,6 +104,7 @@ function ClassPage(){
         })
         .then((res) => {
           setFormObject({title: "", notes: "", weight: 0})
+          setAssignmentList([...assignmentList, newAssignment])
           console.log(res)
         })
         .catch(err => {
@@ -114,6 +121,12 @@ function ClassPage(){
             <Row>
             <Col size="md-4 sm-12">
                 <h2>Add Assignment</h2>
+                <Link to="/login">
+                <button type="button" className="btn btn-primary">Log Out</button>
+                </Link>
+                <Link to="/teacherdashboard">
+                <button type="button" className="btn btn-primary">Home</button>
+                </Link>
                 <form>
                 <Input
                 onChange={handleInputChange}
