@@ -1,10 +1,14 @@
 import React , {useState, useEffect, useContext} from "react"
-import {useParams } from "react-router-dom"
+import {useParams, Link} from "react-router-dom"
 import axios from "axios"
 import { Container, Col , Row} from "../components/Grid";
 import UserContext from "../contexts/UserContext";
 import {FormBtn, Input, NumInput} from "../components/Form";
+
+import AssignmentCard from "../components/AssignmentCard"
+
 import coloredPencilsBottom from "../images/coloredPencilsBottom.jpg";
+
 
 
 
@@ -16,6 +20,9 @@ function ClassPage(){
     const [studentList, setStudentList] =useState([])
     const [classRoster, setClassRoster] =useState([])
     const [dropdown, setDropdown] = useState("")
+    const [formObject, setFormObject] = useState({});
+    const [assignmentList, setAssignmentList] =useState([])
+
 
     useEffect(() => {
         axios.get("/api/class/"+id)
@@ -27,6 +34,11 @@ function ClassPage(){
         .then((res) => {
             setStudentList(res.data)
             makeRoster()
+        })
+        axios.get("/api/assignments/" + id)
+        .then((res) => {
+            console.log(res.data)
+            setAssignmentList(res.data)
         })
     },[])
 
@@ -47,7 +59,9 @@ function ClassPage(){
             studentId: newId,
             ClassId: id
         })
-        .then((res) => console.log(res))
+        .then((res) => {
+
+            setClassRoster([...classRoster, newId])})
         .catch(err=> {
             console.log(err)})
 
@@ -61,8 +75,34 @@ function ClassPage(){
     }
 
     function handleDropdownChange(event){
+        console.log(classRoster)
         const selection=(event.target.options[event.target.selectedIndex].id)
         setDropdown(selection)
+    }
+
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({...formObject, [name]: value})
+      };
+
+          
+      function handleFormSubmit(event){
+        event.preventDefault();
+        console.log(id)
+        // setFormObject({...formObject, id:id})
+        axios.post("/api/newassignment", {
+            title: formObject.title,
+            notes: formObject.notes,
+            weight: formObject.weight,
+            id:id
+        })
+        .then((res) => {
+          setFormObject({title: "", notes: "", weight: 0})
+          console.log(res)
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
 
     return(
@@ -74,7 +114,7 @@ function ClassPage(){
             <Row>
             <Col size="md-4 sm-12">
                 <h2>Add Assignment</h2>
-                {/* <form>
+                <form>
                 <Input
                 onChange={handleInputChange}
                 value={formObject.title || ""}
@@ -84,14 +124,14 @@ function ClassPage(){
                 />
                 <Input
                 onChange={handleInputChange}
-                value={formObject.subtitle || ""}
+                value={formObject.notes || ""}
                 name="notes"
                 placeholder="assignment notes"
                 label="Notes"
                 />
                 <NumInput
                 onChange={handleInputChange}
-                value={formObject.subtitle || ""}
+                value={formObject.weight || ""}
                 name="weight"
                 placeholder="Weight in final grade"
                 label="Weight (please enter number)"
@@ -100,11 +140,11 @@ function ClassPage(){
                     disabled={!(formObject.title)}
                     onClick={handleFormSubmit}
                 >Create</FormBtn>
-                </form>                 */}
+                </form>                
             <h2>Add Student</h2>
                 <div className="form-group">
                     <select className="form-control" name="studentDropdown" onChange={handleDropdownChange}>
-                    {studentList.filter(item => (!classRoster.includes(item.id))).map((student) => <option  id={student.id} >{student.lastName + ", " + student.firstName}</option>)}
+                    {studentList.filter(item => (!classRoster.includes(item.id))).map((student) => <option key={student.id} id={student.id} >{student.lastName + ", " + student.firstName}</option>)}
                     </select>
                 </div>
                 <FormBtn
@@ -113,11 +153,16 @@ function ClassPage(){
             </Col>
             <Col size="md-4 sm-12">
                 <h2>Students</h2>
-                {studentList.filter(item => (classRoster.includes(item.id))).map((student) => <li>{student.lastName + ", " + student.firstName}</li>)}
+                {studentList.filter(item => (classRoster.includes(item.id))).map((student) => <li key={student.id}>{student.lastName + ", " + student.firstName}</li>)}
 
             </Col>
             <Col size="md-4 sm-12">
             <h2>Assignments</h2>
+            {assignmentList.map((assignment) =>(
+                <Link to={"/assignments/"+assignment.id+"/"+id} key={assignment.id}>
+                <AssignmentCard title={assignment.title} notes={assignment.notes} weight={assignment.weight}/>
+                </Link>
+            ))}
             </Col>
             </Row>
         </Container>

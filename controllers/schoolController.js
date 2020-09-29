@@ -3,7 +3,6 @@ var express = require("express");
 const passport = require("../config/passport");
 var router = express.Router();
 const path = require("path");
-const { abort } = require("process");
 
 
 router.post("/api/signup", function(req, res) {
@@ -52,10 +51,11 @@ router.post("/api/newclass", function(req,res) {
 })
 
 router.post("/api/newassignment", function(req,res) {
-    db.Class.create({
+    db.Assignment.create({
         title: req.body.title,
         weight: req.body.weight,
         notes: req.body.notes,
+        ClassId: req.body.id,
         UserId: req.user.id
     })
     .then(function(data){
@@ -67,7 +67,9 @@ router.post("/api/roster", function(req,res){
     db.ClassRoster.create({
         UserId: req.body.studentId,
         ClassId:req.body.ClassId
-    })
+    }).then((data) => {
+        res.json(data)
+    });
 })
 
 
@@ -101,8 +103,11 @@ router.get("/api/teacherclass/:id", function(req,res){
 //find all assignments by class
 router.get("/api/assignments/:id", function(req,res){
     db.Assignment.findAll({
-        where: {ClassId: req.params.id}
-    }).then((data) => {
+        where: {
+            ClassId: req.params.id
+        }
+    })
+    .then((data) =>{
         res.json(data)
     });
 })
