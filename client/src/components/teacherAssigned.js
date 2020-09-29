@@ -4,26 +4,26 @@ function TeacherAssigned() {
 
     return (
         <div>
-            <h2>Assignments for ${this.class}</h2>
+            <h2>My Assignments</h2>
             <br></br>
             <row>
+                <col>${assignment.class}</col>
                 <col>${assignment.name}</col>
-                <col>${assignment.grade}</col>
                 <col>${assignment.weight}</col>
             </row>
             <row>
+                <col>${assignment.class}</col>
                 <col>${assignment.name}</col>
-                <col>${assignment.grade}</col>
                 <col>${assignment.weight}</col>
             </row>
             <row>
+                <col>${assignment.class}</col>
                 <col>${assignment.name}</col>
-                <col>${assignment.grade}</col>
                 <col>${assignment.weight}</col>
             </row>
             <row>
+                <col>${assignment.class}</col>
                 <col>${assignment.name}</col>
-                <col>${assignment.grade}</col>
                 <col>${assignment.weight}</col>
             </row>
         </div>
