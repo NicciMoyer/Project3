@@ -1,10 +1,10 @@
 import React, { useState, useContext} from "react"
-import { Input, PasswordInput, FormBtn } from "../components/Form";
+import { Input, PasswordInput, FormBtn } from "../../components/Form";
 import { Link, Redirect } from "react-router-dom";
-import { Container } from "../components/Grid";
-import Jumbotron from "../components/Jumbotron";
+import { Container } from "../../components/Grid";
+import Jumbotron from "../../components/Jumbotron";
 import axios from "axios"
-import UserContext from "../contexts/UserContext"
+import UserContext from "../../contexts/UserContext"
 
 function Login(props){
     const{id, prefix, firstName, lastName, userName, isTeacher} =useContext(UserContext)
@@ -41,17 +41,17 @@ function Login(props){
         <h1><Link to="/">Sign Up</Link></h1>
       </Jumbotron>
       <form>
-            <Input
+            <Input id= "EmailInput"
             onChange={handleInputChange}
             name="email"
             placeholder="email (required)"
             />
-            <PasswordInput
+            <PasswordInput id= "PasswordInput"
             onChange={handleInputChange}
             name="password"
             placeholder="password"
         />
-                      <FormBtn
+                      <FormBtn id= "SignUpButton"
                 disabled={!(formObject.email && formObject.password)}
                 onClick={handleFormSubmit}
               >Log In</FormBtn>

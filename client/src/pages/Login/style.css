@@ -1,0 +1,18 @@
+#EmailInput{
+    width: 5em;
+    padding: 1em;
+    background-color: red;
+  
+}; 
+
+#PasswordInput{
+    width: 5em;
+    padding: 1em;
+    background-color: blue;
+};
+
+#SignUpButton{
+    width: 2em;
+    padding: 1em;
+    background-image: url ('/images/rainbow-starburst-background') no-repeat;
+}

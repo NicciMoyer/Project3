@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import StudentDashboard from "./pages/StudentDashboard"
 import TeacherDashboard from "./pages/TeacherDashboard"
 import Signup from "./pages/Signup/Signup"
-import Login from "./pages/Login"
+import Login from "./pages/Login/Login"
 import UserContext from "./contexts/UserContext"
 import ClassPage from "./pages/ClassPage"
 
