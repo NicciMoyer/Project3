@@ -119,9 +119,9 @@ router.get("/api/students", function(req,res){
 
 //get all students in class
 router.get("/api/roster/:id", function(req,res){
-    db.classRoster.findAll({
+    db.ClassRoster.findAll({
         where: {
-            UserId: req.params.id
+            ClassId: req.params.id
         }
     })
     .then((data) =>{

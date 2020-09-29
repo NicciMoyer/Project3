@@ -9,8 +9,6 @@ module.exports = function (sequelize, DataTypes){
                 allowNull: false
             }
         })
-    }
-    ClassRoster.associate = function(models){
         ClassRoster.belongsTo(models.User, {
             foreignKey:{
                 allowNull: false

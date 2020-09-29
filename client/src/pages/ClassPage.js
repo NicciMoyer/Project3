@@ -24,6 +24,7 @@ function ClassPage(){
         axios.get("/api/students")
         .then((res) => {
             setStudentList(res.data)
+            makeRoster()
         })
     },[])
 
@@ -38,6 +39,14 @@ function ClassPage(){
         .catch(err=> {
             console.log(err)})
 
+    }
+
+    function makeRoster(){
+        axios.get("/api/roster/"+id)
+        .then((res) =>{
+            console.log(res.data.map((item) =>item.UserId))
+            setClassRoster(res.data.map((item) =>item.UserId))
+        })
     }
 
     function handleInputChange(event){
@@ -57,7 +66,7 @@ function ClassPage(){
                 <h2>Add Student</h2>
                 <div className="form-group">
                     <select className="form-control" name="studentDropdown" onChange={handleInputChange}>
-                    {studentList.map((student) => <option  id={student.id} >{student.lastName + ", " + student.firstName}</option>)}
+                    {studentList.filter(item => (!classRoster.includes(item.id))).map((student) => <option  id={student.id} >{student.lastName + ", " + student.firstName}</option>)}
                     </select>
                 </div>
                 <FormBtn
@@ -66,6 +75,8 @@ function ClassPage(){
             </Col>
             <Col size="md-4 sm-12">
                 <h2>Students</h2>
+                {studentList.filter(item => (classRoster.includes(item.id))).map((student) => <li>{student.lastName + ", " + student.firstName}</li>)}
+
             </Col>
             <Col size="md-4 sm-12">
             <h2>Assignments</h2>
