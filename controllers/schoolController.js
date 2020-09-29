@@ -100,12 +100,33 @@ router.get("/api/teacherclass/:id", function(req,res){
     });
 })
 
+//find all grades by student
+router.get("/api/grades/:id", function(req,res){
+    db.Grade.findAll({
+        where: {
+            UserId: req.params.id
+        }
+    })
+    .then((data) =>{
+        res.json(data)
+    });
+})
+
 //find all assignments by class
 router.get("/api/assignments/:id", function(req,res){
     db.Assignment.findAll({
         where: {
             ClassId: req.params.id
         }
+    })
+    .then((data) =>{
+        res.json(data)
+    });
+})
+
+//get all classes
+router.get("/api/classes", function(req,res){
+    db.Class.findAll({
     })
     .then((data) =>{
         res.json(data)
