@@ -1,5 +1,5 @@
 import React , {useState, useEffect, useContext} from "react"
-import {useParams } from "react-router-dom"
+import {useParams, Link} from "react-router-dom"
 import axios from "axios"
 import { Container, Col , Row} from "../components/Grid";
 import UserContext from "../contexts/UserContext";
@@ -154,7 +154,9 @@ function ClassPage(){
             <Col size="md-4 sm-12">
             <h2>Assignments</h2>
             {assignmentList.map((assignment) =>(
+                <Link to={"/assignments/"+assignment.id+"/"+id} key={assignment.id}>
                 <AssignmentCard title={assignment.title} notes={assignment.notes} weight={assignment.weight}/>
+                </Link>
             ))}
             </Col>
             </Row>

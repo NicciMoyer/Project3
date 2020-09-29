@@ -7,6 +7,7 @@ import Signup from "./pages/Signup"
 import Login from "./pages/Login"
 import UserContext from "./contexts/UserContext"
 import ClassPage from "./pages/ClassPage"
+import AssignmentPage from "./pages/AssignmentPage"
 
 function App() {
   const [userState, setUserState] =useState({
@@ -27,6 +28,7 @@ function App() {
       <Route exact path= "/studentdashboard" component={StudentDashboard}/>
       <Route exact path= "/teacherdashboard" component={TeacherDashboard}/>
       <Route exact path= "/classes/:id" component={ClassPage}/>
+      <Route exact path= "/assignments/:assignmentid/:classid" component={AssignmentPage}/>
     </div>
     </Router>
     </UserContext.Provider>
