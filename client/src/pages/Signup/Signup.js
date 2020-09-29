@@ -6,7 +6,7 @@ import Jumbotron from "../../components/Jumbotron";
 import axios from "axios";
 import UserContext from "../../contexts/UserContext";
 import coloredPencilsBottom from "../../images/coloredPencilsBottom.jpg";
-import "./style.css";
+import style from "./style.module.css";
 
 function Signup(props) {
   const { id, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
@@ -47,7 +47,7 @@ function Signup(props) {
   };
 
   return (
-    <Container styles={{ backgroundImage: `url(${coloredPencilsBottom})` }}>
+    <Container style={{ backgroundImage: `url(${coloredPencilsBottom})` }}>
       {loginSuccess ? isTeacher ? <Redirect to="/teacherdashboard" /> : <Redirect to="/studentdashboard" /> :
         <>
           <Jumbotron>
@@ -56,56 +56,56 @@ function Signup(props) {
             <h1><Link to="/login">Log in</Link></h1>
           </Jumbotron>
           <form>
-            <Input id="EmailInput"
+            <Input className={style.emailInput}
               onChange={handleInputChange}
               name="email"
               placeholder="email (required)"
               label="Email Address:  "
             />
-            <Input id="UserNameInput"
+            <Input className= {style.userNameInput}
               onChange={handleInputChange}
               name="userName"
               placeholder="username"
               label="User Name:  "
             />
-            <Input id="FirstNameInput"
+            <Input className= {style.firstNameInput}
               onChange={handleInputChange}
               name="firstName"
               placeholder="First Name"
               label="First Name:  "
             />
-            <Input id="LastNameInput"
+            <Input className= {style.lastNameInput}
               onChange={handleInputChange}
               name="lastName"
               placeholder="Last Name"
               label="Last Name:  "
             />
-            <Input id="PrefixInput"
+            <Input className= {style.prefixInput}
               onChange={handleInputChange}
               name="prefix"
               placeholder="Prefix (ex. Mr. Mrs, etc.)"
               label="Prefix:  "
             />
-            <YesNo id="RoleSelector"
+            <YesNo className= {style.roleSelector}
               option1="Student"
               option2="Teacher"
               onChange={handleInputChange}
               name="isTeacher"
               label="Student or teacher?  "
             />
-            <PasswordInput id="PasswordInput1"
+            <PasswordInput className= {style.passwordInput1}
               onChange={handleInputChange}
               name="password"
               placeholder="password"
               label="Enter a password:  "
             />
-            <PasswordInput id="PasswordInput2"
+            <PasswordInput className= {style.passwordInput2}
               onChange={handleInputChange}
               name="password2"
               placeholder="enter password again"
               label="Enter password again:  "
             />
-            <FormBtn id= "SignUpButton"
+            <FormBtn className= {style.signUpButton}
               disabled={!(formObject.email && formObject.userName && formObject.firstName && formObject.lastName && formObject.password && formObject.password2)}
               onClick={handleFormSubmit}
             >Sign Up!</FormBtn>
