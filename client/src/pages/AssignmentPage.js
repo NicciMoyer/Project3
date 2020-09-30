@@ -19,24 +19,33 @@ function AssignmentPage(){
     useEffect(() => {
         axios.get("/api/students")
         .then((res) => {
+            console.log(res.data)
             setStudentList(res.data)
-            makeRoster()
         })
+        .then(makeRoster())
+        // .then(getGrades());
+
     },[])
+
 
     function makeRoster(){
         axios.get("/api/roster/"+classid)
         .then((res) =>{
+            console.log(res.data)
             setClassRoster(res.data.map((item) =>item.UserId))
-            getGrades();
+            console.log(studentList)
         })
     }
 
-    function getGrades(){
-        classRoster.forEach(student => {
-            axios.get("/api/")
-        });
-    }
+//     function getGrades(){
+//         let graded =""
+//         axios.get("/api/assignmentgrades/"+ classid)
+//         .then((res) =>{
+//             console.log(res.data)
+//             graded=(res.data.map(item => item.UserId))
+//             setGradeList(res.data)
+//         })
+// }
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -93,14 +102,12 @@ function AssignmentPage(){
                 </Col>
                 <Col size="md-6 sm-12">
                 <h2>Grades</h2>
-                {studentList.filter(item => (classRoster.includes(item.id))).map((student) => <GradeCard 
+                {studentList.filter(item => (classRoster.includes(item.id))).map((student) => 
+                <GradeCard 
                 name={student.firstName + " " + student.lastName} 
-                grade={100} 
-                status={"Assigned"}
-                notes={""}
                 key={student.id}
                 StudentId={student.id}
-                assignmentid={assignmentid}
+                AssignmentId={assignmentid}
                 />)}
 
                 </Col>
