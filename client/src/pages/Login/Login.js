@@ -47,19 +47,19 @@ function Login(props) {
             <h1><Link to="/">Sign Up</Link></h1>
           </Jumbotron>
           <form>
-
+          <Input className={style.passwordInput}
+              onChange={handleInputChange}
+              name="email"
+              placeholder="email (required)"
+              label="Email address:  "
+            />
             <PasswordInput className={style.emailInput}
               onChange={handleInputChange}
               name="password"
               placeholder="password"
               label="Password:  "
             />
-            <Input className={style.passwordInput}
-              onChange={handleInputChange}
-              name="email"
-              placeholder="email (required)"
-              label="Email address:  "
-            />
+
             <FormBtn className={style.signUpButton}
               disabled={!(formObject.email && formObject.password)}
               onClick={handleFormSubmit}
