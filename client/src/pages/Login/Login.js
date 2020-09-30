@@ -7,6 +7,7 @@ import axios from "axios";
 import UserContext from "../../contexts/UserContext";
 // import coloredPencilsBottom from "../../public/images/coloredPencilsBottom.jpg";
 import "./style.css";
+import { Animated } from "react-animated-css"
 
 
 function Login(props) {
@@ -38,21 +39,25 @@ function Login(props) {
   };
 
   return (
-    <Container className= "container">
+    <Container className="container">
       {loginSuccess ? isTeacher ? <Redirect to="/teacherdashboard" /> : <Redirect to="/studentdashboard" /> :
         <>
           <Jumbotron>
-            <h1 id= "logInJumbotron">Login or <Link to="/">Sign Up</Link></h1>
+            <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
+              <h1 id="logInJumbotron">
+                Sign Up or <Link to="/login">Log in</Link>
+              </h1>
+            </Animated>
           </Jumbotron>
-          <form id= "signUpForm">
-          <Input className= "inputField"
+          <form id="signUpForm">
+            <Input className="inputField"
               id="emailInputLogin"
               onChange={handleInputChange}
               name="email"
               placeholder="email (required)"
               label="Email address:  "
             />
-            <PasswordInput className= "inputField"
+            <PasswordInput className="inputField"
               id="passwordInputLogin"
               onChange={handleInputChange}
               name="password"
