@@ -2,10 +2,11 @@ import axios from "axios";
 import React, {useEffect, useState} from "react"
 
 function GradeCard(props){
-const AssignmentId=parseInt(props.assignmentid)
+const AssignmentId=parseInt(props.AssignmentId)
 const StudentId=props.StudentId
 const [gradeFormObject, setGradeFormObject] =useState({})
 const [gradeState, setGradeState] = useState({
+  gradeId: 0,
   grade: 0,
   notes: "",
   status: "Assigned"
@@ -15,11 +16,28 @@ useEffect(() => {
   axios.get("/api/assignmentgrades/"+props.AssignmentId+"/"+props.StudentId)
   .then((res) => {
     console.log(res.data)
+    if(res.data){
     setGradeState({
+      gradeId: res.data.id,
       grade: res.data.score,
       notes: res.data.notes,
       status: res.data.status
     })
+  }else{
+    axios.post("/api/grade", {
+      status: "Assigned",
+      notes: "",
+      score: 0,
+      UserId: props.StudentId,
+      AssignmentId: props.AssignmentId
+    })
+    .then((res) =>     setGradeState({
+      gradeId: res.data.id,
+      grade: 0,
+      notes: "",
+      status: "Assigned"
+    }))
+  }
   })
 },[])
 
@@ -52,7 +70,7 @@ function handleFormSubmit(event){
     AssignmentId: AssignmentId
   }
   console.log(newGrade)
-  axios.put("/api/grade/2", {
+  axios.put("/api/grade/"+gradeState.gradeId, {
     status: status,
     notes: gradeFormObject.notes,
     score: grade,
