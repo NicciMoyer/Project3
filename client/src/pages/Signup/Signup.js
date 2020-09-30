@@ -5,8 +5,8 @@ import { Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import axios from "axios";
 import UserContext from "../../contexts/UserContext";
-import coloredPencilsBottom from "../../images/coloredPencilsBottom.jpg";
-import style from "./style.module.css";
+// import coloredPencilsBottom from "../../public/images/coloredPencilsBottom.jpg";
+import "./style.css";
 
 function Signup(props) {
   const { id, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
@@ -47,75 +47,77 @@ function Signup(props) {
   };
 
   return (
-    <Container style={{ backgroundImage: `url(${coloredPencilsBottom})` }}>
+    <Container >
       {loginSuccess ? isTeacher ? <Redirect to="/teacherdashboard" /> : <Redirect to="/studentdashboard" /> :
         <>
           <Jumbotron>
-            <h1>Sign Up</h1>
-            <h2>or</h2>
-            <h1><Link to="/login">Log in</Link></h1>
+            <h1>Sign Up or <Link to="/login">Log in</Link></h1>
           </Jumbotron>
-          <form>
-            <Input className={style.emailInput}
-              onChange={handleInputChange}
-              name="email"
-              placeholder="email (required)"
-              label="Email Address:  "
-            />
-            <Input className= {style.userNameInput}
-              onChange={handleInputChange}
-              name="userName"
-              placeholder="username"
-              label="User Name:  "
-            />
-            <Input className= {style.firstNameInput}
-              onChange={handleInputChange}
-              name="firstName"
-              placeholder="First Name"
-              label="First Name:  "
-            />
-            <Input className= {style.lastNameInput}
-              onChange={handleInputChange}
-              name="lastName"
-              placeholder="Last Name"
-              label="Last Name:  "
-            />
-            <Input className= {style.prefixInput}
-              onChange={handleInputChange}
-              name="prefix"
-              placeholder="Prefix (ex. Mr. Mrs, etc.)"
-              label="Prefix:  "
-            />
-            <YesNo className= {style.roleSelector}
-              option1="Student"
-              option2="Teacher"
-              onChange={handleInputChange}
-              name="isTeacher"
-              label="Student or teacher?  "
-            />
-            <PasswordInput className= {style.passwordInput1}
-              onChange={handleInputChange}
-              name="password"
-              placeholder="password"
-              label="Enter a password:  "
-            />
-            <PasswordInput className= {style.passwordInput2}
-              onChange={handleInputChange}
-              name="password2"
-              placeholder="enter password again"
-              label="Enter password again:  "
-            />
-            <FormBtn className= {style.signUpButton}
-              disabled={!(formObject.email && formObject.userName && formObject.firstName && formObject.lastName && formObject.password && formObject.password2)}
-              onClick={handleFormSubmit}
-            >Sign Up!</FormBtn>
+          <div id="signUpForm">
+            <form>
+              <Input id="emailInput"
+                onChange={handleInputChange}
+                name="email"
+                placeholder="email (required)"
+                label="Email Address:  "
+              />
+              <Input id="userNameInput"
+                onChange={handleInputChange}
+                name="userName"
+                placeholder="username"
+                label="User Name:  "
+              />
+              <Input id="firstNameInput"
+                onChange={handleInputChange}
+                name="firstName"
+                placeholder="First Name"
+                label="First Name:  "
+              />
+              <Input id="lastNameInput"
+                onChange={handleInputChange}
+                name="lastName"
+                placeholder="Last Name"
+                label="Last Name:  "
+              />
+              <Input id="prefixInput"
+                onChange={handleInputChange}
+                name="prefix"
+                placeholder="Prefix (ex. Mr. Mrs, etc.)"
+                label="Prefix:  "
+              />
+              <YesNo id="roleSelector"
+                option1="Student"
+                option2="Teacher"
+                onChange={handleInputChange}
+                name="isTeacher"
+                label="Student or teacher?  "
+              />
+              <PasswordInput id="passwordInput1"
+                onChange={handleInputChange}
+                name="password"
+                placeholder="password"
+                label="Enter a password:  "
+              />
+              <PasswordInput id="passwordInput2"
+                onChange={handleInputChange}
+                name="password2"
+                placeholder="enter password again"
+                label="Enter password again:  "
+              />
+              <FormBtn id="signUpButton"
+                disabled={!(formObject.email && formObject.userName && formObject.firstName && formObject.lastName && formObject.password && formObject.password2)}
+                onClick={handleFormSubmit}
+              >Sign Up!</FormBtn>
 
-            <div className="errorBox">{errState}</div>
-          </form></>}
+              <div className="errorBox">{errState}</div>
+
+            </form>
+          </div>
+        </>
+      }
     </Container>
-
   )
-
 }
+
 
 export default Signup;

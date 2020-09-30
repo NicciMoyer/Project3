@@ -3,10 +3,10 @@ import { Input, PasswordInput, FormBtn } from "../../components/Form";
 import { Link, Redirect } from "react-router-dom";
 import { Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
-import axios from "axios"
-import UserContext from "../../contexts/UserContext"
-import coloredPencilsBottom from "../../images/coloredPencilsBottom.jpg";
-import style from "./style.module.css";
+import axios from "axios";
+import UserContext from "../../contexts/UserContext";
+// import coloredPencilsBottom from "../../public/images/coloredPencilsBottom.jpg";
+import "./style.css";
 
 
 function Login(props) {
@@ -38,7 +38,7 @@ function Login(props) {
   };
 
   return (
-    <Container style={{ backgroundImage: `url(${coloredPencilsBottom})` }}>
+    <Container >
       {loginSuccess ? isTeacher ? <Redirect to="/teacherdashboard" /> : <Redirect to="/studentdashboard" /> :
         <>
           <Jumbotron>
@@ -46,21 +46,21 @@ function Login(props) {
             <h2>or</h2>
             <h1><Link to="/">Sign Up</Link></h1>
           </Jumbotron>
-          <form>
-          <Input className={style.passwordInput}
+          <form id= "signUpForm">
+          <Input id="emailInputLogin"
               onChange={handleInputChange}
               name="email"
               placeholder="email (required)"
               label="Email address:  "
             />
-            <PasswordInput className={style.emailInput}
+            <PasswordInput id="passwordInputLogin"
               onChange={handleInputChange}
               name="password"
               placeholder="password"
               label="Password:  "
             />
 
-            <FormBtn className={style.signUpButton}
+            <FormBtn id="logInButton"
               disabled={!(formObject.email && formObject.password)}
               onClick={handleFormSubmit}
             >Log In</FormBtn>

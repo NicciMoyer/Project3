@@ -5,7 +5,7 @@ import { Container, Col , Row} from "../components/Grid";
 import axios from "axios";
 import ClassCard from "../components/ClassCard";
 import {Link} from "react-router-dom";
-import coloredPencilsBottom from "../images/coloredPencilsBottom.jpg";
+// import coloredPencilsBottom from "../../public/images/coloredPencilsBottom.jpg";
 
 
 
@@ -40,7 +40,7 @@ function TeacherDashboard(){
       }
 
     return(
-        <Container styles={{ backgroundImage: `url(${coloredPencilsBottom})` }}>
+        <Container >
         <h2>Hello, {prefix} {firstName} {lastName}</h2>
         <h3>Username: {userName} </h3>
         <p>You {isTeacher ? "are" : "are not"} a teacher</p>

@@ -1,19 +1,22 @@
-.emailInput{
-    width: 5em;
+#emailInputLogin{
+    width: 20em;
+    height: 1em;
     padding: 1em;
     background-color: yellow;
   
-}; 
+}
 
-.passwordInput{
-    width: 5em;
+#passwordInputLogin{
+    width: 20em;
+    height: 1em;
     padding: 1em;
     background-color: blue;
   
-}; 
+}
 
-.signUpButton{
-    width: 2em;
+#logInButton{
+    width: 5em;
     padding: 1em;
     background-image: url ('/images/rainbow-starburst-background') no-repeat;
 }
+

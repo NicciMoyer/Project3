@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import StudentDashboard from "./pages/StudentDashboard"
+import StudentDashboard from "./pages/StudentDashboard/StudentDashboard"
 import TeacherDashboard from "./pages/TeacherDashboard"
 import Signup from "./pages/Signup/Signup"
 import Login from "./pages/Login/Login"
@@ -28,9 +28,7 @@ function App() {
       <Route exact path= "/studentdashboard" component={StudentDashboard}/>
       <Route exact path= "/teacherdashboard" component={TeacherDashboard}/>
       <Route exact path= "/classes/:id" component={ClassPage}/>
-
       <Route exact path= "/assignments/:assignmentid/:classid" component={AssignmentPage}/>
-
       </Switch> 
 
     </div>

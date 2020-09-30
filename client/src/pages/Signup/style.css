@@ -1,0 +1,75 @@
+#signUpForm{
+    justify-items: left;
+}
+
+#emailInput{
+    width: 20em;
+    height: 1em;
+    padding: 1em;
+    background-color: red;
+  
+}
+
+#userNameInput{
+    width: 20em;
+    height: 1em;
+    padding: 1em;
+    background-color: rgb(245, 77, 16); 
+   
+}
+
+#firstNameInput{
+    width: 20em;
+    height: 1em;
+    padding: 1em;
+    background-color: yellow;
+ 
+}
+
+#lastNameInput{
+    width: 20em;
+    height: 1em;
+    padding: 1em;
+    background-color: rgb(1, 82, 1);
+    
+}
+
+#prefixInput{
+    width: 20em;
+    height: 1em;
+    padding: 1em;
+    background-color: rgb(1, 161, 113);
+   
+}
+
+#roleSelector{
+    width: 20em;
+    height: 1em;
+    padding: 1em;
+    background-color: blue;
+  
+}
+
+#passwordInput1{
+    width: 20em;
+    height: 1em;
+    padding: 1em;
+    background-color: rgb(100, 2, 100);
+  
+}
+
+#passwordInput2{
+    width: 20em;
+    height: 1em;
+    padding: 1em;
+    background-color: rgb(236, 52, 153);
+
+}
+
+#signUpButton{
+    width: 5em;
+    height: 3em;
+    padding: 1em;
+    background-image: url ('/images/rainbow-starburst-background') no-repeat;
+}
+
