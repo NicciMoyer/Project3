@@ -50,6 +50,19 @@ router.post("/api/newclass", function(req,res) {
     })
 })
 
+router.post("api/grade", function(req,res){
+    db.Grade.create({
+        status: req.body.status,
+        notes: req.body.notes,
+        score: req.body.score,
+        UserId: req.body.studentId,
+        AssignmentId: req.body.AssignmentId
+    })
+    .then(function(data){
+        res.send(data)
+    })
+})
+
 router.post("/api/newassignment", function(req,res) {
     db.Assignment.create({
         title: req.body.title,

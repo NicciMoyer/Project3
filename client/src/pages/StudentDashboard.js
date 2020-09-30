@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import UserContext from "../contexts/UserContext";
 import axios from "axios";
 import { InputClear, FormBtn } from "../components/Form";
@@ -10,7 +10,8 @@ import coloredPencilsBottom from "../images/coloredPencilsBottom.jpg";
 
 function StudentDashboard() {
     const { id, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
-    const [classLIst, setClassList] = useState([]);
+    const [classList, setClassList] = useState([]);
+    const [gradeList, setGradeList] = useState({})
 
     useEffect(() => {
         axios.get("/api/classes/" + id)
@@ -20,10 +21,10 @@ function StudentDashboard() {
             })
         axios.get("/api/grades/" + id)
             .then((res) => {
-                setGradesList(res.data)
+                setGradeList(res.data)
             })
     }, [])
-}
+
 
 return (
     <div styles={{ backgroundImage: `url(${coloredPencilsBottom})` }}>
@@ -45,7 +46,7 @@ return (
                 <h2>My Grades</h2>
                 {classList.map((item) => (
                     <>
-                        <StudentGradesCard score={item.score} notes={item.notes} status={item.status} />
+                        <StudentGradeCard score={item.score} notes={item.notes} status={item.status} />
                     </>
                 ))}
             </Col>

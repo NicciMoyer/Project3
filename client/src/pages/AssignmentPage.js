@@ -99,6 +99,8 @@ function AssignmentPage(){
                 status={"Assigned"}
                 notes={""}
                 key={student.id}
+                StudentId={student.id}
+                assignmentid={assignmentid}
                 />)}
 
                 </Col>
