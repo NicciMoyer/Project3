@@ -51,54 +51,62 @@ function Signup(props) {
       {loginSuccess ? isTeacher ? <Redirect to="/teacherdashboard" /> : <Redirect to="/studentdashboard" /> :
         <>
           <Jumbotron>
-            <h1>Sign Up or <Link to="/login">Log in</Link></h1>
+            <h1 id= "signUpJumbotron">Sign Up or <Link to="/login">Log in</Link></h1>
           </Jumbotron>
           <div id="signUpForm">
             <form>
-              <Input id="emailInput"
+              <Input className= "inputField"
+                id="emailInput"
                 onChange={handleInputChange}
                 name="email"
                 placeholder="email (required)"
                 label="Email Address:  "
               />
-              <Input id="userNameInput"
+              <Input className= "inputField"
+                id="userNameInput"
                 onChange={handleInputChange}
                 name="userName"
                 placeholder="username"
                 label="User Name:  "
               />
-              <Input id="firstNameInput"
+              <Input className= "inputField"
+                id="firstNameInput"
                 onChange={handleInputChange}
                 name="firstName"
                 placeholder="First Name"
                 label="First Name:  "
               />
-              <Input id="lastNameInput"
+              <Input className= "inputField" 
+                id="lastNameInput"
                 onChange={handleInputChange}
                 name="lastName"
                 placeholder="Last Name"
                 label="Last Name:  "
               />
-              <Input id="prefixInput"
+              <Input className= "inputField"
+                id="prefixInput"
                 onChange={handleInputChange}
                 name="prefix"
                 placeholder="Prefix (ex. Mr. Mrs, etc.)"
                 label="Prefix:  "
               />
-              <YesNo id="roleSelector"
+              <YesNo className= "inputField"
+                id="roleSelector"
                 option1="Student"
                 option2="Teacher"
                 onChange={handleInputChange}
                 name="isTeacher"
                 label="Student or teacher?  "
               />
-              <PasswordInput id="passwordInput1"
+              <PasswordInput className= "inputField"
+                id="passwordInput1"
                 onChange={handleInputChange}
                 name="password"
                 placeholder="password"
                 label="Enter a password:  "
               />
-              <PasswordInput id="passwordInput2"
+              <PasswordInput className= "inputField"
+                id="passwordInput2"
                 onChange={handleInputChange}
                 name="password2"
                 placeholder="enter password again"

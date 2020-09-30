@@ -1,3 +1,13 @@
+#signUpJumbotron{
+    color: red; 
+    text-align: center;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
 #signUpForm{
     justify-items: left;
 }
@@ -7,6 +17,8 @@
     height: 1em;
     padding: 1em;
     background-color: red;
+    box-shadow:inset 0 0 1em white;
+    border-radius: 0.3em;
   
 }
 
@@ -14,8 +26,9 @@
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: rgb(245, 77, 16); 
-   
+    background-color: rgb(247, 94, 38); 
+    box-shadow:inset 0 0 1em white;
+    border-radius: 0.3em;
 }
 
 #firstNameInput{
@@ -23,23 +36,26 @@
     height: 1em;
     padding: 1em;
     background-color: yellow;
- 
+    box-shadow:inset 0 0 1em white;
+    border-radius: 0.3em;
 }
 
 #lastNameInput{
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: rgb(1, 82, 1);
-    
+    background-color: rgb(52, 182, 52);
+    box-shadow:inset 0 0 1em white;
+    border-radius: 0.3em;
 }
 
 #prefixInput{
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: rgb(1, 161, 113);
-   
+    background-color: rgb(3, 105, 25);
+    box-shadow:inset 0 0 1em white;
+    border-radius: 0.3em;
 }
 
 #roleSelector{
@@ -47,15 +63,17 @@
     height: 1em;
     padding: 1em;
     background-color: blue;
-  
+    box-shadow:inset 0 0 1em white;
+    border-radius: 0.3em;
 }
 
 #passwordInput1{
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: rgb(100, 2, 100);
-  
+    background-color: rgb(124, 30, 136);
+    box-shadow:inset 0 0 1em white;
+    border-radius: 0.3em;
 }
 
 #passwordInput2{
@@ -63,7 +81,8 @@
     height: 1em;
     padding: 1em;
     background-color: rgb(236, 52, 153);
-
+    box-shadow:inset 0 0 1em white;
+    border-radius: 0.3em;
 }
 
 #signUpButton{
@@ -71,5 +90,10 @@
     height: 3em;
     padding: 1em;
     background-image: url ('/images/rainbow-starburst-background') no-repeat;
+}
+
+.inputField{
+    display: flex;
+    align-items: center;
 }
 

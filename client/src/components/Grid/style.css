@@ -1,5 +1,9 @@
 .container{
-    background-color:#EEEEEE;
-    height: 100%;
-    padding: 50px;
+    background:  url("./coloredPencilsBottom.jpg") no-repeat center/cover;
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+    margin: auto;
+    object-fit: contain;
+    /* padding: 0px; */ 
 }

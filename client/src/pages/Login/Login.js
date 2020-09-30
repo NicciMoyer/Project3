@@ -38,22 +38,22 @@ function Login(props) {
   };
 
   return (
-    <Container >
+    <Container className= "container">
       {loginSuccess ? isTeacher ? <Redirect to="/teacherdashboard" /> : <Redirect to="/studentdashboard" /> :
         <>
           <Jumbotron>
-            <h1>Login</h1>
-            <h2>or</h2>
-            <h1><Link to="/">Sign Up</Link></h1>
+            <h1 id= "logInJumbotron">Login or <Link to="/">Sign Up</Link></h1>
           </Jumbotron>
           <form id= "signUpForm">
-          <Input id="emailInputLogin"
+          <Input className= "inputField"
+              id="emailInputLogin"
               onChange={handleInputChange}
               name="email"
               placeholder="email (required)"
               label="Email address:  "
             />
-            <PasswordInput id="passwordInputLogin"
+            <PasswordInput className= "inputField"
+              id="passwordInputLogin"
               onChange={handleInputChange}
               name="password"
               placeholder="password"
