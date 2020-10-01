@@ -28,7 +28,8 @@ function StudentDashboard() {
 
 
 return (
-    <div >
+    <Container>
+    
         <h2>Hello, {prefix} {firstName} {lastName}</h2>
         <h3>Username: {userName} </h3>
         <p>You {isTeacher ? "are" : "are not"} a teacher</p>
@@ -54,10 +55,7 @@ return (
 
         </Row>
 
-
-
-
-    </div>
+    </Container>
 )
 }
 
