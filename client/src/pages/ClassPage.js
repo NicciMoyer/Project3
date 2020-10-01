@@ -7,7 +7,7 @@ import {FormBtn, Input, NumInput} from "../components/Form";
 import AssignmentCard from "../components/AssignmentCard"
 
 function ClassPage(){
-    const{userId} =useContext(UserContext)
+    const{userId, isTeacher} =useContext(UserContext)
     const{id} = useParams()
     const [className, setClassName] = useState("")
     const[owner, setOwner] =useState(false)
@@ -112,17 +112,17 @@ function ClassPage(){
         <h3>Hello, class ID is {id}</h3>
         <h3>Class Name is {className}</h3>
         <h3>You {owner? "are" : "are not" } the teacher of this class</h3>
-        
+        <Link to="/login">
+                <button type="button" className="btn btn-primary">Log Out</button>
+                </Link>
+                <Link to={isTeacher? "/teacherdashboard" : "/studentDashboard"}>
+                <button type="button" className="btn btn-primary">Home</button>
+                </Link>
             <Row>
             {owner? 
             <Col size="md-4 sm-12" >
                 <h2>Add Assignment</h2>
-                <Link to="/login">
-                <button type="button" className="btn btn-primary">Log Out</button>
-                </Link>
-                <Link to="/teacherdashboard">
-                <button type="button" className="btn btn-primary">Home</button>
-                </Link>
+
                 <form>
                 <Input
                 onChange={handleInputChange}

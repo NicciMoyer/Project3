@@ -8,6 +8,7 @@ import Login from "./pages/Login/Login"
 import UserContext from "./contexts/UserContext"
 import ClassPage from "./pages/ClassPage"
 import AssignmentPage from "./pages/AssignmentPage"
+import PrivateRoute from "./components/PrivateRoute"
 
 function App() {
   const [userState, setUserState] =useState({
@@ -18,6 +19,7 @@ function App() {
     userId: "",
     isTeacher: false
   })
+
   return (
     <UserContext.Provider value={userState}>
     <Router>
@@ -25,10 +27,11 @@ function App() {
       <Switch>
       <Route exact path = "/" ><Signup setUserState={setUserState}/></Route>
       <Route exact path = "/login"><Login setUserState={setUserState}/></Route>
-      <Route exact path= "/studentdashboard" component={StudentDashboard}/>
-      <Route exact path= "/teacherdashboard" component={TeacherDashboard}/>
-      <Route exact path= "/classes/:id" component={ClassPage}/>
-      <Route exact path= "/assignments/:assignmentid/:classid" component={AssignmentPage}/>
+      <PrivateRoute exact path= "/studentdashboard" component={StudentDashboard}/>
+      <PrivateRoute exact path= "/teacherdashboard" component={TeacherDashboard}/>
+      <PrivateRoute exact path= "/classes/:id" component={ClassPage}/>
+      <PrivateRoute exact path= "/assignments/:assignmentid/:classid" component={AssignmentPage}/>
+
       </Switch> 
 
     </div>

@@ -33,6 +33,7 @@ function Signup(props) {
           formObject.isTeacher = false;
         }
       }
+      console.log(formObject)
       const newObject = { ...formObject }
       axios.post("/api/signup", newObject)
         .then((res) => {

@@ -22,6 +22,7 @@ function StudentDashboard() {
             })
         axios.get("/api/grades/" + userId)
             .then((res) => {
+                console.log(res.data)
                 setGradeList(res.data)
             })
     }, [])
@@ -46,11 +47,6 @@ return (
             </Col>
             <Col size="md-6 sm-12" id= "gradesCol">
                 <h2>My Grades</h2>
-                {/* {classList.map((item) => (
-                    <>
-                        <StudentGradeCard score={item.score} notes={item.notes} status={item.status} />
-                    </>
-                ))} */}
             </Col>
 
         </Row>
