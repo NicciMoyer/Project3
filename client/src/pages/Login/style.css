@@ -1,9 +1,27 @@
+#logInJumbotron{
+    color: red; 
+    text-align: center;
+    font-size: 5em;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
 #emailInputLogin{
     width: 20em;
     height: 1em;
     padding: 1em;
     background-color: yellow;
+    box-shadow:inset 0 0 1em white;
+    border-radius: 0.3em;
   
+}
+
+.inputField{
+    display: flex;
+    align-items: center;
 }
 
 #passwordInputLogin{
@@ -11,12 +29,18 @@
     height: 1em;
     padding: 1em;
     background-color: blue;
-  
+    box-shadow:inset 0 0 1em white;
+    border-radius: 0.3em;
 }
 
 #logInButton{
     width: 5em;
     padding: 1em;
+    object-fit: contain;
     background-image: url ('/images/rainbow-starburst-background') no-repeat;
 }
 
+#logInJumbotron{
+    color: white;
+    text-align: center
+}
