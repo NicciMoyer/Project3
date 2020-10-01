@@ -8,4 +8,57 @@
         1px 1px 0 #000;
     font-family: 'Galindo', cursive;
     font-size: 5em;
+    opacity: 0.5;
+}
+
+#createClassCol{
+
+    box-shadow:inset 0 0 1em  rgb(124, 30, 136);
+    border-radius: 0.3em;
+}
+
+#showClassCol{
+    box-shadow:inset 0 0 1em  rgb(124, 30, 136);
+    border-radius: 0.3em;
+}
+
+#createClassHeader{
+    font-family: 'Galindo', cursive;
+    text-align: left;
+}
+
+#showClassHeader{
+    font-family: 'Galindo', cursive;
+    text-align: left;
+}
+
+.inputField{
+    display: flex;
+    align-items: center;
+}
+
+#createClassButton{
+    width: 10em;
+    height: 5em;
+    font-family: 'Galindo', cursive;
+    margin-right: 15em; 
+
+}
+
+#classNameInput{
+    width: 20em;
+    height: 1em;
+    padding: 1em;
+    background-color: white; 
+    box-shadow:inset 0 0 1em rgb(247, 94, 38);
+    border-radius: 0.3em;
+}
+
+#classSubtitleInput{
+    width: 20em;
+    height: 1em;
+    padding: 1em;
+    background-color: white;
+    box-shadow:inset 0 0 1em  rgb(124, 30, 136);
+    border-radius: 0.3em;
 }
