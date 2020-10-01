@@ -55,6 +55,11 @@ function AssignmentPage(){
                 
       function handleFormSubmit(event){
           event.preventDefault();
+          axios.put("/api/assignment/"+assignmentid, {
+              title: formObject.title,
+              notes: formObject.notes,
+              weight: formObject.weight
+          })
           //insert code to update assignment here
             }
 
