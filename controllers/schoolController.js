@@ -184,6 +184,18 @@ router.get("/api/assignmentgrades/:assignmentid/:studentid", function(req,res){
     });
 })
 
+//find information for current assignment
+router.get("/api/assignment/:assignmentid", function(req,res){
+    db.Assignment.findOne({
+        where: {
+            id: req.params.assignmentid,
+        }
+    })
+    .then((data) =>{
+        res.json(data)
+    });
+})
+
 //find all assignments by class
 router.get("/api/assignments/:id", function(req,res){
     db.Assignment.findAll({

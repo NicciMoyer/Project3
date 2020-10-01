@@ -117,7 +117,8 @@ function ClassPage(){
         <h3>You {owner? "are" : "are not" } the teacher of this class</h3>
         <Container>
             <Row>
-            <Col size="md-4 sm-12">
+            {owner? 
+            <Col size="md-4 sm-12" >
                 <h2>Add Assignment</h2>
                 <Link to="/login">
                 <button type="button" className="btn btn-primary">Log Out</button>
@@ -161,16 +162,16 @@ function ClassPage(){
                 <FormBtn
                 onClick={addStudent}
               >Add Student</FormBtn>
-            </Col>
-            <Col size="md-4 sm-12">
+            </Col> : <></>}
+            <Col size={owner? "md-4 sm-12": "md-6 sm-12"}>
                 <h2>Students</h2>
                 {studentList.filter(item => (classRoster.includes(item.id))).map((student) => <li key={student.id}>{student.lastName + ", " + student.firstName}</li>)}
 
             </Col>
-            <Col size="md-4 sm-12">
+            <Col size={owner? "md-4 sm-12": "md-6 sm-12"}>
             <h2>Assignments</h2>
             {assignmentList.map((assignment) =>(
-                <Link to={"/assignments/"+assignment.id+"/"+id} key={assignment.id}>
+                <Link to={"/assignments/"+assignment.id+"/"+id} key={assignment.id} >
                 <AssignmentCard title={assignment.title} notes={assignment.notes} weight={assignment.weight}/>
                 </Link>
             ))}

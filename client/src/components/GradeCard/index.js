@@ -15,7 +15,7 @@ const [gradeState, setGradeState] = useState({
 useEffect(() => {
   axios.get("/api/assignmentgrades/"+props.AssignmentId+"/"+props.StudentId)
   .then((res) => {
-    console.log(res.data)
+    // console.log(res.data)
     if(res.data){
     setGradeState({
       gradeId: res.data.id,
@@ -93,7 +93,7 @@ function handleFormSubmit(event){
 
     <div className="form">
     <label >Status</label>
-    <select className="form" name="status" onChange={handleGradeInputChange} placeholder={gradeState.status}>
+    <select className="form" name="status" disabled={props.readOnly} onChange={handleGradeInputChange} placeholder={gradeState.status}>
       <option>Assigned</option>
       <option>Incomplete</option>
       <option>Complete</option>
@@ -105,17 +105,18 @@ function handleFormSubmit(event){
     <div className="input-group-prepend">
         <span className="input-group-text">Grade</span>
     </div>
-    <input type="number" className="form-control" name="grade" onChange={handleGradeInputChange}  placeholder={gradeState.grade}></input>
+    <input readOnly={props.readOnly} type="number" className="form-control" name="grade" onChange={handleGradeInputChange}  placeholder={gradeState.grade}></input>
 
     </div>
     <div className="input-group">
     <div className="input-group-prepend">
     <span className="input-group-text" >Notes</span>
     </div>
-    <textarea className="form-control" name="notes" onChange={handleGradeInputChange}  defaultValue={gradeState.notes}></textarea>
+    <textarea readOnly={props.readOnly} className="form-control" name="notes" onChange={handleGradeInputChange}  defaultValue={gradeState.notes}></textarea>
     </div>
-    <hr/>
+    <hr/>{props.readOnly? <></>:
   <button type="button" onClick={handleFormSubmit} className="btn btn-success">Update</button>
+  }
   </div>
 </div>
     )
