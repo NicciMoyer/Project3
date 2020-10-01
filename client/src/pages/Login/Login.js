@@ -59,7 +59,7 @@ function Login(props) {
                 placeholder="email (required)"
                 label="Email address:  "
               />
-              <Input className="inputField"
+              <PasswordInput className="inputField"
                 id="passwordInputLogin"
                 onChange={handleInputChange}
                 name="password"
