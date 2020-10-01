@@ -7,7 +7,7 @@ import axios from "axios";
 import UserContext from "../../contexts/UserContext";
 // import coloredPencilsBottom from "../../public/images/coloredPencilsBottom.jpg";
 import "./style.css";
-import {Animated} from "react-animated-css"
+import { Animated } from "react-animated-css"
 
 function Signup(props) {
   const { id, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
@@ -58,8 +58,12 @@ function Signup(props) {
               </h1>
             </Animated>
           </Jumbotron>
-          <div id="signUpForm">
-            <form>
+          <div >
+            <FormBtn id="signUpButton"
+              disabled={!(formObject.email && formObject.userName && formObject.firstName && formObject.lastName && formObject.password && formObject.password2)}
+              onClick={handleFormSubmit}
+            >Sign Up!</FormBtn>
+            <form id="signUpForm"> 
               <Input className="inputField"
                 id="emailInput"
                 onChange={handleInputChange}
@@ -117,10 +121,7 @@ function Signup(props) {
                 placeholder="enter password again"
                 label="Enter password again:  "
               />
-              <FormBtn id="signUpButton"
-                disabled={!(formObject.email && formObject.userName && formObject.firstName && formObject.lastName && formObject.password && formObject.password2)}
-                onClick={handleFormSubmit}
-              >Sign Up!</FormBtn>
+
 
               <div className="errorBox">{errState}</div>
 

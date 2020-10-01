@@ -5,10 +5,6 @@ import { Container, Col , Row} from "../components/Grid";
 import UserContext from "../contexts/UserContext";
 import {FormBtn, Input, NumInput} from "../components/Form";
 import AssignmentCard from "../components/AssignmentCard"
-// import coloredPencilsBottom from "../../public/images/coloredPencilsBottom.jpg";
-
-
-
 
 function ClassPage(){
     const{userId} =useContext(UserContext)
@@ -111,11 +107,12 @@ function ClassPage(){
     }
 
     return(
-        <div >
+        <Container>
+        
         <h3>Hello, class ID is {id}</h3>
         <h3>Class Name is {className}</h3>
         <h3>You {owner? "are" : "are not" } the teacher of this class</h3>
-        <Container>
+        
             <Row>
             {owner? 
             <Col size="md-4 sm-12" >
@@ -178,7 +175,7 @@ function ClassPage(){
             </Col>
             </Row>
         </Container>
-        </div>
+     
     )
 }
 

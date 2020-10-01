@@ -1,22 +1,18 @@
 #logInJumbotron{
     color: red; 
     text-align: center;
-    font-size: 5em;
     text-shadow:
 		-1px -1px 0 #000,
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
-		1px 1px 0 #000;
+        1px 1px 0 #000;
+    font-family: 'Galindo', cursive;
+    font-size: 5em;
 }
 
-#emailInputLogin{
-    width: 20em;
-    height: 1em;
-    padding: 1em;
-    background-color: yellow;
-    box-shadow:inset 0 0 1em white;
-    border-radius: 0.3em;
-  
+#logInForm{
+    justify-items: left;
+    margin-left: 10em;
 }
 
 .inputField{
@@ -24,23 +20,31 @@
     align-items: center;
 }
 
+#emailInputLogin{
+    width: 20em;
+    height: 1em;
+    padding: 1em;
+    background-color: white;
+    box-shadow:inset 0 0 1em yellow;
+    border-radius: 0.3em;
+  
+}
+
 #passwordInputLogin{
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: blue;
-    box-shadow:inset 0 0 1em white;
+    background-color: white;
+    box-shadow:inset 0 0 1em rgb(124, 30, 136);
     border-radius: 0.3em;
+
 }
 
 #logInButton{
-    width: 5em;
-    padding: 1em;
-    object-fit: contain;
-    background-image: url ('/images/rainbow-starburst-background') no-repeat;
+    width: 10em;
+    height: 5em;
+    font-family: 'Galindo', cursive;
+    margin-right: 15em; 
 }
 
-#logInJumbotron{
-    color: white;
-    text-align: center
-}
+

@@ -5,19 +5,27 @@
 		-1px -1px 0 #000,
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
-		1px 1px 0 #000;
+        1px 1px 0 #000;
+    font-family: 'Galindo', cursive;
+    font-size: 5em;
 }
 
 #signUpForm{
     justify-items: left;
+    margin-left: 10em;
+}
+
+.inputField{
+    display: flex;
+    align-items: center;
 }
 
 #emailInput{
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: red;
-    box-shadow:inset 0 0 1em white;
+    background-color: white;
+    box-shadow:inset 0 0 1em red;
     border-radius: 0.3em;
   
 }
@@ -26,8 +34,8 @@
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: rgb(247, 94, 38); 
-    box-shadow:inset 0 0 1em white;
+    background-color: white; 
+    box-shadow:inset 0 0 1em rgb(247, 94, 38);
     border-radius: 0.3em;
 }
 
@@ -35,8 +43,8 @@
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: yellow;
-    box-shadow:inset 0 0 1em white;
+    background-color: white;
+    box-shadow:inset 0 0 1em  yellow;
     border-radius: 0.3em;
 }
 
@@ -44,8 +52,8 @@
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: rgb(52, 182, 52);
-    box-shadow:inset 0 0 1em white;
+    background-color: white;
+    box-shadow:inset 0 0 1em rgb(52, 182, 52);
     border-radius: 0.3em;
 }
 
@@ -53,8 +61,8 @@
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: rgb(3, 105, 25);
-    box-shadow:inset 0 0 1em white;
+    background-color: white;
+    box-shadow:inset 0 0 1em rgb(3, 105, 25);
     border-radius: 0.3em;
 }
 
@@ -62,8 +70,8 @@
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: blue;
-    box-shadow:inset 0 0 1em white;
+    background-color: white;
+    box-shadow:inset 0 0 1em blue;
     border-radius: 0.3em;
 }
 
@@ -71,8 +79,8 @@
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: rgb(124, 30, 136);
-    box-shadow:inset 0 0 1em white;
+    background-color: white;
+    box-shadow:inset 0 0 1em  rgb(124, 30, 136);
     border-radius: 0.3em;
 }
 
@@ -80,20 +88,19 @@
     width: 20em;
     height: 1em;
     padding: 1em;
-    background-color: rgb(236, 52, 153);
-    box-shadow:inset 0 0 1em white;
+    background-color: white;
+    box-shadow:inset 0 0 1em rgb(236, 52, 153);
     border-radius: 0.3em;
 }
 
 #signUpButton{
-    width: 5em;
-    height: 3em;
-    padding: 1em;
-    background-image: url ('/images/rainbow-starburst-background') no-repeat;
+    width: 10em;
+    height: 5em;
+    font-family: 'Galindo', cursive;
+    margin-right: 15em; 
+    
+    /* background-image: url ('/images/rainbow-starburst-background') no-repeat; */
 }
 
-.inputField{
-    display: flex;
-    align-items: center;
-}
+
 
