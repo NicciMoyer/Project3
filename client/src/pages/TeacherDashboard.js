@@ -31,9 +31,14 @@ function TeacherDashboard(){
           event.preventDefault();
           axios.post("/api/newclass", formObject)
           .then((res) => {
+            console.log(res)
+            let newClass={
+              title: formObject.title,
+              subtitle: formObject.subtitle,
+              id: res.data.id
+            }
             setFormObject({title: "", subtitle: ""})
-            setClassList([...classList, formObject])
-            console.log("Hello")
+            setClassList([...classList, newClass])
           })
           .catch(err => {
             console.log(err)
