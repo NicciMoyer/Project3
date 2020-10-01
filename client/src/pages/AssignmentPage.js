@@ -8,7 +8,7 @@ import GradeCard from "../components/GradeCard"
 
 
 function AssignmentPage(){
-    const{userId} =useContext(UserContext)
+    const{userId, isTeacher} =useContext(UserContext)
     const[owner, setOwner] =useState(false)
     const {assignmentid, classid} = useParams()
     const [formObject, setFormObject] = useState({});
@@ -71,6 +71,12 @@ function AssignmentPage(){
             <h2>class ID is {classid} </h2>
         </div>
         <Container>
+        <Link to="/login">
+                <button type="button" className="btn btn-primary">Log Out</button>
+                </Link>
+                <Link to={isTeacher? "/teacherdashboard" : "/studentDashboard"}>
+                <button type="button" className="btn btn-primary">Home</button>
+                </Link>
             <Row>
                 {owner? 
             <Col size="md-6 sm-12">
