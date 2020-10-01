@@ -14,6 +14,7 @@ router.post("/api/signup", function(req, res) {
         userName: req.body.userName,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        prefix: req.body.prefix,
         isTeacher: req.body.isTeacher
     })
         .then(function() {
