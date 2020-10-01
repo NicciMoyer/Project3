@@ -62,6 +62,8 @@ router.post("/api/grade", function(req,res){
         res.send(data)
     })
 })
+
+//change grade
 router.put("/api/grade/:id", function(req,res){
     db.Grade.update({
         status: req.body.status,
@@ -74,6 +76,23 @@ router.put("/api/grade/:id", function(req,res){
     where: {
         id: req.params.id
     }
+    })
+    .then(function(data){
+        res.send(data)
+    })
+})
+
+//change assignment details
+router.put("/api/assignment/:id", function(req,res){
+    db.Assignment.update({
+        title: req.body.title,
+        weight: req.body.weight,
+        notes: req.body.notes
+    },
+    {
+        where: {
+            id: req.params.id
+        }
     })
     .then(function(data){
         res.send(data)

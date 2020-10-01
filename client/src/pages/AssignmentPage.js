@@ -1,5 +1,5 @@
 import React , {useState, useEffect, useContext} from "react"
-import {useParams } from "react-router-dom"
+import {useParams, Link } from "react-router-dom"
 import axios from "axios"
 import { Container, Col , Row} from "../components/Grid";
 import UserContext from "../contexts/UserContext";
@@ -13,7 +13,6 @@ function AssignmentPage(){
     const [formObject, setFormObject] = useState({});
     const [studentList, setStudentList] =useState([])
     const [classRoster, setClassRoster] =useState([])
-    const [gradeList, setGradeList] =useState({})
 
 
     useEffect(() => {
@@ -23,7 +22,6 @@ function AssignmentPage(){
             setStudentList(res.data)
         })
         .then(makeRoster())
-        // .then(getGrades());
 
     },[])
 
@@ -37,15 +35,6 @@ function AssignmentPage(){
         })
     }
 
-//     function getGrades(){
-//         let graded =""
-//         axios.get("/api/assignmentgrades/"+ classid)
-//         .then((res) =>{
-//             console.log(res.data)
-//             graded=(res.data.map(item => item.UserId))
-//             setGradeList(res.data)
-//         })
-// }
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -55,6 +44,14 @@ function AssignmentPage(){
                 
       function handleFormSubmit(event){
           event.preventDefault();
+          axios.put("/api/assignment/"+assignmentid, {
+              title: formObject.title,
+              notes: formObject.notes,
+              weight: formObject.weight
+          })
+          .then((res)=>{
+              console.log(res)
+          })
           //insert code to update assignment here
             }
 
@@ -70,7 +67,12 @@ function AssignmentPage(){
         <Container>
             <Row>
             <Col size="md-6 sm-12">
-           
+            <Link to="/login">
+                <button type="button" className="btn btn-primary">Log Out</button>
+                </Link>
+                <Link to="/teacherdashboard">
+                <button type="button" className="btn btn-primary">Home</button>
+                </Link>
                 <h2>Edit Assignment</h2>
                 <form>
                 <Input
@@ -97,7 +99,7 @@ function AssignmentPage(){
                 <FormBtn
                     disabled={!(formObject.title)}
                     onClick={handleFormSubmit}
-                >Create</FormBtn>
+                >Update</FormBtn>
                 </form>  
                 </Col>
                 <Col size="md-6 sm-12">
