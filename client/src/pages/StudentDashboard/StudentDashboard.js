@@ -12,7 +12,7 @@ import "./style.css"
 function StudentDashboard() {
     const { userId, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
     const [classList, setClassList] = useState([]);
-    const [gradeList, setGradeList] = useState({})
+    const [gradeList, setGradeList] = useState([])
 
     useEffect(() => {
         axios.get("/api/classnames/" + userId)
@@ -47,6 +47,12 @@ return (
             </Col>
             <Col size="md-6 sm-12" id= "gradesCol">
                 <h2>My Grades</h2>
+                {gradeList.map((item) =>(
+                    <>
+                    <StudentGradeCard score={item.score} notes={item.notes} status={item.status}/>    
+
+                    </>
+                ))}
             </Col>
 
         </Row>
