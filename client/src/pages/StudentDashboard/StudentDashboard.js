@@ -10,17 +10,17 @@ import StudentGradeCard from "../../components/StudentGradesCard";
 import "./style.css"
 
 function StudentDashboard() {
-    const { id, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
+    const { userId, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
     const [classList, setClassList] = useState([]);
     const [gradeList, setGradeList] = useState({})
 
     useEffect(() => {
-        axios.get("/api/classes/" + id)
+        axios.get("/api/classnames/" + userId)
             .then((res) => {
-                console.log(res.data)
-                setClassList(res.data)
+                console.log(res.data.map(item => item.Class))
+                setClassList(res.data.map(item => item.Class))
             })
-        axios.get("/api/grades/" + id)
+        axios.get("/api/grades/" + userId)
             .then((res) => {
                 setGradeList(res.data)
             })
@@ -46,11 +46,11 @@ return (
             </Col>
             <Col size="md-6 sm-12" id= "gradesCol">
                 <h2>My Grades</h2>
-                {classList.map((item) => (
+                {/* {classList.map((item) => (
                     <>
                         <StudentGradeCard score={item.score} notes={item.notes} status={item.status} />
                     </>
-                ))}
+                ))} */}
             </Col>
 
         </Row>
