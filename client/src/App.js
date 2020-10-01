@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import StudentDashboard from "./pages/StudentDashboard/StudentDashboard"
-import TeacherDashboard from "./pages/TeacherDashboard"
+import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard"
 import Signup from "./pages/Signup/Signup"
 import Login from "./pages/Login/Login"
 import UserContext from "./contexts/UserContext"

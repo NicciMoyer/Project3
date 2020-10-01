@@ -5,7 +5,6 @@ import { Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import axios from "axios";
 import UserContext from "../../contexts/UserContext";
-// import coloredPencilsBottom from "../../public/images/coloredPencilsBottom.jpg";
 import "./style.css";
 import { Animated } from "react-animated-css"
 
