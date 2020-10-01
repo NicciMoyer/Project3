@@ -23,6 +23,7 @@ function TeacherDashboard() {
     axios.get("/api/teacherclass/" + userId)
       .then((res) => {
         console.log(res.data)
+        console.log(UserContext)
         setClassList(res.data)
       })
   }, [])
@@ -51,10 +52,12 @@ function TeacherDashboard() {
           <h1 id= "teacherLandingJumbotron">Hello, {prefix}  {lastName}</h1>
         </Animated>
         <Row>
-          <Col size="md-6 sm-12">
-            <h2>Create New Class</h2>
+          <Col size="md-6 sm-12" id= "createClassCol">
+            <h2 id= "createClassHeader">Create a New Class</h2>
             <form>
               <InputClear
+                id= "classNameInput"
+                className="inputField"
                 onChange={handleInputChange}
                 value={formObject.title || ""}
                 name="title"
@@ -62,20 +65,22 @@ function TeacherDashboard() {
                 label="Class Name"
               />
               <InputClear
+                id= "classSubtitleInput"
+                className="inputField"
                 onChange={handleInputChange}
                 value={formObject.subtitle || ""}
                 name="subtitle"
                 placeholder="subtitle"
                 label="Subtitle"
               />
-              <FormBtn
+              <FormBtn id= "createClassButton"
                 disabled={!(formObject.title)}
                 onClick={handleFormSubmit}
-              >Create</FormBtn>
+              >Create Class</FormBtn>
             </form>
           </Col>
-          <Col size="md-6 sm-12">
-            <h2>Your Classes</h2>
+          <Col size="md-6 sm-12" id= "showClassCol">
+            <h2 id= "showClassHeader">My Classes</h2>
             {classList.map((item) => (
               <>
                 <Link to={"/classes/" + item.id} key={item.id}>
