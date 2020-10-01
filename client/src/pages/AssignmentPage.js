@@ -9,6 +9,7 @@ import GradeCard from "../components/GradeCard"
 
 function AssignmentPage(){
     const{userId} =useContext(UserContext)
+    const[owner, setOwner] =useState(false)
     const {assignmentid, classid} = useParams()
     const [formObject, setFormObject] = useState({});
     const [studentList, setStudentList] =useState([])
@@ -16,9 +17,15 @@ function AssignmentPage(){
 
 
     useEffect(() => {
+        axios.get("/api/assignment/"+ assignmentid)
+        .then((res) =>{
+            console.log("Assignment Data:")
+            console.log(res.data)
+            setOwner(res.data.UserId===userId)
+        });
         axios.get("/api/students")
         .then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             setStudentList(res.data)
         })
         .then(makeRoster())
@@ -29,9 +36,8 @@ function AssignmentPage(){
     function makeRoster(){
         axios.get("/api/roster/"+classid)
         .then((res) =>{
-            console.log(res.data)
+            // console.log(res.data)
             setClassRoster(res.data.map((item) =>item.UserId))
-            console.log(studentList)
         })
     }
 
@@ -66,6 +72,7 @@ function AssignmentPage(){
         </div>
         <Container>
             <Row>
+                {owner? 
             <Col size="md-6 sm-12">
             <Link to="/login">
                 <button type="button" className="btn btn-primary">Log Out</button>
@@ -101,8 +108,8 @@ function AssignmentPage(){
                     onClick={handleFormSubmit}
                 >Update</FormBtn>
                 </form>  
-                </Col>
-                <Col size="md-6 sm-12">
+                </Col>: <></>}
+                <Col size={owner? "md-6 sm-12" : "12"}>
                 <h2>Grades</h2>
                 {studentList.filter(item => (classRoster.includes(item.id))).map((student) => 
                 <GradeCard 
@@ -110,6 +117,7 @@ function AssignmentPage(){
                 key={student.id}
                 StudentId={student.id}
                 AssignmentId={assignmentid}
+                readOnly={!owner}
                 />)}
 
                 </Col>
