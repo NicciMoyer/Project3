@@ -131,6 +131,16 @@ router.get("/api/classes/:id", function(req,res){
     });
 });
 
+//get all class IDs for classes student is in.
+router.get("/api/classnames/:id", function(req,res){
+    db.ClassRoster.findAll({
+        where: {UserId: req.params.id},
+        include: db.Class
+    }).then((data) => {
+        res.json(data)
+    });
+});
+
 //get class info by id
 router.get("/api/class/:id", function(req,res){
     db.Class.findOne({
