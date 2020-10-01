@@ -1,5 +1,5 @@
 import React , {useState, useEffect, useContext} from "react"
-import {useParams } from "react-router-dom"
+import {useParams, Link } from "react-router-dom"
 import axios from "axios"
 import { Container, Col , Row} from "../components/Grid";
 import UserContext from "../contexts/UserContext";
@@ -13,30 +13,28 @@ function AssignmentPage(){
     const [formObject, setFormObject] = useState({});
     const [studentList, setStudentList] =useState([])
     const [classRoster, setClassRoster] =useState([])
-    const [gradeList, setGradeList] =useState({})
 
 
     useEffect(() => {
         axios.get("/api/students")
         .then((res) => {
+            console.log(res.data)
             setStudentList(res.data)
-            makeRoster()
         })
+        .then(makeRoster())
+
     },[])
+
 
     function makeRoster(){
         axios.get("/api/roster/"+classid)
         .then((res) =>{
+            console.log(res.data)
             setClassRoster(res.data.map((item) =>item.UserId))
-            getGrades();
+            console.log(studentList)
         })
     }
 
-    function getGrades(){
-        classRoster.forEach(student => {
-            axios.get("/api/")
-        });
-    }
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -46,6 +44,14 @@ function AssignmentPage(){
                 
       function handleFormSubmit(event){
           event.preventDefault();
+          axios.put("/api/assignment/"+assignmentid, {
+              title: formObject.title,
+              notes: formObject.notes,
+              weight: formObject.weight
+          })
+          .then((res)=>{
+              console.log(res)
+          })
           //insert code to update assignment here
             }
 
@@ -61,7 +67,12 @@ function AssignmentPage(){
         <Container>
             <Row>
             <Col size="md-6 sm-12">
-           
+            <Link to="/login">
+                <button type="button" className="btn btn-primary">Log Out</button>
+                </Link>
+                <Link to="/teacherdashboard">
+                <button type="button" className="btn btn-primary">Home</button>
+                </Link>
                 <h2>Edit Assignment</h2>
                 <form>
                 <Input
@@ -88,19 +99,17 @@ function AssignmentPage(){
                 <FormBtn
                     disabled={!(formObject.title)}
                     onClick={handleFormSubmit}
-                >Create</FormBtn>
+                >Update</FormBtn>
                 </form>  
                 </Col>
                 <Col size="md-6 sm-12">
                 <h2>Grades</h2>
-                {studentList.filter(item => (classRoster.includes(item.id))).map((student) => <GradeCard 
+                {studentList.filter(item => (classRoster.includes(item.id))).map((student) => 
+                <GradeCard 
                 name={student.firstName + " " + student.lastName} 
-                grade={100} 
-                status={"Assigned"}
-                notes={""}
                 key={student.id}
                 StudentId={student.id}
-                assignmentid={assignmentid}
+                AssignmentId={assignmentid}
                 />)}
 
                 </Col>

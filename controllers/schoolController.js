@@ -50,13 +50,49 @@ router.post("/api/newclass", function(req,res) {
     })
 })
 
-router.post("api/grade", function(req,res){
+router.post("/api/grade", function(req,res){
     db.Grade.create({
         status: req.body.status,
         notes: req.body.notes,
         score: req.body.score,
-        UserId: req.body.studentId,
+        UserId: req.body.UserId,
         AssignmentId: req.body.AssignmentId
+    })
+    .then(function(data){
+        res.send(data)
+    })
+})
+
+//change grade
+router.put("/api/grade/:id", function(req,res){
+    db.Grade.update({
+        status: req.body.status,
+        notes: req.body.notes,
+        score: req.body.score,
+        UserId: req.body.UserId,
+        AssignmentId: req.body.AssignmentId
+    },
+    {
+    where: {
+        id: req.params.id
+    }
+    })
+    .then(function(data){
+        res.send(data)
+    })
+})
+
+//change assignment details
+router.put("/api/assignment/:id", function(req,res){
+    db.Assignment.update({
+        title: req.body.title,
+        weight: req.body.weight,
+        notes: req.body.notes
+    },
+    {
+        where: {
+            id: req.params.id
+        }
     })
     .then(function(data){
         res.send(data)
@@ -118,6 +154,29 @@ router.get("/api/grades/:id", function(req,res){
     db.Grade.findAll({
         where: {
             UserId: req.params.id
+        }
+    })
+    .then((data) =>{
+        res.json(data)
+    });
+})
+//find all grades by assignment
+router.get("/api/assignmentgrades/:id", function(req,res){
+    db.Grade.findAll({
+        where: {
+            AssignmentId: req.params.id
+        }
+    })
+    .then((data) =>{
+        res.json(data)
+    });
+})
+//find all grades by assignment and student if
+router.get("/api/assignmentgrades/:assignmentid/:studentid", function(req,res){
+    db.Grade.findOne({
+        where: {
+            AssignmentId: req.params.assignmentid,
+            UserId: req.params.studentid
         }
     })
     .then((data) =>{
