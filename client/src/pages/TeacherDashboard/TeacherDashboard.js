@@ -27,19 +27,23 @@ function TeacherDashboard() {
       })
   }, [])
 
-  function handleFormSubmit(event) {
+  function handleFormSubmit(event){
     event.preventDefault();
     axios.post("/api/newclass", formObject)
-      .then((res) => {
-        setFormObject({ title: "", subtitle: "" })
-        setClassList([...classList, formObject])
-        console.log("Hello")
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }
-
+    .then((res) => {
+      console.log(res)
+      let newClass={
+        title: formObject.title,
+        subtitle: formObject.subtitle,
+        id: res.data.id
+      }
+      setFormObject({title: "", subtitle: ""})
+      setClassList([...classList, newClass])
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
   return (
     <Container >
       <>
