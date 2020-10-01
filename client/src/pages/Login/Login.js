@@ -55,16 +55,16 @@ function Login(props) {
               <Input className="inputField"
                 id="emailInputLogin"
                 onChange={handleInputChange}
-                name="password"
-                placeholder="password"
-                label="Password:  "
-              />
-              <Input className="inputField"
-                id="passwordInputLogin"
-                onChange={handleInputChange}
                 name="email"
                 placeholder="email (required)"
                 label="Email address:  "
+              />
+              <PasswordInput className="inputField"
+                id="passwordInputLogin"
+                onChange={handleInputChange}
+                name="password"
+                placeholder="password"
+                label="Password:  "
               />
 
             </form>
