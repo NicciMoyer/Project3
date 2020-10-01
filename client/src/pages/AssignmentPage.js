@@ -13,7 +13,6 @@ function AssignmentPage(){
     const [formObject, setFormObject] = useState({});
     const [studentList, setStudentList] =useState([])
     const [classRoster, setClassRoster] =useState([])
-    const [gradeList, setGradeList] =useState({})
 
 
     useEffect(() => {
@@ -49,6 +48,9 @@ function AssignmentPage(){
               title: formObject.title,
               notes: formObject.notes,
               weight: formObject.weight
+          })
+          .then((res)=>{
+              console.log(res)
           })
           //insert code to update assignment here
             }
