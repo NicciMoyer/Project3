@@ -15,31 +15,44 @@ function StudentDashboard() {
     const [gradeList, setGradeList] = useState([])
 
     useEffect(() => {
+        let classItem=[]
         axios.get("/api/classnames/" + userId)
             .then((res) => {
                 console.log(res.data.map(item => item.Class))
-                setClassList(res.data.map(item => item.Class))
+                classItem=(res.data.map(item => item.Class))
             })
+            .then(
         axios.get("/api/assignmentdata/" + userId)
             .then((res) => {
                 console.log(res.data)
                 setGradeList(res.data)
-                let classes=[]
-                res.data.map(item=> {!classes.includes(item.Assignment.Class.title)&& classes.push(item.Assignment.Class.title) })
-                let averages=classes.map(classTitle => {
+                let classSummary=classItem.map(item => {
                     let gradeSum=0;
                     let weightSum=0;
+                    let classId=0;
+                    let teacher="";
                     for(let i=0; i<res.data.length; i++){
                         let current=res.data[i]
-                        if(classTitle === current.Assignment.Class.title){
+                        if (classId===0){
+                            classId=current.Assignment.Class.id
+                        }
+                        if (teacher===""){
+                            if(current.Assignment.User.prefix !== null){
+                                teacher +=current.Assignment.User.prefix+" "
+                            }
+                            teacher+=current.Assignment.User.lastName
+                        }
+                        if(item.title === current.Assignment.Class.title){
                             gradeSum +=current.score*current.Assignment.weight
                             weightSum+=current.Assignment.weight*100
                         }
                     }
-                    return gradeSum/weightSum
+                    return {id: item.id, teacher: teacher, title: item.title , subtitle: item.subtitle,  average : Math.round(gradeSum/weightSum*100) }
                 });
-                console.log(averages)
+                console.log(classSummary)
+                setClassList(classSummary)
             })
+            )
     }, [])
 
 
