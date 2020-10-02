@@ -13,6 +13,7 @@ function StudentDashboard() {
     const { userId, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
     const [classList, setClassList] = useState([]);
     const [gradeList, setGradeList] = useState([])
+    const [filteredGradeList, setFilteredGradeList] = useState([])
 
     useEffect(() => {
         let classItem=[]
@@ -24,8 +25,8 @@ function StudentDashboard() {
             .then(
         axios.get("/api/assignmentdata/" + userId)
             .then((res) => {
-                console.log(res.data)
                 setGradeList(res.data)
+                setFilteredGradeList(res.data)
                 let classSummary=classItem.map(item => {
                     let gradeSum=0;
                     let weightSum=0;
@@ -55,6 +56,10 @@ function StudentDashboard() {
             )
     }, [])
 
+    function filterByClass(event){
+        setFilteredGradeList(gradeList.filter(grade => grade.Assignment.ClassId === parseInt(event.target.id)))
+    }
+
 
 return (
     <Container>
@@ -67,13 +72,13 @@ return (
                 <h2>My Classes</h2>
                 {classList.map((item) => (
                     <>
-                    <StudentClassCard teacher={item.teacher} average={item.average} title={item.title} subtitle={item.subtitle} key={item.id} />
+                    <StudentClassCard onClick={filterByClass} teacher={item.teacher} average={item.average} title={item.title} subtitle={item.subtitle} id={item.id} key={item.id} />
                     </>
                 ))}
             </Col>
             <Col size="md-6 sm-12" id= "gradesCol">
                 <h2>My Grades</h2>
-                {gradeList.map((item) =>(
+                {filteredGradeList.map((item) =>(
                     <>
                     <StudentGradeCard classTitle={item.Assignment.Class.title} 
                     teacher={item.Assignment.User.firstName + " " + item.Assignment.User.lastName} 
