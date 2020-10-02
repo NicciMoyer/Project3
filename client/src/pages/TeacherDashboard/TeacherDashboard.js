@@ -7,7 +7,6 @@ import ClassCard from "../../components/ClassCard";
 import { Link } from "react-router-dom";
 import { Animated } from "react-animated-css"
 import "./style.css";
-
 import SideBar from "../../components/Sidenav/Sidenav" 
 
 
@@ -60,7 +59,7 @@ function TeacherDashboard() {
 
         </Col>
           <Col size="md-5 sm-10" id= "createClassCol">
-            <h2 id= "createClassHeader">Create a New Class</h2>
+            <h2 id= "teacherHeader">Create a New Class</h2>
             <form>
               <InputClear
                 id= "classNameInput"
@@ -77,7 +76,7 @@ function TeacherDashboard() {
                 onChange={handleInputChange}
                 value={formObject.subtitle || ""}
                 name="subtitle"
-                placeholder="subtitle"
+                placeholder="Subtitle"
                 label="Subtitle"
               />
               <br></br>
@@ -90,7 +89,7 @@ function TeacherDashboard() {
             </form>
           </Col>
           <Col size="md-5 sm-10" id= "showClassCol">
-            <h2 id= "showClassHeader">My Classes</h2>
+            <h2 id= "teacherHeader">My Classes</h2>
             {classList.map((item) => (
               // <>
                 <Link to={"/classes/" + item.id} key={item.id}>

@@ -63,13 +63,10 @@ function StudentDashboard() {
 
 return (
     <Container>
-    
-        <h2>Hello, {prefix} {firstName} {lastName}</h2>
-        <h3>Username: {userName} </h3>
-        <p>You {isTeacher ? "are" : "are not"} a teacher</p>
+        <h2 id= "studentLandHeader">Hi {firstName}!</h2>
         <Row>
             <Col size="md-6 sm-12" id= "classCol">
-                <h2>My Classes</h2>
+                <h2 id= "classColHeader">My Classes</h2>
                 {classList.map((item) => (
                     <>
                     <StudentClassCard onClick={filterByClass} teacher={item.teacher} average={item.average} title={item.title} subtitle={item.subtitle} id={item.id} key={item.id} />
@@ -77,7 +74,7 @@ return (
                 ))}
             </Col>
             <Col size="md-6 sm-12" id= "gradesCol">
-                <h2>My Grades</h2>
+                <h2 id= "assmtColHeader">My Grades</h2>
                 {filteredGradeList.map((item) =>(
                     <>
                     <StudentGradeCard classTitle={item.Assignment.Class.title} 

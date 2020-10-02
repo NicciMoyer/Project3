@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css"
 
 function StudentGradeCard(props) {
     let statusColor="white"
@@ -33,13 +34,12 @@ function StudentGradeCard(props) {
     return (
         <div className="card" >
             <div className="card-body">
-                {/* //<h5 className="card-title">{props.title}</h5>// */}
-                <p className="">Class: {props.classTitle}</p>
-                <p className="">Teacher: {props.teacher}</p>
-                <p className="">Assignment: {props.assignmentName}</p>
-                <p className="">Notes: {props.notes}</p>
-                <p className=""style={{"background-color": gradeColor}}>Grade: {props.score}</p>
-                <p className="" style={{"background-color": statusColor}}>Status: {props.status}</p>
+                <p className="gradeLi">Class: {props.classTitle}</p>
+                <p className="gradeLi">Teacher: {props.teacher}</p>
+                <p className="gradeLi">Assignment: {props.assignmentName}</p>
+                <p className="gradeLi">Notes: {props.notes}</p>
+                <p className="gradeLi"style={{"background-color": gradeColor}}>Grade: {props.score}</p>
+                <p className="gradeLi" style={{"background-color": statusColor}}>Status: {props.status}</p>
             </div>
         </div>
     )

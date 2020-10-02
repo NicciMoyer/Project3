@@ -4,9 +4,8 @@ import UserContext from "../../contexts/UserContext"
 import 'rsuite/lib/styles/index.less';
 import { Link } from "react-router-dom";
 import { Sidenav, Nav, Icon } from 'rsuite';
-
 import "../../pages/AssignmentPage";
-import "../../pages/ClassPage";
+import "../../pages/ClassPage/ClassPage";
 import "../../pages/StudentDashboard/StudentDashboard";
 import "../../pages/TeacherDashboard/TeacherDashboard"; 
 import "./style.css"
