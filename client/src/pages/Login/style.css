@@ -13,11 +13,13 @@
 #logInForm{
     justify-items: left;
     margin-left: 10em;
+    
 }
 
 .inputField{
     display: flex;
     align-items: center;
+    font-family: 'Balsamiq Sans', cursive;
 }
 
 #emailInputLogin{

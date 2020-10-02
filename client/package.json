@@ -10,7 +10,8 @@
     "react-animated-css": "^1.2.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "rsuite": "^4.8.2"
   },
   "scripts": {
     "start": "react-scripts start",

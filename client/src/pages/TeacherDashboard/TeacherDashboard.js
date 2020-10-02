@@ -9,6 +9,7 @@ import { Animated } from "react-animated-css"
 import "./style.css";
 
 
+
 function TeacherDashboard() {
   const { userId, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
   const [formObject, setFormObject] = useState({});
@@ -73,6 +74,9 @@ function TeacherDashboard() {
                 placeholder="subtitle"
                 label="Subtitle"
               />
+              <br></br>
+              <br></br>
+              <br></br>
               <FormBtn id= "createClassButton"
                 disabled={!(formObject.title)}
                 onClick={handleFormSubmit}
