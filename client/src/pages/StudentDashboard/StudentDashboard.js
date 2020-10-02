@@ -43,7 +43,7 @@ function StudentDashboard() {
                             }
                             teacher+=current.Assignment.User.lastName
                         }
-                        if(item.title === current.Assignment.Class.title){
+                        if(item.title === current.Assignment.Class.title && current.status ==="Complete"){
                             gradeSum +=current.score*current.Assignment.weight
                             weightSum+=current.Assignment.weight*100
                         }
