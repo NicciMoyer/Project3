@@ -33,9 +33,9 @@ export function YesNo(props) {
   return(
   <div className="form">
     <label htmlFor={props.name}>{props.label}</label>
-    <select className="form" defaultValue={props.option1} {...props}>
-      <option>{props.option1}</option>
-      <option>{props.option2}</option>
+    <select defaultValue={props.option1} className="form" {...props}>
+      <option value={props.option1}>{props.option1}</option>
+      <option value={props.option2}>{props.option2}</option>
     </select>
   </div>
   )
