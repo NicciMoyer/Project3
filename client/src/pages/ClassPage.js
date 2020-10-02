@@ -97,6 +97,7 @@ function ClassPage(){
             id:id
         })
         .then((res) => {
+          newAssignment.id=res.data.id
           setFormObject({title: "", notes: "", weight: 0})
           setAssignmentList([...assignmentList, newAssignment])
           console.log(res)
