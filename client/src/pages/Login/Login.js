@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { Input, PasswordInput, FormBtn } from "../../components/Form";
 import { Link, Redirect } from "react-router-dom";
 import { Container } from "../../components/Grid";
@@ -20,6 +20,17 @@ function Login(props) {
     setFormObject({ ...formObject, [name]: value })
   };
 
+  useEffect(() => {
+  props.setUserState({
+    userName: "",
+    prefix: "",
+    firstName: "",
+    lastName: "",
+    userId: "",
+    isTeacher: false
+  })
+}, [])
+
   function handleFormSubmit(event) {
     event.preventDefault();
     setErrState("");
@@ -36,6 +47,7 @@ function Login(props) {
         console.log(err)
       })
   };
+   
 
   return (
     <Container >
