@@ -1,4 +1,6 @@
-
+#cardBody{
+    backface-visibility: visible;
+}
 
 #className{
     font-family: 'Galindo', cursive;

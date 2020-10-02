@@ -1,4 +1,4 @@
-#studentLandHeader{
+#classJumbotron{
     color: red; 
     text-align: center;
     text-shadow:
@@ -9,15 +9,17 @@
     font-family: 'Galindo', cursive;
     font-size: 5em;
     opacity: 0.5;
+   
+}
+
+#classSubtitle{
+    font-family: 'Galindo', cursive;
+    text-align: center;
+    font-size: 3em;
     margin-bottom: 1em;
 }
 
-#classColHeader{
-    font-family: 'Galindo', cursive;
-    text-align: center;
-}
-
-#assmtColHeader{
+.classHeader{
     font-family: 'Galindo', cursive;
     text-align: center;
 }

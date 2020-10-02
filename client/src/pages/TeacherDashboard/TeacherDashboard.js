@@ -77,7 +77,7 @@ function TeacherDashboard() {
                 onChange={handleInputChange}
                 value={formObject.subtitle || ""}
                 name="subtitle"
-                placeholder="subtitle"
+                placeholder="Subtitle"
                 label="Subtitle"
               />
               <br></br>
