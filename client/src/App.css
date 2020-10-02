@@ -1,6 +1,9 @@
 .App{
+<<<<<<< HEAD
   background:  url("./../src/coloredPencilsBottom.jpg") no-repeat, top, fixed, center/cover;
   
+=======
+>>>>>>> master
   max-height: 100%;
   max-width: 100%;
   display: block;
