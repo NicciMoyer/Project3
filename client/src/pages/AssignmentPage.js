@@ -71,12 +71,7 @@ function AssignmentPage(){
             <h2>class ID is {classid} </h2>
         </div>
         <Container>
-        <Link to="/login">
-                <button type="button" className="btn btn-primary">Log Out</button>
-                </Link>
-                <Link to={isTeacher? "/teacherdashboard" : "/studentDashboard"}>
-                <button type="button" className="btn btn-primary">Home</button>
-                </Link>
+
             <Row>
                 {owner? 
             <Col size="md-6 sm-12">
@@ -87,7 +82,7 @@ function AssignmentPage(){
                 <button type="button" className="btn btn-primary">Home</button>
                 </Link>
                 <h2>Edit Assignment</h2>
-                <form>
+                <form className="form-group">
                 <Input
                 onChange={handleInputChange}
                 value={formObject.title || ""}

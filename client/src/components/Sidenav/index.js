@@ -15,7 +15,7 @@ function SideBar() {
 
     const { userId, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
     return (
-        <div style={{ width: 250 }}>
+        <div style={{ "width": 250, height: "100%", "background-color": "#eee" }}>
             <Sidenav defaultOpenKeys={['3', '4']} activeKey="1">
 
                 <Sidenav.Body id= "navBody">
@@ -25,34 +25,18 @@ function SideBar() {
 
                             <Link
                                 to={isTeacher ? {
-                                    pathname: "/TeacherDashboard"
-                                } : { pathname: "/StudentDashboard" }
+                                    pathname: "/teacherdashboard"
+                                } : { pathname: "/studentdashboard" }
                                 }
 
                             > Dashboard </Link>
                         </Nav.Item>
-                        <Nav.Item eventKey="2" icon={<Icon icon="group" />} className= "navLink">
+                        <Nav.Item eventKey="2" icon={<Icon icon="stop-circle" />} className= "navLink">
 
                             <Link
-                                to={isTeacher ? {
-                                    pathname: "/ClassPage"
-                                } : { pathname: "/StudentDashboard" }
-                                }
-
+                                                                to= {{pathname: "/login"}}
                             >
-                                Classes </Link>
-                        </Nav.Item>
-                        <Nav.Item eventKey="3" icon={<Icon icon="magic" />} className= "navLink">
-
-                            <Link
-                                to={isTeacher ? {
-                                    pathname: "/AssignmentPage"
-                                } : { pathname: "/StudentDashboard" }
-                                }
-
-                            >
-                                Assignments </Link>
-
+                                Log out </Link>
                         </Nav.Item>
 
 
