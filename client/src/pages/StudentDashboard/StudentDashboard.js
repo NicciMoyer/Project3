@@ -67,9 +67,7 @@ return (
                 <h2>My Classes</h2>
                 {classList.map((item) => (
                     <>
-                        <Link to={"/classes/" + item.id} key={item.id}>
-                            <StudentClassCard teacher={item.teacher} average={item.average} title={item.title} subtitle={item.subtitle} key={item.id} />
-                        </Link>
+                    <StudentClassCard teacher={item.teacher} average={item.average} title={item.title} subtitle={item.subtitle} key={item.id} />
                     </>
                 ))}
             </Col>
