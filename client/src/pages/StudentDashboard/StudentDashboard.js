@@ -4,7 +4,7 @@ import axios from "axios";
 import { InputClear, FormBtn } from "../../components/Form";
 import { Container, Col, Row } from "../../components/Grid";
 import { Link } from "react-router-dom";
-import ClassCard from "../../components/ClassCard";
+import StudentClassCard from "../../components/StudentClassCard";
 import StudentGradeCard from "../../components/StudentGradesCard";
 // import coloredPencilsBottom from "../../public/images/coloredPencilsBottom.jpg";
 import "./style.css"
@@ -68,7 +68,7 @@ return (
                 {classList.map((item) => (
                     <>
                         <Link to={"/classes/" + item.id} key={item.id}>
-                            <ClassCard title={item.title} subtitle={item.subtitle} key={item.id} />
+                            <StudentClassCard teacher={item.teacher} average={item.average} title={item.title} subtitle={item.subtitle} key={item.id} />
                         </Link>
                     </>
                 ))}
