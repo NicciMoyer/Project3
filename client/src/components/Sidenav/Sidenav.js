@@ -1,4 +1,5 @@
-import React, {useContext} from "react";
+
+import React, { useContext } from "react";
 import UserContext from "../../contexts/UserContext"
 import 'rsuite/lib/styles/index.less';
 import { Link } from "react-router-dom";
@@ -7,43 +8,53 @@ import { Sidenav, Nav, Icon } from 'rsuite';
 import "../../pages/AssignmentPage";
 import "../../pages/ClassPage";
 import "../../pages/StudentDashboard/StudentDashboard";
-import "../../pages/TeacherDashboard/TeacherDashboard"
+import "../../pages/TeacherDashboard/TeacherDashboard"; 
+import "./style.css"
 
-function SideTest() {
+function SideBar() {
+
     const { userId, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
     return (
         <div style={{ width: 250 }}>
             <Sidenav defaultOpenKeys={['3', '4']} activeKey="1">
-                <Sidenav.Body>
-                    <Nav>
-                        <Nav.Item eventKey="1" icon={<Icon icon="dashboard" />} >
+
+                <Sidenav.Body id= "navBody">
+                    <Nav> Destinations
+                        <Nav.Item eventKey="1" icon={<Icon icon="dashboard" />} className= "navLink">
+
 
                             <Link
                                 to={isTeacher ? {
                                     pathname: "/TeacherDashboard"
                                 } : { pathname: "/StudentDashboard" }
                                 }
-                            /> Dashboard
-                     </Nav.Item>
-                        <Nav.Item eventKey="2" icon={<Icon icon="group" />}>
+
+                            > Dashboard </Link>
+                        </Nav.Item>
+                        <Nav.Item eventKey="2" icon={<Icon icon="group" />} className= "navLink">
+
                             <Link
                                 to={isTeacher ? {
                                     pathname: "/ClassPage"
                                 } : { pathname: "/StudentDashboard" }
                                 }
-                            />
-                        Classes
-                     </Nav.Item>
-                        <Nav.Item eventKey="3" icon={<Icon icon="magic" />}>
+
+                            >
+                                Classes </Link>
+                        </Nav.Item>
+                        <Nav.Item eventKey="3" icon={<Icon icon="magic" />} className= "navLink">
+
                             <Link
                                 to={isTeacher ? {
                                     pathname: "/AssignmentPage"
                                 } : { pathname: "/StudentDashboard" }
                                 }
-                            />
-                        Assignments
 
-                    </Nav.Item>
+                            >
+                                Assignments </Link>
+
+                        </Nav.Item>
+
 
                     </Nav>
                 </Sidenav.Body>
@@ -53,4 +64,5 @@ function SideTest() {
     )
 }
 
-export default SideTest;
+export default SideBar;
+
