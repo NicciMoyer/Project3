@@ -7,8 +7,7 @@ import ClassCard from "../../components/ClassCard";
 import { Link } from "react-router-dom";
 import { Animated } from "react-animated-css"
 import "./style.css";
-
-
+import SideTest from "../../components/Sidenav/Sidenav" 
 
 function TeacherDashboard() {
   const { userId, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
@@ -53,7 +52,10 @@ function TeacherDashboard() {
           <h1 id= "teacherLandingJumbotron">Hello, {prefix}  {lastName}</h1>
         </Animated>
         <Row>
-          <Col size="md-6 sm-12" id= "createClassCol">
+          <Col size= "2">
+        <SideTest > </SideTest> 
+        </Col>
+          <Col size="md-5 sm-10" id= "createClassCol">
             <h2 id= "createClassHeader">Create a New Class</h2>
             <form>
               <InputClear
@@ -83,7 +85,7 @@ function TeacherDashboard() {
               >Create Class</FormBtn>
             </form>
           </Col>
-          <Col size="md-6 sm-12" id= "showClassCol">
+          <Col size="md-5 sm-10" id= "showClassCol">
             <h2 id= "showClassHeader">My Classes</h2>
             {classList.map((item) => (
               <>
