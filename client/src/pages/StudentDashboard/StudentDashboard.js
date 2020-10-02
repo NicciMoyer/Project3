@@ -20,10 +20,25 @@ function StudentDashboard() {
                 console.log(res.data.map(item => item.Class))
                 setClassList(res.data.map(item => item.Class))
             })
-        axios.get("/api/grades/" + userId)
+        axios.get("/api/assignmentdata/" + userId)
             .then((res) => {
                 console.log(res.data)
                 setGradeList(res.data)
+                let classes=[]
+                res.data.map(item=> {!classes.includes(item.Assignment.Class.title)&& classes.push(item.Assignment.Class.title) })
+                let averages=classes.map(classTitle => {
+                    let gradeSum=0;
+                    let weightSum=0;
+                    for(let i=0; i<res.data.length; i++){
+                        let current=res.data[i]
+                        if(classTitle === current.Assignment.Class.title){
+                            gradeSum +=current.score*current.Assignment.weight
+                            weightSum+=current.Assignment.weight*100
+                        }
+                    }
+                    return gradeSum/weightSum
+                });
+                console.log(averages)
             })
     }, [])
 
@@ -49,7 +64,10 @@ return (
                 <h2>My Grades</h2>
                 {gradeList.map((item) =>(
                     <>
-                    <StudentGradeCard score={item.score} notes={item.notes} status={item.status}/>    
+                    <StudentGradeCard classTitle={item.Assignment.Class.title} 
+                    teacher={item.Assignment.User.firstName + " " + item.Assignment.User.lastName} 
+                    assignmentName={item.Assignment.title}
+                    score={item.score} notes={item.notes} status={item.status}/>    
 
                     </>
                 ))}

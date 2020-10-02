@@ -142,6 +142,16 @@ router.get("/api/classnames/:id", function(req,res){
     });
 });
 
+//get all assignment info for student
+router.get("/api/assignmentdata/:id", function(req,res){
+    db.Grade.findAll({
+        where: {UserId: req.params.id},
+        include: [{model: db.Assignment, include: [db.Class, db.User]}]
+    }).then((data) => {
+        res.json(data)
+    });
+});
+
 //get class info by id
 router.get("/api/class/:id", function(req,res){
     db.Class.findOne({
