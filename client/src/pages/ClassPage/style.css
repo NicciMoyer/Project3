@@ -37,9 +37,9 @@
     
 }
 
-#assmtCol{
+/* #assmtCol{
   
-}
+} */
 
 #addAssmtDiv{
     background-color: rgba(52,52, 52, 0.1);
@@ -85,11 +85,12 @@
 }
 
 #assmtCreateBtn{
+    width: 8em;
+    height: 4em;
     opacity: 0.5;
 }
 
 #showStudentCard{
-    padding-right: 5em;
     background-color: rgba(52,52, 52, 0.1);
     border-radius: 0.3em;
     outline: black;
@@ -98,12 +99,18 @@
 
 }
 
+#studentList{
+    list-style-type: none;
+    padding-left: 2em;
+    margin-bottom: 1em;
+    
+}
+
 #addStudentCard{
-  
-        background-color: rgba(52,52, 52, 0.1);
-        border-radius: 0.3em;
-        outline: black;
-        outline-width: 1px;
+    background-color: rgba(52,52, 52, 0.1);
+    border-radius: 0.3em;
+    outline: black;
+    outline-width: 1px;
     
 }
 
@@ -118,4 +125,6 @@
 
 #studentAddBtn{
     opacity: 0.5;
+    width: 8em;
+    height: 4em;
 }

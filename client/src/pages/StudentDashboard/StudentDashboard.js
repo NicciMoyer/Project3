@@ -8,6 +8,7 @@ import StudentClassCard from "../../components/StudentClassCard";
 import StudentGradeCard from "../../components/StudentGradesCard";
 // import coloredPencilsBottom from "../../public/images/coloredPencilsBottom.jpg";
 import "./style.css"
+import { Animated } from "react-animated-css"
 
 function StudentDashboard() {
     const { userId, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
@@ -63,7 +64,9 @@ function StudentDashboard() {
 
 return (
     <Container>
+        <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
         <h2 id= "studentLandHeader">Hi {firstName}!</h2>
+        </Animated> 
         <Row>
             <Col size="md-6 sm-12" id= "classCol">
                 <h2 id= "classColHeader">My Classes</h2>

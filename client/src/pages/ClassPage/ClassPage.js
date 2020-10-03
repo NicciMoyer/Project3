@@ -6,6 +6,7 @@ import UserContext from "../../contexts/UserContext";
 import { FormBtn, Input, NumInput } from "../../components/Form";
 import AssignmentCard from "../../components/AssignmentCard";
 import "./style.css"
+import { Animated } from "react-animated-css"
 
 function ClassPage() {
     const { userId, isTeacher, prefix, lastName } = useContext(UserContext)
@@ -112,14 +113,14 @@ function ClassPage() {
 
     return (
         <Container>
-
+            <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
             <h1 id="classJumbotron">Hello, {prefix} {lastName}!</h1>
             <h3 id="classSubtitle">{classInfo.classTitle} {classInfo.classSubtitle}</h3>
-
+            </Animated>
             <Row>
                 {owner ?
-                    <Col size="md-4 sm-9" id="assmtCol">
-                        <div  className= "classCard" id= "assignmentCard">
+                    <Col size="md-4 sm-9" >
+                        <div className="classCard" id="assignmentCard">
                             <h2 className="classHeader">Assignments</h2>
                             {assignmentList.map((assignment) => (
                                 <Link to={"/assignments/" + assignment.id + "/" + id} key={assignment.id} >
@@ -127,7 +128,7 @@ function ClassPage() {
                                 </Link>
                             ))}
                         </div>
-                        <div className= "classCard" id="addAssmtDiv">
+                        <div className="classCard" id="addAssmtDiv">
                             <h2 className="classHeader">Add an Assignment</h2>
 
                             <form>
@@ -138,7 +139,7 @@ function ClassPage() {
                                     value={formObject.title || ""}
                                     name="title"
                                     placeholder="Assignment name"
-                                    // label="Assignment name"
+                                // label="Assignment name"
                                 />
                                 <Input
                                     id="assmtNoteInput"
@@ -147,7 +148,7 @@ function ClassPage() {
                                     value={formObject.notes || ""}
                                     name="notes"
                                     placeholder="Assignment notes"
-                                    // label="Notes"
+                                // label="Notes"
                                 />
                                 <NumInput
                                     id="assmtWeightNum"
@@ -156,25 +157,27 @@ function ClassPage() {
                                     value={formObject.weight || ""}
                                     name="weight"
                                     placeholder="Final weight (must be a number)"
-                                    // label="Weight (must be a number)"
+                                // label="Weight (must be a number)"
                                 />
                                 <FormBtn
                                     id="assmtCreateBtn"
                                     disabled={!(formObject.title)}
                                     onClick={handleFormSubmit}
-                                >Create</FormBtn>
+                                >Create Assignment</FormBtn>
                             </form>
                         </div>
                     </Col> : <></>}
                 <Col size={owner ? "md-4 sm-12" : "md-6 sm-9"} >
-                    <div className= "classCard" id="showStudentCard">
+                    <div className="classCard" id="showStudentCard">
                         <h2 className="classHeader">Students</h2>
-                        {studentList.filter(item => (classRoster.includes(item.id))).map((student) => <li key={student.id}>{student.lastName + ", " + student.firstName}</li>)}
+                        {studentList.filter(item => (classRoster.includes(item.id))).map((student) =>
+                            <li id="studentList" key={student.id}>{student.lastName + ", " + student.firstName}
+                            </li>)}
                     </div>
-                    <div className= "classCard" id="addStudentCard">
+                    <div className="classCard" id="addStudentCard">
                         <h2
                             className="classHeader">
-                            Add a Student
+                        Add a Student
                         </h2>
                         <div className="form-group">
                             <select id="studentDropdown"
@@ -192,7 +195,7 @@ function ClassPage() {
                 </Col>
 
             </Row>
-        </Container>
+        </Container >
 
     )
 }
