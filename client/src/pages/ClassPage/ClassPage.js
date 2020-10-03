@@ -4,13 +4,14 @@ import axios from "axios"
 import { Container, Col, Row } from "../../components/Grid";
 import UserContext from "../../contexts/UserContext";
 import { FormBtn, Input, NumInput } from "../../components/Form";
-import AssignmentCard from "../../components/AssignmentCard"; 
+import AssignmentCard from "../../components/AssignmentCard";
 import "./style.css"
+import { Animated } from "react-animated-css"
 
 function ClassPage() {
     const { userId, isTeacher, prefix, lastName } = useContext(UserContext)
     const { id } = useParams()
-    const [classInfo, setClassInfo] = useState({classTitle:"", classSubtitle: ""})
+    const [classInfo, setClassInfo] = useState({ classTitle: "", classSubtitle: "" })
     const [owner, setOwner] = useState(false)
     const [studentList, setStudentList] = useState([])
     const [classRoster, setClassRoster] = useState([])
@@ -22,7 +23,7 @@ function ClassPage() {
     useEffect(() => {
         axios.get("/api/class/" + id)
             .then((res) => {
-                setClassInfo({classTitle:res.data.title, classSubtitle:res.data.subtitle})
+                setClassInfo({ classTitle: res.data.title, classSubtitle: res.data.subtitle })
                 setOwner(res.data.UserId === userId)
             })
         axios.get("/api/students")
@@ -112,75 +113,89 @@ function ClassPage() {
 
     return (
         <Container>
-
-            <h1 id= "classJumbotron">Hello, {prefix} {lastName}!</h1>
-    <h3 id= "classSubtitle">{classInfo.classTitle} {classInfo.classSubtitle}</h3>
-{/* 
-            <Link to="/login">
-                <button type="button" className="btn btn-primary">Log Out</button>
-            </Link>
-            <Link to={isTeacher ? "/teacherdashboard" : "/studentDashboard"}>
-                <button type="button" className="btn btn-primary">Home</button>
-            </Link> */}
+            <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
+            <h1 id="classJumbotron">Hello, {prefix} {lastName}!</h1>
+            <h3 id="classSubtitle">{classInfo.classTitle} {classInfo.classSubtitle}</h3>
+            </Animated>
             <Row>
                 {owner ?
                     <Col size="md-4 sm-9" >
-                        <h2 className= "classHeader">Assignments</h2>
-                    {assignmentList.map((assignment) => (
-                        <Link to={"/assignments/" + assignment.id + "/" + id} key={assignment.id} >
-                            <AssignmentCard title={assignment.title} notes={assignment.notes} weight={assignment.weight} />
-                        </Link>
-                    ))}
-                        <h2 className= "classHeader">Add an Assignment</h2>
+                        <div className="classCard" id="assignmentCard">
+                            <h2 className="classHeader">Assignments</h2>
+                            {assignmentList.map((assignment) => (
+                                <Link to={"/assignments/" + assignment.id + "/" + id} key={assignment.id} >
+                                    <AssignmentCard title={assignment.title} notes={assignment.notes} weight={assignment.weight} />
+                                </Link>
+                            ))}
+                        </div>
+                        <div className="classCard" id="addAssmtDiv">
+                            <h2 className="classHeader">Add an Assignment</h2>
 
-                        <form>
-                            <Input
-                                className="inputField"
-                                onChange={handleInputChange}
-                                value={formObject.title || ""}
-                                name="title"
-                                placeholder="Assignment name"
-                                label="Assignment name"
-                            />
-                            <Input
-                                className="inputField"
-                                onChange={handleInputChange}
-                                value={formObject.notes || ""}
-                                name="notes"
-                                placeholder="Assignment notes"
-                                label="Notes"
-                            />
-                            <NumInput
-                                className="inputField"
-                                onChange={handleInputChange}
-                                value={formObject.weight || ""}
-                                name="weight"
-                                placeholder="Weight in final grade"
-                                label="Weight (must be a number)"
-                            />
-                            <FormBtn
-                                disabled={!(formObject.title)}
-                                onClick={handleFormSubmit}
-                            >Create</FormBtn>
-                        </form>
-                    
+                            <form>
+                                <Input
+                                    id="assmtNameInput"
+                                    className="inputField"
+                                    onChange={handleInputChange}
+                                    value={formObject.title || ""}
+                                    name="title"
+                                    placeholder="Assignment name"
+                                // label="Assignment name"
+                                />
+                                <Input
+                                    id="assmtNoteInput"
+                                    className="inputField"
+                                    onChange={handleInputChange}
+                                    value={formObject.notes || ""}
+                                    name="notes"
+                                    placeholder="Assignment notes"
+                                // label="Notes"
+                                />
+                                <NumInput
+                                    id="assmtWeightNum"
+                                    className="inputField"
+                                    onChange={handleInputChange}
+                                    value={formObject.weight || ""}
+                                    name="weight"
+                                    placeholder="Final weight (must be a number)"
+                                // label="Weight (must be a number)"
+                                />
+                                <FormBtn
+                                    id="assmtCreateBtn"
+                                    disabled={!(formObject.title)}
+                                    onClick={handleFormSubmit}
+                                >Create Assignment</FormBtn>
+                            </form>
+                        </div>
                     </Col> : <></>}
-                <Col size={owner ? "md-4 sm-12" : "md-6 sm-9"}>
-                    <h2 className= "classHeader">Students</h2>
-                    {studentList.filter(item => (classRoster.includes(item.id))).map((student) => <li key={student.id}>{student.lastName + ", " + student.firstName}</li>)}
-                    <h2 className= "classHeader">Add a Student</h2>
+                <Col size={owner ? "md-4 sm-12" : "md-6 sm-9"} >
+                    <div className="classCard" id="showStudentCard">
+                        <h2 className="classHeader">Students</h2>
+                        {studentList.filter(item => (classRoster.includes(item.id))).map((student) =>
+                            <li id="studentList" key={student.id}>{student.lastName + ", " + student.firstName}
+                            </li>)}
+                    </div>
+                    <div className="classCard" id="addStudentCard">
+                        <h2
+                            className="classHeader">
+                        Add a Student
+                        </h2>
                         <div className="form-group">
-                            <select className="form-control" name="studentDropdown" onChange={handleDropdownChange}>
+                            <select id="studentDropdown"
+                                className="form-control"
+                                name="studentDropdown"
+                                onChange={handleDropdownChange}>
                                 {studentList.filter(item => (!classRoster.includes(item.id))).map((student) => <option key={student.id} id={student.id} >{student.lastName + ", " + student.firstName}</option>)}
                             </select>
                         </div>
                         <FormBtn
+                            id="studentAddBtn"
                             onClick={addStudent}
                         >Add Student</FormBtn>
+                    </div>
                 </Col>
-              
+
             </Row>
-        </Container>
+        </Container >
 
     )
 }
