@@ -1,14 +1,10 @@
 
 import React, { useContext } from "react";
 import UserContext from "../../contexts/UserContext"
-import 'rsuite/lib/styles/index.less';
 import { Link } from "react-router-dom";
 import { Sidenav, Nav, Icon } from 'rsuite';
-import "../../pages/AssignmentPage";
-import "../../pages/ClassPage/ClassPage";
-import "../../pages/StudentDashboard/StudentDashboard";
-import "../../pages/TeacherDashboard/TeacherDashboard"; 
 import "./style.css"
+import NavItem from "../../components/Navitem"
 
 function SideBar() {
 
@@ -30,14 +26,7 @@ function SideBar() {
 
                             > Dashboard </Link>
                         </Nav.Item>
-                        <Nav.Item eventKey="2" icon={<Icon icon="stop-circle" />} className= "navLink">
-
-                            <Link
-                                                                to= {{pathname: "/login"}}
-                            >
-                                Log out </Link>
-                        </Nav.Item>
-
+                        <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
 
                     </Nav>
                 </Sidenav.Body>

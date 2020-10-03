@@ -48,15 +48,15 @@ function TeacherDashboard() {
     })
 }
   return (
-    <Container >
-      <>
+    <>
+      <Container >
         <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
           <h1 id= "teacherLandingJumbotron">Hello, {prefix}  {lastName}</h1>
         </Animated>
         <Row>
           <Col size= "4">
-
         <SideBar/> 
+
 
         </Col>
           <Col size="md-4 sm-8" id= "createClassCol">
@@ -99,8 +99,8 @@ function TeacherDashboard() {
               // </>
             ))}
           </Col></Row>
-      </>
     </Container >
+      </>
 
   )
 }

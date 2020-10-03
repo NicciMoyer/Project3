@@ -6,6 +6,8 @@ import UserContext from "../../contexts/UserContext";
 import { FormBtn, Input, NumInput } from "../../components/Form";
 import AssignmentCard from "../../components/AssignmentCard"; 
 import "./style.css"
+import SideBar from "../../components/Sidenav" 
+
 
 function ClassPage() {
     const { userId, isTeacher, prefix, lastName } = useContext(UserContext)
@@ -123,6 +125,9 @@ function ClassPage() {
                 <button type="button" className="btn btn-primary">Home</button>
             </Link> */}
             <Row>
+                <Col size="3">
+                    <SideBar/>
+                </Col>
                 {owner ?
                     <Col size="md-4 sm-9" >
                         <h2 className= "classHeader">Assignments</h2>
