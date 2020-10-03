@@ -4,7 +4,7 @@ import UserContext from "../../contexts/UserContext"
 import 'rsuite/lib/styles/index.less';
 import { Link } from "react-router-dom";
 import { Sidenav, Nav, Icon } from 'rsuite';
-import "../../pages/AssignmentPage";
+import "../../pages/AssignmentPage/AssignmentPage";
 import "../../pages/ClassPage/ClassPage";
 import "../../pages/StudentDashboard/StudentDashboard";
 import "../../pages/TeacherDashboard/TeacherDashboard"; 
@@ -14,10 +14,10 @@ function SideBar() {
 
     const { userId, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
     return (
-        <div style={{ "width": 250, height: "100%", "background-color": "#eee" }}>
+        <div id= "navBody" >
             <Sidenav defaultOpenKeys={['3', '4']} activeKey="1">
 
-                <Sidenav.Body id= "navBody">
+                <Sidenav.Body >
                     <Nav> Destinations
                         <Nav.Item eventKey="1" icon={<Icon icon="dashboard" />} className= "navLink">
 

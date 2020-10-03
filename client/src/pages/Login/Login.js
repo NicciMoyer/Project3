@@ -1,12 +1,12 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState, useContext, useEffect } from "react";
 import { Input, PasswordInput, FormBtn } from "../../components/Form";
 import { Link, Redirect } from "react-router-dom";
 import { Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
-import axios from "axios"
-import UserContext from "../../contexts/UserContext"
+import axios from "axios";
+import UserContext from "../../contexts/UserContext";
 import "./style.css";
-import { Animated } from "react-animated-css"
+import { Animated } from "react-animated-css";
 
 
 function Login(props) {
