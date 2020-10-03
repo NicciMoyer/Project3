@@ -9,17 +9,113 @@
     font-family: 'Galindo', cursive;
     font-size: 5em;
     opacity: 0.5;
-   
+   margin-top: 1em;
+   margin-bottom: 0.5em;
 }
 
 #classSubtitle{
     font-family: 'Galindo', cursive;
     text-align: center;
     font-size: 3em;
+    color: blue;
+    opacity: 0.5;
     margin-bottom: 1em;
 }
 
 .classHeader{
     font-family: 'Galindo', cursive;
     text-align: center;
+    font-size: 2em;
+    margin: 0.5 em;
+}
+
+.classCard{
+    background-color: rgba(52,52, 52, 0.1);
+    border-radius: 0.3em;
+    outline: black;
+    outline-width: 1px;
+    
+}
+
+#assmtCol{
+  
+}
+
+#addAssmtDiv{
+    background-color: rgba(52,52, 52, 0.1);
+    border-radius: 0.3em;
+    outline: black;
+    outline-width: 1px;
+}
+
+#assignmentCard{
+    background-color: rgba(52,52, 52, 0.1);
+    outline: none;
+    margin-bottom: 3em;
+}
+
+#assmtNameInput{
+    width: 25em;
+    height: 1em;
+    padding: 1em;
+    background-color: white;
+    box-shadow:inset 0 0 1em red;
+    border-radius: 0.3em;
+    margin-bottom: 1em;
+}
+
+#assmtNoteInput{
+    width: 25em;
+    height: 1em;
+    padding: 1em;
+    background-color: white;
+    box-shadow:inset 0 0 1em rgb(255, 125, 3);
+    border-radius: 0.3em;
+    margin-bottom: 1em;
+}
+
+#assmtWeightNum{
+    width: 25em;
+    height: 1em;
+    padding: 1em;
+    background-color: white;
+    box-shadow:inset 0 0 1em yellow;
+    border-radius: 0.3em;
+    margin-bottom: 1em;
+}
+
+#assmtCreateBtn{
+    opacity: 0.5;
+}
+
+#showStudentCard{
+    padding-right: 5em;
+    background-color: rgba(52,52, 52, 0.1);
+    border-radius: 0.3em;
+    outline: black;
+    outline-width: 1px;
+    margin-bottom: 3em;
+
+}
+
+#addStudentCard{
+  
+        background-color: rgba(52,52, 52, 0.1);
+        border-radius: 0.3em;
+        outline: black;
+        outline-width: 1px;
+    
+}
+
+#studentDropdown{
+    width: 22em;
+    height: 1em;
+    padding: 1em;
+    background-color: white;
+    box-shadow:inset 0 0 1em green;
+    border-radius: 0.3em;
+}
+
+#studentAddBtn{
+    opacity: 0.5;
 }

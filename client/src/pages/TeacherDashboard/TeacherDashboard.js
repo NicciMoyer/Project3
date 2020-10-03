@@ -7,7 +7,6 @@ import ClassCard from "../../components/ClassCard";
 import { Link } from "react-router-dom";
 import { Animated } from "react-animated-css"
 import "./style.css";
-
 import SideBar from "../../components/Sidenav" 
 
 

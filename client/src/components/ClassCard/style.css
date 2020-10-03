@@ -1,5 +1,5 @@
-#cardBody{
-    backface-visibility: visible;
+#classCard{
+    background-color: rgba(52,52, 52,0.1);
 }
 
 #className{
