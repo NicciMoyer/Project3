@@ -30,28 +30,28 @@ function TeacherDashboard() {
       })
   }, [])
 
-  function handleFormSubmit(event){
+  function handleFormSubmit(event) {
     event.preventDefault();
     axios.post("/api/newclass", formObject)
-    .then((res) => {
-      console.log(res)
-      let newClass={
-        title: formObject.title,
-        subtitle: formObject.subtitle,
-        id: res.data.id
-      }
-      setFormObject({title: "", subtitle: ""})
-      setClassList([...classList, newClass])
-    })
-    .catch(err => {
-      console.log(err)
-    })
-}
+      .then((res) => {
+        console.log(res)
+        let newClass = {
+          title: formObject.title,
+          subtitle: formObject.subtitle,
+          id: res.data.id
+        }
+        setFormObject({ title: "", subtitle: "" })
+        setClassList([...classList, newClass])
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
   return (
     <>
       <Container >
         <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
-          <h1 id= "teacherLandingJumbotron">Hello, {prefix}  {lastName}</h1>
+          <h1 id="teacherLandingJumbotron">Hello, {prefix}.  {lastName}!</h1>
         </Animated>
         <Row>
           <Col size= "4">
@@ -66,42 +66,43 @@ function TeacherDashboard() {
             <h2 id= "createClassHeader">Create a New Class</h2>
             <form>
               <InputClear
-                id= "classNameInput"
+                id="classNameInput"
                 className="inputField"
                 onChange={handleInputChange}
                 value={formObject.title || ""}
                 name="title"
                 placeholder="Class Name"
-                label="Class Name"
+              // label="Class Name"
               />
               <InputClear
-                id= "classSubtitleInput"
+                id="classSubtitleInput"
                 className="inputField"
                 onChange={handleInputChange}
                 value={formObject.subtitle || ""}
                 name="subtitle"
                 placeholder="Subtitle"
-                label="Subtitle"
+              // label="Subtitle"
               />
-              <br></br>
-              <br></br>
-              <br></br>
-              <FormBtn id= "createClassButton"
+              <FormBtn
+                id="createClassButton"
                 disabled={!(formObject.title)}
                 onClick={handleFormSubmit}
-              >Create Class</FormBtn>
+              >Create Class
+                </FormBtn>
+              {/* </form> */}
             </form>
           </Col>
-          <Col size="md-4 sm-8" id= "showClassCol">
-            <h2 id= "showClassHeader">My Classes</h2>
-            {classList.map((item) => (
-              // <>
+          <Col size="md-4 sm-8" id="showClassCol">
+            <div id="classCard">
+              <h2 id="showClassHeader">My Classes</h2>
+              {classList.map((item) => (
                 <Link to={"/classes/" + item.id} key={item.id}>
                   <ClassCard title={item.title} subtitle={item.subtitle} key={item.id} />
                 </Link>
-              // </>
             ))}
-          </Col></Row>
+            </div>
+          </Col>
+          </Row>
     </Container >
       </>
 
