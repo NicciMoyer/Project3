@@ -7,7 +7,7 @@ import ClassCard from "../../components/ClassCard";
 import { Link } from "react-router-dom";
 import { Animated } from "react-animated-css"
 import "./style.css";
-
+import NavItem from "../../components/Navitem"
 import SideBar from "../../components/Sidenav" 
 
 
@@ -55,7 +55,10 @@ function TeacherDashboard() {
         </Animated>
         <Row>
           <Col size= "4">
-        <SideBar/> 
+        <SideBar>
+        <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
+        <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
+        </SideBar> 
 
 
         </Col>

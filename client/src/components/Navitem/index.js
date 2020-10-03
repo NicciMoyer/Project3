@@ -6,12 +6,8 @@ import { Link } from "react-router-dom";
 function NavItem(props){
 
     return(
-        <Nav.Item eventKey={props.eventkey} icon={<Icon icon={props.icon} />} className= "navLink">
-
-        <Link
-                                            to= {{pathname: props.path}}
-        >
-            {props.navtext}</Link>
+        <Nav.Item eventKey={props.eventkey} icon={<Icon icon={props.icon} />} href={props.path} className= "navLink">
+            {props.navtext}
     </Nav.Item>
     )
 
