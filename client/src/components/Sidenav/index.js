@@ -1,44 +1,19 @@
 
 import React, { useContext } from "react";
 import UserContext from "../../contexts/UserContext"
-import 'rsuite/lib/styles/index.less';
-import { Link } from "react-router-dom";
-import { Sidenav, Nav, Icon } from 'rsuite';
-import "../../pages/AssignmentPage";
-import "../../pages/ClassPage/ClassPage";
-import "../../pages/StudentDashboard/StudentDashboard";
-import "../../pages/TeacherDashboard/TeacherDashboard"; 
+import { Sidenav, Nav} from 'rsuite';
 import "./style.css"
 
-function SideBar() {
+function SideBar({children}) {
 
     const { userId, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
     return (
-        <div style={{ "width": 250, height: "100%", "background-color": "#eee" }}>
+        <div style={{ "width": 250, height: "100%", "backgroundColor": "#eee" }}>
             <Sidenav defaultOpenKeys={['3', '4']} activeKey="1">
 
                 <Sidenav.Body id= "navBody">
                     <Nav> Destinations
-                        <Nav.Item eventKey="1" icon={<Icon icon="dashboard" />} className= "navLink">
-
-
-                            <Link
-                                to={isTeacher ? {
-                                    pathname: "/teacherdashboard"
-                                } : { pathname: "/studentdashboard" }
-                                }
-
-                            > Dashboard </Link>
-                        </Nav.Item>
-                        <Nav.Item eventKey="2" icon={<Icon icon="stop-circle" />} className= "navLink">
-
-                            <Link
-                                                                to= {{pathname: "/login"}}
-                            >
-                                Log out </Link>
-                        </Nav.Item>
-
-
+                        {children}
                     </Nav>
                 </Sidenav.Body>
             </Sidenav>

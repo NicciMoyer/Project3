@@ -6,7 +6,12 @@ import UserContext from "../../contexts/UserContext";
 import { FormBtn, Input, NumInput } from "../../components/Form";
 import AssignmentCard from "../../components/AssignmentCard";
 import "./style.css"
+<<<<<<< HEAD
+import SideBar from "../../components/Sidenav" 
+
+=======
 import { Animated } from "react-animated-css"
+>>>>>>> master
 
 function ClassPage() {
     const { userId, isTeacher, prefix, lastName } = useContext(UserContext)
@@ -118,6 +123,9 @@ function ClassPage() {
             <h3 id="classSubtitle">{classInfo.classTitle} {classInfo.classSubtitle}</h3>
             </Animated>
             <Row>
+                <Col size="3">
+                    <SideBar/>
+                </Col>
                 {owner ?
                     <Col size="md-4 sm-9" >
                         <div className="classCard" id="assignmentCard">
