@@ -13,15 +13,12 @@
     margin-top: 1em;
 }
 
-/* #createClassCol{
-    box-shadow:inset 0 0 1em  rgb(124, 30, 136);
+#createClassCol{
+    background-color: rgba(52,52, 52, 0.1);
     border-radius: 0.3em;
+    outline: black;
+    outline-width: 1px;
 }
-
-#showClassCol{
-    box-shadow:inset 0 0 1em  rgb(124, 30, 136);
-    border-radius: 0.3em;
-} */
 
 .teacherHeader{
     font-family: 'Galindo', cursive;
@@ -35,11 +32,12 @@
 }
 
 #createClassButton{
-    width: 10em;
-    height: 5em;
+    width: 8em;
+    height: 4em;
+    opacity: 0.5;
     font-family: 'Galindo', cursive;
-    margin-right: 15em; 
-    justify-content: center;
+    /* margin-right: 15em; 
+    justify-content: center; */
 }
 
 #classNameInput{
@@ -61,3 +59,9 @@
     border-radius: 0.3em;
 }
 
+#classCard{
+    background-color: rgba(52,52, 52,0.1);
+    list-style-type: none;
+    margin-bottom: 1em;
+   
+}

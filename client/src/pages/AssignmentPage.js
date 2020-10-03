@@ -5,6 +5,7 @@ import { Container, Col , Row} from "../components/Grid";
 import UserContext from "../contexts/UserContext";
 import {FormBtn, Input, NumInput} from "../components/Form";
 import GradeCard from "../components/GradeCard"
+import { Animated } from "react-animated-css"
 
 
 function AssignmentPage(){
@@ -65,10 +66,12 @@ function AssignmentPage(){
     return(
         <>
         <div>
+        <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
             <h1>Hello</h1>
             <h1>User ID is {userId}</h1>
             <h2>assignment ID is {assignmentid} </h2>
             <h2>class ID is {classid} </h2>
+            </Animated>
         </div>
         <Container>
 
