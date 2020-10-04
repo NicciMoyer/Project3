@@ -1,28 +1,16 @@
-<<<<<<< HEAD:client/src/pages/AssignmentPage.js
 import React , {useState, useEffect, useContext} from "react"
 import {useParams, Link } from "react-router-dom"
 import axios from "axios"
-import { Container, Col , Row} from "../components/Grid";
-import UserContext from "../contexts/UserContext";
-import {FormBtn, Input, NumInput} from "../components/Form";
-import GradeCard from "../components/GradeCard"
-import { Animated } from "react-animated-css"
-import SideBar from "../components/Sidenav" 
-import NavItem from "../components/Navitem"
-import {Dropdown, Icon} from "rsuite"
-
-
-=======
-import React , {useState, useEffect, useContext} from "react";
-import {useParams, Link } from "react-router-dom";
-import axios from "axios";
 import { Container, Col , Row} from "../../components/Grid";
 import UserContext from "../../contexts/UserContext";
 import {FormBtn, Input, NumInput} from "../../components/Form";
-import GradeCard from "../../components/GradeCard";
-import { Animated } from "react-animated-css";
-import "./style.css";
->>>>>>> master:client/src/pages/AssignmentPage/AssignmentPage.js
+import GradeCard from "../../components/GradeCard"
+import { Animated } from "react-animated-css"
+import SideBar from "../../components/Sidenav" 
+import NavItem from "../../components/Navitem"
+import {Dropdown, Icon} from "rsuite"
+
+
 
 function AssignmentPage(){
     const{userId, isTeacher} =useContext(UserContext)
