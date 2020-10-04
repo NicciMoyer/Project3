@@ -6,6 +6,10 @@ import UserContext from "../contexts/UserContext";
 import {FormBtn, Input, NumInput} from "../components/Form";
 import GradeCard from "../components/GradeCard"
 import { Animated } from "react-animated-css"
+import SideBar from "../components/Sidenav" 
+import NavItem from "../components/Navitem"
+import {Dropdown, Icon} from "rsuite"
+
 
 
 function AssignmentPage(){
@@ -15,6 +19,8 @@ function AssignmentPage(){
     const [formObject, setFormObject] = useState({});
     const [studentList, setStudentList] =useState([])
     const [classRoster, setClassRoster] =useState([])
+    const [assignmentList, setAssignmentList] = useState([])
+
 
 
     useEffect(() => {
@@ -30,8 +36,15 @@ function AssignmentPage(){
             setStudentList(res.data)
         })
         .then(makeRoster())
+    },[assignmentid])
 
-    },[])
+    useEffect(() => {
+        axios.get("/api/assignments/" + classid)
+        .then((res) => {
+            console.log(res.data)
+            setAssignmentList(res.data)
+        })
+    }, [])
 
 
     function makeRoster(){
@@ -76,8 +89,22 @@ function AssignmentPage(){
         <Container>
 
             <Row>
+            <Col size="3">
+                <SideBar>
+                <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
+                <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
+                <Dropdown eventKey="3" title="Classes" icon={<Icon icon="magic" />}>
+                    {assignmentList.map(item =>(
+                      <Link to={"/assignments/" +item.id +"/" + classid} key={item.id}>
+                      <Dropdown.Item  eventKey={"3-"+item.id}>{item.title}</Dropdown.Item>
+                      </Link>   
+                    ))}
+                </Dropdown> 
+                </SideBar> 
+
+                </Col>
                 {owner? 
-            <Col size="md-6 sm-12">
+            <Col size="md-4 sm-12">
             <Link to="/login">
                 <button type="button" className="btn btn-primary">Log Out</button>
                 </Link>
@@ -113,7 +140,7 @@ function AssignmentPage(){
                 >Update</FormBtn>
                 </form>  
                 </Col>: <></>}
-                <Col size={owner? "md-6 sm-12" : "12"}>
+                <Col size={owner? "md-4 sm-12" : "9"}>
                 <h2>Grades</h2>
                 {studentList.filter(item => (classRoster.includes(item.id))).map((student) => 
                 <GradeCard 
