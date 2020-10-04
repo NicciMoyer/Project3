@@ -48,7 +48,7 @@
 } */
 
 #classNameInput{
-   width: max-content;
+  width: 15em;
     height: 1em;
     padding: 1em;
     background-color: white; 
@@ -58,7 +58,7 @@
 }
 
 #classSubtitleInput{
-    width: max-content;
+   width: 15em;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -76,6 +76,6 @@
    
 }
 
-#showClassCol{
+/* #showClassCol{
  
-}
+} */

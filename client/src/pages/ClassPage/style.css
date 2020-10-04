@@ -36,10 +36,10 @@
     outline-width: 1px;
     
 }
-
+/* 
 #assmtCol{
   
-} 
+}  */
 
 #assignmentCard{
     background-color: rgba(52,52, 52, 0.1);
@@ -56,7 +56,7 @@
 }
 
 #assmtNameInput{
-    width: inherit;
+    width: 15em;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -66,7 +66,7 @@
 }
 
 #assmtNoteInput{
-    width: inherit;
+    width: 15em;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -76,7 +76,7 @@
 }
 
 #assmtWeightNum{
-    width: inherit;
+    width: 15em;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -116,15 +116,9 @@
 }
 
 #studentDropdown{
-<<<<<<< HEAD
-    width: initial;
-    height: 1em;
-    padding: 1em;
-=======
-    width: 22em;
+    width: 15em;
     height: 2.2em;
     /* padding: 1em; */
->>>>>>> master
     background-color: white;
     box-shadow:inset 0 0 1em green;
     border-radius: 0.3em;

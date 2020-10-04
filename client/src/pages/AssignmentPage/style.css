@@ -1,0 +1,76 @@
+#assmtPgJumbotron{
+    color: red; 
+    text-align: center;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+        1px 1px 0 #000;
+    font-family: 'Galindo', cursive;
+    font-size: 5em;
+    opacity: 0.5;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.assmtPgHeader{
+    font-family: 'Galindo', cursive;
+    text-align: center;
+    font-size: 2em;
+    margin: 0.5 em;
+}
+
+.inputField{
+    display: flex;
+    align-items: center;
+}
+
+#assmtNameInput{
+    width: 15em;
+     height: 1em;
+     padding: 1em;
+     background-color: white; 
+     box-shadow:inset 0 0 1em green;
+     border-radius: 0.3em;
+     
+ }
+
+#assmtNoteInput{
+    width: 15em;
+     height: 1em;
+     padding: 1em;
+     background-color: white; 
+     box-shadow:inset 0 0 1em blue;
+     border-radius: 0.3em;
+     
+}
+
+#assmtWeightInput{
+    width: 15em;
+     height: 1em;
+     padding: 1em;
+     background-color: white; 
+     box-shadow:inset 0 0 1em purple;
+     border-radius: 0.3em;
+     
+}
+
+#addAssmtDiv{
+    background-color: rgba(52,52, 52, 0.1);
+    border-radius: 0.3em;
+    outline: black;
+    outline-width: 1px;
+    width: auto;
+}
+
+#gradeAssmtDiv{
+    background-color: rgba(52,52, 52, 0.1);
+    border-radius: 0.3em;
+    outline: black;
+    outline-width: 1px;
+    width: auto;
+}
+
+#updateAssmtBtn{
+     opacity: 0.5;
+}

@@ -5,12 +5,6 @@ import { Container, Col, Row } from "../../components/Grid";
 import UserContext from "../../contexts/UserContext";
 import { FormBtn, Input, NumInput } from "../../components/Form";
 import AssignmentCard from "../../components/AssignmentCard";
-<<<<<<< HEAD
-import "./style.css";
-import { Animated } from "react-animated-css";
-import SideBar from "../../components/Sidenav/index"; 
-import NavItem from "../../components/Navitem/index"
-=======
 import "./style.css"
 import SideBar from "../../components/Sidenav" 
 import NavItem from "../../components/Navitem"
@@ -18,7 +12,6 @@ import {Dropdown, Icon} from "rsuite"
 
 
 import { Animated } from "react-animated-css"
->>>>>>> master
 
 function ClassPage() {
     const { userId, isTeacher, prefix, lastName } = useContext(UserContext)
@@ -139,13 +132,8 @@ function ClassPage() {
             <h3 id="classSubtitle">{classInfo.classTitle} {classInfo.classSubtitle}</h3>
             </Animated>
             <Row>
-                <Col size="3">
+                <Col size="md-4 sm-12">
                 <SideBar>
-<<<<<<< HEAD
-        <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
-        <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
-        </SideBar>
-=======
                 <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
                 <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
                 <Dropdown eventKey="3" title="Classes" icon={<Icon icon="magic" />}>
@@ -157,7 +145,6 @@ function ClassPage() {
                 </Dropdown> 
                 </SideBar> 
 
->>>>>>> master
                 </Col>
                 {owner ?
                     <Col size="lg-4 md-9" >
@@ -197,7 +184,7 @@ function ClassPage() {
                                     onChange={handleInputChange}
                                     value={formObject.weight || ""}
                                     name="weight"
-                                    placeholder="Final weight (must be a number)"
+                                    placeholder="Grade weight (numerical)"
                                 // label="Weight (must be a number)"
                                 />
                                 <FormBtn

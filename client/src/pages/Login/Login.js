@@ -21,15 +21,15 @@ function Login(props) {
   };
 
   useEffect(() => {
-  props.setUserState({
-    userName: "",
-    prefix: "",
-    firstName: "",
-    lastName: "",
-    userId: "",
-    isTeacher: false
-  })
-}, [])
+    props.setUserState({
+      userName: "",
+      prefix: "",
+      firstName: "",
+      lastName: "",
+      userId: "",
+      isTeacher: false
+    })
+  }, [])
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -47,7 +47,7 @@ function Login(props) {
         console.log(err)
       })
   };
-   
+
 
   return (
     <Container >
@@ -59,27 +59,30 @@ function Login(props) {
             </Animated>
           </Jumbotron>
           <div>
-            <FormBtn id="signUpButton"
-              disabled={!(formObject.email && formObject.password)}
-              onClick={handleFormSubmit}
-            >Log In</FormBtn>
+
             <form id="logInForm">
               <Input className="inputField"
                 id="emailInputLogin"
                 onChange={handleInputChange}
                 name="email"
                 placeholder="Email (required)"
-                // label="Email address:  "
+              // label="Email address:  "
               />
               <PasswordInput className="inputField"
                 id="passwordInputLogin"
                 onChange={handleInputChange}
                 name="password"
                 placeholder="Password"
-                // label="Password:  "
+              // label="Password:  "
               />
-
-            </form>
+              </form>
+              </div>
+            <div>
+              <FormBtn id="signUpButton"
+                disabled={!(formObject.email && formObject.password)}
+                onClick={handleFormSubmit}
+              >Log In</FormBtn>
+            
           </div>
           <div className="errorBox">{errState}</div></>}
     </Container>
