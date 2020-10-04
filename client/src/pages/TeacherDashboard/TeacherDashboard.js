@@ -54,16 +54,15 @@ function TeacherDashboard() {
           <h1 id="teacherLandingJumbotron">Hello, {prefix}.  {lastName}!</h1>
         </Animated>
         <Row>
-          <Col size= "4">
+          <Col size="md-4 sm-12">
         <SideBar>
         <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
         <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
-        </SideBar> 
-
-
+        </SideBar>
         </Col>
-          <Col size="md-4 sm-8" id= "createClassCol">
-            <h2 id= "createClassHeader">Create a New Class</h2>
+          <Col size="md-4 sm-12" >
+            <div id= "createClassDiv">
+            <h2 className= "teacherHeader" id= "createClassHeader">Create a New Class</h2>
             <form>
               <InputClear
                 id="classNameInput"
@@ -91,10 +90,11 @@ function TeacherDashboard() {
                 </FormBtn>
               {/* </form> */}
             </form>
+            </div>
           </Col>
-          <Col size="md-4 sm-8" id="showClassCol">
+          <Col size="md-4 sm-12"  id="showClassCol">
             <div id="classCard">
-              <h2 id="showClassHeader">My Classes</h2>
+              <h2 className= "teacherHeader" id="showClassHeader">My Classes</h2>
               {classList.map((item) => (
                 <Link to={"/classes/" + item.id} key={item.id}>
                   <ClassCard title={item.title} subtitle={item.subtitle} key={item.id} />
