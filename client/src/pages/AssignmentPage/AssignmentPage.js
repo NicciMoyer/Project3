@@ -9,13 +9,13 @@ import { Animated } from "react-animated-css"
 import SideBar from "../../components/Sidenav" 
 import NavItem from "../../components/Navitem"
 import {Dropdown, Icon} from "rsuite"
+import "./style.css"
 
 
-
-function AssignmentPage(){
-    const{userId, isTeacher} =useContext(UserContext)
-    const[owner, setOwner] =useState(false)
-    const {assignmentid, classid} = useParams()
+function AssignmentPage() {
+    const { userId, prefix, lastName, isTeacher } = useContext(UserContext)
+    const [owner, setOwner] = useState(false)
+    const { assignmentid, classid } = useParams()
     const [formObject, setFormObject] = useState({});
     const [studentList, setStudentList] =useState([])
     const [classRoster, setClassRoster] =useState([])
@@ -24,12 +24,12 @@ function AssignmentPage(){
 
 
     useEffect(() => {
-        axios.get("/api/assignment/"+ assignmentid)
-        .then((res) =>{
-            console.log("Assignment Data:")
-            console.log(res.data)
-            setOwner(res.data.UserId===userId)
-        });
+        axios.get("/api/assignment/" + assignmentid)
+            .then((res) => {
+                console.log("Assignment Data:")
+                console.log(res.data)
+                setOwner(res.data.UserId === userId)
+            });
         axios.get("/api/students")
         .then((res) => {
             // console.log(res.data)
@@ -47,46 +47,43 @@ function AssignmentPage(){
     }, [])
 
 
-    function makeRoster(){
-        axios.get("/api/roster/"+classid)
-        .then((res) =>{
-            // console.log(res.data)
-            setClassRoster(res.data.map((item) =>item.UserId))
-        })
+    function makeRoster() {
+        axios.get("/api/roster/" + classid)
+            .then((res) => {
+                // console.log(res.data)
+                setClassRoster(res.data.map((item) => item.UserId))
+            })
     }
 
 
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setFormObject({...formObject, [name]: value})
-      };
-
-                
-      function handleFormSubmit(event){
-          event.preventDefault();
-          axios.put("/api/assignment/"+assignmentid, {
-              title: formObject.title,
-              notes: formObject.notes,
-              weight: formObject.weight
-          })
-          .then((res)=>{
-              console.log(res)
-          })
-          //insert code to update assignment here
-            }
+        setFormObject({ ...formObject, [name]: value })
+    };
 
 
-    return(
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        axios.put("/api/assignment/" + assignmentid, {
+            title: formObject.title,
+            notes: formObject.notes,
+            weight: formObject.weight
+        })
+            .then((res) => {
+                console.log(res)
+            })
+        //insert code to update assignment here
+    }
+
+
+    return (
         <>
-        <div>
-        <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
-            <h1>Hello</h1>
-            <h1>User ID is {userId}</h1>
-            <h2>assignment ID is {assignmentid} </h2>
-            <h2>class ID is {classid} </h2>
-            </Animated>
-        </div>
-        <Container>
+            <div>
+                <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
+                    <h1 id="assmtPgJumbotron">Hello, {prefix}.  {lastName}!</h1>
+                </Animated>
+            </div>
+            <Container>
 
             <Row>
             <Col size="3">
@@ -152,8 +149,67 @@ function AssignmentPage(){
                 />)}
 
                 </Col>
-            </Row>
-        </Container>
+                    {owner ?
+                        <Col size="md-4 sm-12">
+                            <div id= "addAssmtDiv">
+                            {/* <Link to="/login">
+                                <button type="button" className="btn btn-primary">Log Out</button>
+                            </Link>
+                            <Link to="/teacherdashboard">
+                                <button type="button" className="btn btn-primary">Home</button>
+                            </Link> */}
+                            <h2 className= "assmtPgHeader">Edit Assignment</h2>
+                            <form className="form-group">
+                                <Input
+                                    id= "assmtNameInput"
+                                    className= "inputField"
+                                    onChange={handleInputChange}
+                                    value={formObject.title || ""}
+                                    name="title"
+                                    placeholder="Assignment name"
+                                    // label="Assignment Name"
+                                />
+                                <Input
+                                    id= "assmtNoteInput"
+                                    className= "inputField"
+                                    onChange={handleInputChange}
+                                    value={formObject.notes || ""}
+                                    name="notes"
+                                    placeholder="Assignment notes"
+                                    // label="Notes"
+                                />
+                                <NumInput
+                                    id= "assmtWeightInput"
+                                    className= "inputField"
+                                    onChange={handleInputChange}
+                                    value={formObject.weight || ""}
+                                    name="weight"
+                                    placeholder="Final weight (must be a number)"
+                                    // label="Weight (please enter number)"
+                                />
+                                <FormBtn
+                                id= "updateAssmtBtn"
+                                    disabled={!(formObject.title)}
+                                    onClick={handleFormSubmit}
+                                >Update</FormBtn>
+                            </form>
+                            </div>
+                        </Col> : <></>}
+                    <Col size={owner ? "md-4 sm-12" : "12"}>
+                    <div id= "gradeAssmtDiv">
+                        <h2 className= "assmtPgHeader">Grades</h2>
+                        {studentList.filter(item => (classRoster.includes(item.id))).map((student) =>
+                            <GradeCard
+                                name={student.firstName + " " + student.lastName}
+                                key={student.id}
+                                StudentId={student.id}
+                                AssignmentId={assignmentid}
+                                readOnly={!owner}
+                            />)}
+</div>
+                    </Col>
+                </Row>
+            </Container>
         </>
     )
 }

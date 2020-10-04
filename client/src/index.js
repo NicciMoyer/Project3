@@ -6,8 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'rsuite/dist/styles/rsuite-default.css';
 
-// import coloredPencilsBottom from "../public/images/coloredPencilsBottom.jpg";
-
 ReactDOM.render(
   <React.StrictMode>
     <App />

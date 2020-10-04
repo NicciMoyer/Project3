@@ -1,5 +1,6 @@
 import axios from "axios";
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState} from "react";
+import "./style.css";
 
 function GradeCard(props){
 const AssignmentId=parseInt(props.AssignmentId)
@@ -87,7 +88,7 @@ function handleFormSubmit(event){
 
 
     return(
-<div className="card">
+<div className="card" id= "gradingCard">
   <div className="card-body">
     <h5 className="card-title">Student Name: {props.name}</h5>
 
@@ -115,7 +116,7 @@ function handleFormSubmit(event){
     <textarea readOnly={props.readOnly} className="form-control" name="notes" onChange={handleGradeInputChange}  defaultValue={gradeState.notes}></textarea>
     </div>
     <hr/>{props.readOnly? <></>:
-  <button type="button" onClick={handleFormSubmit} className="btn btn-success">Update</button>
+  <button type="button" id= "updateGradeBtn" onClick={handleFormSubmit} className="btn btn-success">Update</button>
   }
   </div>
 </div>

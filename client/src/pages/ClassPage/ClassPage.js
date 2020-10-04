@@ -137,7 +137,7 @@ function ClassPage() {
             <h3 id="classSubtitle">{classInfo.classTitle} {classInfo.classSubtitle}</h3>
             </Animated>
             <Row>
-                <Col size="3">
+                <Col size="md-4 sm-12">
                 <SideBar>
                 <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
                 <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
@@ -189,7 +189,7 @@ function ClassPage() {
                                     onChange={handleInputChange}
                                     value={formObject.weight || ""}
                                     name="weight"
-                                    placeholder="Final weight (must be a number)"
+                                    placeholder="Grade weight (numerical)"
                                 // label="Weight (must be a number)"
                                 />
                                 <FormBtn

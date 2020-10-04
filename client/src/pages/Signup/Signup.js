@@ -68,36 +68,36 @@ function Signup(props) {
                 id="emailInput"
                 onChange={handleInputChange}
                 name="email"
-                placeholder="email (required)"
-                label="Email Address:  "
+                placeholder="Email (required)"
+                // label="Email Address:  "
               />
               <Input className="inputField"
                 id="userNameInput"
                 onChange={handleInputChange}
                 name="userName"
-                placeholder="username"
-                label="User Name:  "
+                placeholder="Username"
+                // label="User Name:  "
               />
               <Input className="inputField"
                 id="firstNameInput"
                 onChange={handleInputChange}
                 name="firstName"
                 placeholder="First Name"
-                label="First Name:  "
+                // label="First Name:  "
               />
               <Input className="inputField"
                 id="lastNameInput"
                 onChange={handleInputChange}
                 name="lastName"
                 placeholder="Last Name"
-                label="Last Name:  "
+                // label="Last Name:  "
               />
               <Input className="inputField"
                 id="prefixInput"
                 onChange={handleInputChange}
                 name="prefix"
                 placeholder="Prefix (ex. Mr. Mrs, etc.)"
-                label="Prefix:  "
+                // label="Prefix:  "
               />
               <YesNo className="inputField"
                 id="roleSelector"
@@ -105,21 +105,21 @@ function Signup(props) {
                 option2="Teacher"
                 onChange={handleInputChange}
                 name="isTeacher"
-                label="Student or teacher?  "
+                // label="Student or teacher?  "
               />
               <PasswordInput className="inputField"
                 id="passwordInput1"
                 onChange={handleInputChange}
                 name="password"
-                placeholder="password"
-                label="Enter a password:  "
+                placeholder="Password"
+                // label="Enter a password:  "
               />
               <PasswordInput className="inputField"
                 id="passwordInput2"
                 onChange={handleInputChange}
                 name="password2"
-                placeholder="enter password again"
-                label="Enter password again:  "
+                placeholder="Enter password again"
+                // label="Enter password again:  "
               />
 
 

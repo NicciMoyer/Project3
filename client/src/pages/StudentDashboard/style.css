@@ -13,6 +13,15 @@
     margin-top: 1em;
 }
 
+.studentPgCol{
+    background-color: rgba(52,52, 52, 0.1);
+    border-radius: 0.3em;
+    outline: black;
+    outline-width: 1px;
+    width: auto;
+    margin-bottom: 3em;
+}
+
 #classColHeader{
     font-family: 'Galindo', cursive;
     text-align: center;

@@ -7,8 +7,9 @@ import ClassCard from "../../components/ClassCard";
 import { Link } from "react-router-dom";
 import { Animated } from "react-animated-css"
 import "./style.css";
-import NavItem from "../../components/Navitem"
-import SideBar from "../../components/Sidenav" 
+import {Dropdown, Icon} from "rsuite";
+import NavItem from "../../components/Navitem";
+import SideBar from "../../components/Sidenav"; 
 
 
 function TeacherDashboard() {
@@ -54,12 +55,20 @@ function TeacherDashboard() {
           <h1 id="teacherLandingJumbotron">Hello, {prefix}.  {lastName}!</h1>
         </Animated>
         <Row>
-          <Col size="md-4 sm-12">
-        <SideBar>
-        <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
-        <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
-        </SideBar>
-        </Col>
+        <Col size="md-4 sm-12">
+                <SideBar>
+                <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
+                <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
+                <Dropdown eventKey="3" title="Classes" icon={<Icon icon="magic" />}>
+                    {classList.map(item =>(
+                      <Link to={"/classes/" + item.id} key={item.id}>
+                      <Dropdown.Item  eventKey={"3-"+item.id}>{item.title}</Dropdown.Item>
+                      </Link>   
+                    ))}
+                </Dropdown> 
+                </SideBar> 
+
+                </Col>
           <Col size="md-4 sm-12" >
             <div id= "createClassDiv">
             <h2 className= "teacherHeader" id= "createClassHeader">Create a New Class</h2>
