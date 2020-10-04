@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background:  url("./../src/coloredPencilsBottom.jpg") no-repeat center/cover;
+  display: block;
+ 
 
 }
 
