@@ -8,6 +8,7 @@ import AssignmentCard from "../../components/AssignmentCard";
 import "./style.css"
 import SideBar from "../../components/Sidenav" 
 import NavItem from "../../components/Navitem"
+import {Dropdown, Icon} from "rsuite"
 
 
 import { Animated } from "react-animated-css"
@@ -22,9 +23,11 @@ function ClassPage() {
     const [dropdown, setDropdown] = useState("")
     const [formObject, setFormObject] = useState({});
     const [assignmentList, setAssignmentList] = useState([])
+    const [classList, setClassList] = useState([])
 
 
     useEffect(() => {
+
         axios.get("/api/class/" + id)
             .then((res) => {
                 setClassInfo({ classTitle: res.data.title, classSubtitle: res.data.subtitle })
@@ -40,7 +43,12 @@ function ClassPage() {
                 console.log(res.data)
                 setAssignmentList(res.data)
             })
-    }, [])
+        axios.get("/api/teacherclass/" + userId)
+        .then((res) => {
+            console.log(res)
+            setClassList(res.data)
+        })
+    }, [id])
 
     function addStudent(event) {
         event.preventDefault();
@@ -128,6 +136,13 @@ function ClassPage() {
                 <SideBar>
                 <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
                 <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
+                <Dropdown eventKey="3" title="Classes" icon={<Icon icon="magic" />}>
+                    {classList.map(item =>(
+                      <Link to={"/classes/" + item.id} key={item.id}>
+                      <Dropdown.Item  eventKey={"3-"+item.id}>{item.title}</Dropdown.Item>
+                      </Link>   
+                    ))}
+                </Dropdown> 
                 </SideBar> 
 
                 </Col>
