@@ -1,15 +1,16 @@
 #classList{
-    background-color: rgba(52,52, 52,0.0);
-    
+    background-color: rgba(52,52, 52, 0.0);
+    outline: none;
     
 }
 
 #className{
-    font-family: 'Galindo', cursive;
+    /* font-family: 'Galindo', cursive; */
     text-align: center;
+    font-size: 2em;
 }
 
 #classDesc{
-    font-family: 'Galindo', cursive;
+    /* font-family: 'Galindo', cursive; */
     text-align: center;
 }

@@ -1,7 +1,8 @@
-#navBody{
- 
-}
-
-.navLink{
-   
+#navDiv{
+    background-color: rgba(52,52, 52, 0.0);
+    border-radius: 0.3em;
+    outline: black;
+    outline-width: 1px;
+    width: auto;
+    margin-bottom: 3em;
 }

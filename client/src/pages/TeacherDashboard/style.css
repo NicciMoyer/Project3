@@ -13,15 +13,14 @@
     margin-top: 1em;
 }
 
-#createClassCol{
+#createClassDiv{
     background-color: rgba(52,52, 52, 0.1);
     border-radius: 0.3em;
     outline: black;
     outline-width: 1px;
-    margin-top: -1em;
-    margin-bottom: -1em;
-    margin-left: -1em;
-    margin-right: -1em;
+    width: auto;
+    /* margin-left: 5em; */
+   
 }
 
 .teacherHeader{
@@ -44,8 +43,12 @@
     justify-content: center; */
 }
 
+/* #showClassHeader{
+
+} */
+
 #classNameInput{
-    width: 25em;
+   width: max-content;
     height: 1em;
     padding: 1em;
     background-color: white; 
@@ -55,7 +58,7 @@
 }
 
 #classSubtitleInput{
-    width: 25em;
+    width: max-content;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -64,8 +67,15 @@
 }
 
 #classCard{
-    background-color: rgba(52,52, 52,0.1);
+    background-color: rgba(52,52, 52, 0.1);
     list-style-type: none;
     margin-bottom: 1em;
+    width: inherit;
+    height: auto;
+    
    
+}
+
+#showClassCol{
+ 
 }

@@ -37,25 +37,26 @@
     
 }
 
-/* #assmtCol{
+#assmtCol{
   
-} */
+} 
+
+#assignmentCard{
+    background-color: rgba(52,52, 52, 0.1);
+    outline: none;
+    margin-bottom: 3em; 
+}
 
 #addAssmtDiv{
     background-color: rgba(52,52, 52, 0.1);
     border-radius: 0.3em;
     outline: black;
     outline-width: 1px;
-}
-
-#assignmentCard{
-    background-color: rgba(52,52, 52, 0.1);
-    outline: none;
-    margin-bottom: 3em;
+    padding-bottom: 0em;
 }
 
 #assmtNameInput{
-    width: 25em;
+    width: inherit;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -65,7 +66,7 @@
 }
 
 #assmtNoteInput{
-    width: 25em;
+    width: inherit;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -75,7 +76,7 @@
 }
 
 #assmtWeightNum{
-    width: 25em;
+    width: inherit;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -115,7 +116,7 @@
 }
 
 #studentDropdown{
-    width: 22em;
+    width: initial;
     height: 1em;
     padding: 1em;
     background-color: white;

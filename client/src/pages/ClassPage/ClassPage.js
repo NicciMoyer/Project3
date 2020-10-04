@@ -5,8 +5,10 @@ import { Container, Col, Row } from "../../components/Grid";
 import UserContext from "../../contexts/UserContext";
 import { FormBtn, Input, NumInput } from "../../components/Form";
 import AssignmentCard from "../../components/AssignmentCard";
-import "./style.css"
-import { Animated } from "react-animated-css"
+import "./style.css";
+import { Animated } from "react-animated-css";
+import SideBar from "../../components/Sidenav/index"; 
+import NavItem from "../../components/Navitem/index"
 
 function ClassPage() {
     const { userId, isTeacher, prefix, lastName } = useContext(UserContext)
@@ -118,8 +120,14 @@ function ClassPage() {
             <h3 id="classSubtitle">{classInfo.classTitle} {classInfo.classSubtitle}</h3>
             </Animated>
             <Row>
+                <Col size="3">
+                <SideBar>
+        <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
+        <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
+        </SideBar>
+                </Col>
                 {owner ?
-                    <Col size="md-4 sm-9" >
+                    <Col size="lg-4 md-9" >
                         <div className="classCard" id="assignmentCard">
                             <h2 className="classHeader">Assignments</h2>
                             {assignmentList.map((assignment) => (
@@ -167,7 +175,7 @@ function ClassPage() {
                             </form>
                         </div>
                     </Col> : <></>}
-                <Col size={owner ? "md-4 sm-12" : "md-6 sm-9"} >
+                <Col size={owner ? "lg-4 md-12" : "lg-6 md-9"} >
                     <div className="classCard" id="showStudentCard">
                         <h2 className="classHeader">Students</h2>
                         {studentList.filter(item => (classRoster.includes(item.id))).map((student) =>

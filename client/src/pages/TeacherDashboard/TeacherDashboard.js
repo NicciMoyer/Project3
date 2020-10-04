@@ -7,7 +7,9 @@ import ClassCard from "../../components/ClassCard";
 import { Link } from "react-router-dom";
 import { Animated } from "react-animated-css"
 import "./style.css";
-import SideBar from "../../components/Sidenav"
+import NavItem from "../../components/Navitem"
+import SideBar from "../../components/Sidenav" 
+
 
 function TeacherDashboard() {
   const { userId, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
@@ -46,19 +48,22 @@ function TeacherDashboard() {
       })
   }
   return (
-    <Container >
-      <>
+    <>
+      <Container >
         <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
           <h1 id="teacherLandingJumbotron">Hello, {prefix}.  {lastName}!</h1>
         </Animated>
         <Row>
-          <Col size="4">
-            <SideBar />
-          </Col>
-          <Col size="md-4 sm-8">
-            <div id="createClassCol">
-              <h2 id="createClassHeader">Create a New Class</h2>
-              {/* <form> */}
+          <Col size="md-4 sm-12">
+        <SideBar>
+        <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
+        <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
+        </SideBar>
+        </Col>
+          <Col size="md-4 sm-12" >
+            <div id= "createClassDiv">
+            <h2 className= "teacherHeader" id= "createClassHeader">Create a New Class</h2>
+            <form>
               <InputClear
                 id="classNameInput"
                 className="inputField"
@@ -84,21 +89,22 @@ function TeacherDashboard() {
               >Create Class
                 </FormBtn>
               {/* </form> */}
+            </form>
             </div>
           </Col>
-          <Col size="md-4 sm-8" id="showClassCol">
+          <Col size="md-4 sm-12"  id="showClassCol">
             <div id="classCard">
-              <h2 id="showClassHeader">My Classes</h2>
+              <h2 className= "teacherHeader" id="showClassHeader">My Classes</h2>
               {classList.map((item) => (
                 <Link to={"/classes/" + item.id} key={item.id}>
                   <ClassCard title={item.title} subtitle={item.subtitle} key={item.id} />
                 </Link>
-              ))}
+            ))}
             </div>
           </Col>
-        </Row>
-      </>
+          </Row>
     </Container >
+      </>
 
   )
 }
