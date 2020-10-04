@@ -6,12 +6,12 @@ import UserContext from "../../contexts/UserContext";
 import { FormBtn, Input, NumInput } from "../../components/Form";
 import AssignmentCard from "../../components/AssignmentCard";
 import "./style.css"
-<<<<<<< HEAD
 import SideBar from "../../components/Sidenav" 
+import NavItem from "../../components/Navitem"
+import {Dropdown, Icon} from "rsuite"
 
-=======
+
 import { Animated } from "react-animated-css"
->>>>>>> master
 
 function ClassPage() {
     const { userId, isTeacher, prefix, lastName } = useContext(UserContext)
@@ -23,9 +23,11 @@ function ClassPage() {
     const [dropdown, setDropdown] = useState("")
     const [formObject, setFormObject] = useState({});
     const [assignmentList, setAssignmentList] = useState([])
+    const [classList, setClassList] = useState([])
 
 
     useEffect(() => {
+
         axios.get("/api/class/" + id)
             .then((res) => {
                 setClassInfo({ classTitle: res.data.title, classSubtitle: res.data.subtitle })
@@ -41,11 +43,17 @@ function ClassPage() {
                 console.log(res.data)
                 setAssignmentList(res.data)
             })
-    }, [])
+        axios.get("/api/teacherclass/" + userId)
+        .then((res) => {
+            console.log(res)
+            setClassList(res.data)
+        })
+    }, [id])
 
     function addStudent(event) {
         event.preventDefault();
         let newId = ""
+        console.log(dropdown)
         if (!dropdown) {
             const firstItem = studentList.filter(item => (!classRoster.includes(item.id)))
             if (firstItem[0].id) {
@@ -61,8 +69,9 @@ function ClassPage() {
                 ClassId: id
             })
             .then((res) => {
-
-                setClassRoster([...classRoster, newId])
+                console.log("ok")
+                setClassRoster([...classRoster, parseInt(newId)])
+                setDropdown("")
             })
             .catch(err => {
                 console.log(err)
@@ -124,7 +133,18 @@ function ClassPage() {
             </Animated>
             <Row>
                 <Col size="3">
-                    <SideBar/>
+                <SideBar>
+                <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
+                <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
+                <Dropdown eventKey="3" title="Classes" icon={<Icon icon="magic" />}>
+                    {classList.map(item =>(
+                      <Link to={"/classes/" + item.id} key={item.id}>
+                      <Dropdown.Item  eventKey={"3-"+item.id}>{item.title}</Dropdown.Item>
+                      </Link>   
+                    ))}
+                </Dropdown> 
+                </SideBar> 
+
                 </Col>
                 {owner ?
                     <Col size="md-4 sm-9" >
