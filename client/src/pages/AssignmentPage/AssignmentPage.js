@@ -1,12 +1,12 @@
-import React , {useState, useEffect, useContext} from "react"
-import {useParams, Link } from "react-router-dom"
-import axios from "axios"
-import { Container, Col , Row} from "../components/Grid";
-import UserContext from "../contexts/UserContext";
-import {FormBtn, Input, NumInput} from "../components/Form";
-import GradeCard from "../components/GradeCard"
-import { Animated } from "react-animated-css"
-
+import React , {useState, useEffect, useContext} from "react";
+import {useParams, Link } from "react-router-dom";
+import axios from "axios";
+import { Container, Col , Row} from "../../components/Grid";
+import UserContext from "../../contexts/UserContext";
+import {FormBtn, Input, NumInput} from "../../components/Form";
+import GradeCard from "../../components/GradeCard";
+import { Animated } from "react-animated-css";
+import "./style.css";
 
 function AssignmentPage(){
     const{userId, isTeacher} =useContext(UserContext)

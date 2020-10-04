@@ -7,7 +7,7 @@ import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import UserContext from "./contexts/UserContext";
 import ClassPage from "./pages/ClassPage/ClassPage";
-import AssignmentPage from "./pages/AssignmentPage";
+import AssignmentPage from "./pages/AssignmentPage/AssignmentPage";
 import PrivateRoute from "./components/PrivateRoute";
 import 'rsuite/lib/styles/index.less';
 
