@@ -33,22 +33,27 @@ function ClassPage() {
                 setClassInfo({ classTitle: res.data.title, classSubtitle: res.data.subtitle })
                 setOwner(res.data.UserId === userId)
             })
-        axios.get("/api/students")
-            .then((res) => {
-                setStudentList(res.data)
-                makeRoster()
-            })
+
         axios.get("/api/assignments/" + id)
             .then((res) => {
                 console.log(res.data)
                 setAssignmentList(res.data)
             })
+
+    }, [id])
+
+    useEffect(() => {
+        axios.get("/api/students")
+        .then((res) => {
+            setStudentList(res.data)
+            makeRoster()
+        })
         axios.get("/api/teacherclass/" + userId)
         .then((res) => {
             console.log(res)
             setClassList(res.data)
         })
-    }, [id])
+    }, [])
 
     function addStudent(event) {
         event.preventDefault();
