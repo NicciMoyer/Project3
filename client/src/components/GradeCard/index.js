@@ -39,7 +39,7 @@ useEffect(() => {
     }))
   }
   })
-},[])
+},[AssignmentId])
 
 
 function handleGradeInputChange(event){
