@@ -45,7 +45,11 @@ function ClassPage() {
     useEffect(() => {
         axios.get("/api/students")
         .then((res) => {
-            setStudentList(res.data)
+            const stuList=res.data
+            stuList.sort((a,b)=> {
+                return a.lastName > b.lastName ? 1 : -1
+            })
+            setStudentList(stuList)
             makeRoster()
         })
         axios.get("/api/teacherclass/" + userId)
