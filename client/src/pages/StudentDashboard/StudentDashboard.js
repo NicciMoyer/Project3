@@ -39,13 +39,13 @@ function StudentDashboard() {
                                 if (classId === 0) {
                                     classId = current.Assignment.Class.id
                                 }
-                                if (teacher === "") {
+                                if (teacher === "" && item.id === current.Assignment.Class.id) {
                                     if (current.Assignment.User.prefix !== null) {
                                         teacher += current.Assignment.User.prefix + " "
                                     }
                                     teacher += current.Assignment.User.lastName
                                 }
-                                if (item.title === current.Assignment.Class.title && current.status === "Complete") {
+                                if (item.id === current.Assignment.Class.id && current.status === "Complete") {
                                     gradeSum += current.score * current.Assignment.weight
                                     weightSum += current.Assignment.weight * 100
                                 }
