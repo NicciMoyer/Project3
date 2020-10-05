@@ -49,7 +49,7 @@ function ClassPage() {
             stuList.sort((a,b)=> {
                 return a.lastName > b.lastName ? 1 : -1
             })
-            setStudentList(res.data)
+            setStudentList(stuList)
             makeRoster()
         })
         axios.get("/api/teacherclass/" + userId)

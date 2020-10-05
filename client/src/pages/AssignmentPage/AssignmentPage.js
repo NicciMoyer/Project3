@@ -32,8 +32,11 @@ function AssignmentPage() {
             });
         axios.get("/api/students")
         .then((res) => {
-            // console.log(res.data)
-            setStudentList(res.data)
+            const stuList=res.data
+            stuList.sort((a,b)=> {
+                return a.lastName > b.lastName ? 1 : -1
+            })
+            setStudentList(stuList)
         })
         .then(makeRoster())
     },[assignmentid])
