@@ -32,6 +32,12 @@
     font-size: 1em;
 }
 
+.classDropdown{
+    background-color: rgba(52,52, 52, 0.1);
+    width: inherit;
+    opacity: 0.7;
+}
+
 #createClassDiv{
     background-color: rgba(52,52, 52, 0.1);
     border-radius: 0.3em;
