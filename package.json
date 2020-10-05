@@ -4,6 +4,7 @@
   "main": "server.js",
   "private": true,
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -11,12 +12,12 @@
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "if-env": "^1.0.4",
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "rsuite": "^4.8.2",
-    "sequelize": "^6.3.5",
-    "if-env": "^1.0.4"
+    "sequelize": "^6.3.5"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",

@@ -133,6 +133,7 @@ function ClassPage() {
     return (
         <Container>
             <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
+            <h1 id="classLogo">School<i class="icon-content rs-icon rs-icon-wrench" id= "wrench"></i>Box</h1>
             <h1 id="classJumbotron">Hello, {prefix} {lastName}!</h1>
             <h3 id="classSubtitle">{classInfo.classTitle} {classInfo.classSubtitle}</h3>
             </Animated>

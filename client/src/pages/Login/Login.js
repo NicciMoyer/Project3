@@ -1,17 +1,17 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Input, PasswordInput, FormBtn } from "../../components/Form";
 import { Link, Redirect } from "react-router-dom";
-import { Container } from "../../components/Grid";
+import { Container, Row, Col } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import axios from "axios";
 import UserContext from "../../contexts/UserContext";
 import "./style.css";
 import { Animated } from "react-animated-css";
+import { Icon } from 'rsuite';
 
 
 function Login(props) {
   const { id, prefix, firstName, lastName, userName, isTeacher } = useContext(UserContext)
-
   const [formObject, setFormObject] = useState({});
   const [errState, setErrState] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false)
@@ -55,9 +55,23 @@ function Login(props) {
         <>
           <Jumbotron >
             <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
+              <h1 id= "logInLogo">School<i class="icon-content rs-icon rs-icon-wrench" id= "wrench"></i>Box</h1>
               <h1 id="logInJumbotron">Login or <Link to="/">Sign Up</Link></h1>
             </Animated>
           </Jumbotron>
+          <Row>
+          <Col size="md-5 sm-12" >
+          <div>
+         
+        
+              <FormBtn id="logInButton"
+                disabled={!(formObject.email && formObject.password)}
+                onClick={handleFormSubmit}
+              >Log In</FormBtn>
+           
+          </div>
+          </Col>
+          <Col size="md-5 sm-12" >
           <div>
 
             <form id="logInForm">
@@ -77,14 +91,11 @@ function Login(props) {
               />
               </form>
               </div>
-            <div>
-              <FormBtn id="signUpButton"
-                disabled={!(formObject.email && formObject.password)}
-                onClick={handleFormSubmit}
-              >Log In</FormBtn>
-            
-          </div>
-          <div className="errorBox">{errState}</div></>}
+           
+          <div className="errorBox">{errState}</div>
+          </Col>
+          </Row>
+          </>}
     </Container>
   )
 
