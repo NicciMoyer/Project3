@@ -7,12 +7,39 @@
 		-1px 1px 0 #000,
         1px 1px 0 #000;
     font-family: 'Galindo', cursive;
-    font-size: 5em;
+    font-size: 3em;
+    align-items: center;
 }
 
+#signUpLogo{
+   
+    color: red; 
+    text-align: center;
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+         -1px 1px 0 #000,
+         1px 1px 0 #000;
+    font-family: 'Galindo', cursive;
+    font-size: 6em;
+    opacity: 0.9;
+    margin-bottom: 0.5em; 
+    margin-top: 0.5em;
+    align-items: center;
+}
+
+#wrench{
+    font-size: 1em;
+}
+
+#signUpButtonCol{
+    align-items: center;
+    opacity: 0.7;
+}
+
+
 #signUpForm{
-    justify-items: left;
-    margin-left: 10em;
+    align-items: center;
 }
 
 .inputField{
@@ -21,7 +48,7 @@
 }
 
 #emailInput{
-    width: 20em;
+    width: 23em;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -31,7 +58,7 @@
 }
 
 #userNameInput{
-    width: 20em;
+    width: 23em;
     height: 1em;
     padding: 1em;
     background-color: white; 
@@ -40,7 +67,7 @@
 }
 
 #firstNameInput{
-    width: 20em;
+    width: 23em;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -49,7 +76,7 @@
 }
 
 #lastNameInput{
-    width: 20em;
+    width: 23em;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -58,7 +85,7 @@
 }
 
 #prefixInput{
-    width: 20em;
+    width: 23em;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -67,16 +94,15 @@
 }
 
 #roleSelector{
-    width: 20em;
+    width: 23em;
     height: 2.2em;
-    /* padding: 1em; */
     background-color: white;
     box-shadow:inset 0 0 1em purple;
     border-radius: 0.3em;
 }
 
 #passwordInput1{
-    width: 20em;
+    width: 23em;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -85,7 +111,7 @@
 }
 
 #passwordInput2{
-    width: 20em;
+    width: 23em;
     height: 1em;
     padding: 1em;
     background-color: white;
@@ -94,11 +120,10 @@
 }
 
 #signUpButton{
-    width: 10em;
-    height: 5em;
-    font-family: 'Galindo', cursive;
-    margin-right: 15em; 
-    
+    width: 8em;
+    height: 4em;
+    opacity: 0.9;
+    justify-items: left;
 }
 
 

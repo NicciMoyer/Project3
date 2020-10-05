@@ -1,3 +1,19 @@
+#logInLogo{
+    color: red; 
+    text-align: center;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+        1px 1px 0 #000;
+    font-family: 'Galindo', cursive;
+    font-size: 6em;
+    opacity: 0.9;
+    margin-bottom: 0.5em; 
+    margin-top: 0.5em;
+    justify-content: center;
+}
+
 #logInJumbotron{
     color: red; 
     text-align: center;
@@ -7,19 +23,22 @@
 		-1px 1px 0 #000,
         1px 1px 0 #000;
     font-family: 'Galindo', cursive;
-    font-size: 5em;
+    font-size: 3em;
+
 }
+
+#wrench{
+    font-size: 1em;
+}
+
 
 #logInForm{
     justify-items: left;
-    margin-left: 10em;
-   
 }
 
 .inputField{
     display: flex;
     align-items: center;
-   
 }
 
 #emailInputLogin{
@@ -40,14 +59,15 @@
     box-shadow:inset 0 0 1em yellow;
     border-radius: 0.3em;
     margin-bottom: 3em;
+    
 }
 
 #logInButton{
-    width: 10em;
-    height: 5em;
-    font-family: 'Galindo', cursive;
-    margin-right: 15em; 
-    opacity: 0.2;
+    width: 8em;
+    height: 4em;
+    opacity: 0.7;
+    justify-items: left;
+
 }
 
 

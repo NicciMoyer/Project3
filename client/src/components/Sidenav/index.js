@@ -10,7 +10,7 @@ function SideBar({ children }) {
         <Sidenav id="navDiv" defaultOpenKeys={['3', '4']} activeKey="1">
             <div >
                 <Sidenav.Body >
-                    <Nav> Destinations
+                    <Nav> 
                         {children}
                     </Nav>
                 </Sidenav.Body>

@@ -10,7 +10,6 @@ function NavItem(props) {
         <Nav.Item id="navLi" eventKey={props.eventkey} icon={<Icon icon={props.icon} />} href={props.path} className="navLink">
             <div >
                 {props.navtext}
-
             </div>
         </Nav.Item>
     )
