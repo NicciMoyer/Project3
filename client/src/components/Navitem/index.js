@@ -11,7 +11,6 @@ function NavItem(props) {
         <Nav.Item id="navLi" eventKey={props.eventkey} icon={<Icon icon={props.icon} />} className="navLink">
             <div >
                 {props.navtext}
-
             </div>
         </Nav.Item>
         </Link>

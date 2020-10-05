@@ -52,6 +52,7 @@ function TeacherDashboard() {
     <>
       <Container >
         <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
+        <h1 id= "teacherDashLogo">School<i class="icon-content rs-icon rs-icon-wrench" id= "wrench"></i>Box</h1>
           <h1 id="teacherLandingJumbotron">Hello, {prefix}.  {lastName}!</h1>
         </Animated>
         <Row>

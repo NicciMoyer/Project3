@@ -5,9 +5,9 @@ function AssignmentCard(props){
     return(
 <div className="card" id= "assmtList">
   <div className="card-body">
-    <h5 className="card-title">{props.title}</h5>
-    <h6 className="card-subtitle">{props.notes}</h6>
-    <h6 className="card-subtitle">Weight: {props.weight}</h6>
+    <h5 className="card-title" id= "cardTitle">{props.title}</h5>
+    <h6 className="card-subtitle" id= "cardTitle">{props.notes}</h6>
+    <h6 className="card-subtitle" id= "cardTitle">Weight: {props.weight}</h6>
   </div>
 </div>
     )

@@ -93,8 +93,8 @@ function handleFormSubmit(event){
     <h5 className="card-title">Student Name: {props.name}</h5>
 
     <div className="form">
-    <label >Status</label>
-    <select className="form" name="status" disabled={props.readOnly} onChange={handleGradeInputChange} placeholder={gradeState.status}>
+    <label >Status: </label>
+    <select className="form assignDrop" name="status" disabled={props.readOnly} onChange={handleGradeInputChange} placeholder={gradeState.status}>
       <option>Assigned</option>
       <option>Incomplete</option>
       <option>Complete</option>

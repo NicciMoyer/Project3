@@ -66,6 +66,7 @@ function StudentDashboard() {
     return (
         <Container>
             <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
+                <h1 id= "studentLandLogo">School<i class="icon-content rs-icon rs-icon-wrench" id= "wrench"></i>Box</h1>
                 <h2 id="studentLandHeader">Hi {firstName}!</h2>
             </Animated>
             <Row>

@@ -80,38 +80,32 @@ function AssignmentPage() {
         <>
             <div>
                 <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
+                <h1 id= "assmtLogo">School<i class="icon-content rs-icon rs-icon-wrench" id= "wrench"></i>Box</h1>
                     <h1 id="assmtPgJumbotron">Hello, {prefix}.  {lastName}!</h1>
                 </Animated>
             </div>
             <Container>
 
             <Row>
-            <Col size="3">
+            <Col size="md-4 sm-12">
                 <SideBar>
                 <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
                 <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
-                <Dropdown eventKey="3" title="Classes" icon={<Icon icon="magic" />}>
+                <Dropdown className= "navLi" eventKey="3" title="Classes" icon={<Icon icon="magic" />}>
                     {assignmentList.map(item =>(
-                      <a href={"/classes/"+item.id}>
-                          <li className="rs-dropdown-item">
-                              <div className="rs-dropdown-item-content" tabindex="-1">{item.title}</div>
-                              </li>
-                        </a>  
+                      <Link to={"/assignments/" + item.id + "/" + classid} key={item.id}>
+                      <Dropdown.Item  eventKey={"3-"+item.id}>{item.title}</Dropdown.Item>
+                      </Link>   
                     ))}
                 </Dropdown> 
                 </SideBar> 
 
                 </Col>
-
+                
                     {owner ?
                         <Col size="md-4 sm-12">
                             <div id= "addAssmtDiv">
-                            {/* <Link to="/login">
-                                <button type="button" className="btn btn-primary">Log Out</button>
-                            </Link>
-                            <Link to="/teacherdashboard">
-                                <button type="button" className="btn btn-primary">Home</button>
-                            </Link> */}
+                           
                             <h2 className= "assmtPgHeader">Edit Assignment</h2>
                             <form className="form-group">
                                 <Input
