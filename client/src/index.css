@@ -10,7 +10,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   margin: 0;
-  
+  background-attachment: fixed;
   height: 100% !important;
 }
 

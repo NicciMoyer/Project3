@@ -33,7 +33,7 @@ function StudentGradeCard(props) {
 
     return (
         <div className="card" >
-            <div className="card-body">
+            <div className="card-body" id= "studentGradeCard">
                 <p className="gradeLi">Class: {props.classTitle}</p>
                 <p className="gradeLi">Teacher: {props.teacher}</p>
                 <p className="gradeLi">Assignment: {props.assignmentName}</p>

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import StudentClassCard from "../../components/StudentClassCard";
 import StudentGradeCard from "../../components/StudentGradesCard";
 import NavItem from "../../components/Navitem";
-import SideBar from "../../components/Sidenav"; 
+import SideBar from "../../components/Sidenav";
 import "./style.css";
 import { Animated } from "react-animated-css";
 
@@ -66,20 +66,21 @@ function StudentDashboard() {
 
 
     return (
+        
         <Container>
             <Animated animationIn="bounceInDown" animationOut="fadeOut" isVisible={true}>
-                <h1 id= "studentLandLogo">School<i class="icon-content rs-icon rs-icon-wrench" id= "wrench"></i>Box</h1>
+                <h1 id="studentLandLogo">School<i class="icon-content rs-icon rs-icon-wrench" id="wrench"></i>Box</h1>
                 <h2 id="studentLandHeader">Hi {firstName}!</h2>
             </Animated>
             <Row>
-            <Col size="md-4 sm-12">
-        <SideBar>
-       
-        <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
-        </SideBar>
-        </Col>
+                <Col size="md-4 sm-12">
+                    <SideBar>
+
+                        <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"} />
+                    </SideBar>
+                </Col>
                 <Col size="md-4 sm-12" id="classCol">
-                    <div className= "studentPgCol">
+                    <div className="studentPgCol">
                         <h2 id="classColHeader">My Classes</h2>
                         {classList.map((item) => (
                             <>
@@ -90,15 +91,16 @@ function StudentDashboard() {
                     </div>
                 </Col>
                 <Col size="md-4 sm-12" id="gradesCol">
-                    <div className= "studentPgCol">
+                    <div className="studentPgCol">
                         <h2 id="assmtColHeader">My Grades</h2>
                         {filteredGradeList.map((item) => (
                             <>
-                                <StudentGradeCard classTitle={item.Assignment.Class.title}
-                                    teacher={item.Assignment.User.firstName + " " + item.Assignment.User.lastName}
-                                    assignmentName={item.Assignment.title}
-                                    score={item.score} notes={item.notes} status={item.status} />
-
+                                <div id="studentGradeCard">
+                                    <StudentGradeCard X classTitle={item.Assignment.Class.title}
+                                        teacher={item.Assignment.User.firstName + " " + item.Assignment.User.lastName}
+                                        assignmentName={item.Assignment.title}
+                                        score={item.score} notes={item.notes} status={item.status} />
+                                </div>
                             </>
                         ))}
                     </div>
