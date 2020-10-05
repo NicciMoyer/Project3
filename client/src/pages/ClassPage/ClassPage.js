@@ -9,8 +9,6 @@ import "./style.css"
 import SideBar from "../../components/Sidenav" 
 import NavItem from "../../components/Navitem"
 import {Dropdown, Icon} from "rsuite"
-
-
 import { Animated } from "react-animated-css"
 
 function ClassPage() {
