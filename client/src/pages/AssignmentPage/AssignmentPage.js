@@ -102,55 +102,7 @@ function AssignmentPage() {
                 </SideBar> 
 
                 </Col>
-                {owner? 
-            <Col size="md-4 sm-12">
-            <Link to="/login">
-                <button type="button" className="btn btn-primary">Log Out</button>
-                </Link>
-                <Link to="/teacherdashboard">
-                <button type="button" className="btn btn-primary">Home</button>
-                </Link>
-                <h2>Edit Assignment</h2>
-                <form className="form-group">
-                <Input
-                onChange={handleInputChange}
-                value={formObject.title || ""}
-                name="title"
-                placeholder="Assignment Name"
-                label="Assignment Name"
-                />
-                <Input
-                onChange={handleInputChange}
-                value={formObject.notes || ""}
-                name="notes"
-                placeholder="assignment notes"
-                label="Notes"
-                />
-                <NumInput
-                onChange={handleInputChange}
-                value={formObject.weight || ""}
-                name="weight"
-                placeholder="Weight in final grade"
-                label="Weight (please enter number)"
-                />
-                <FormBtn
-                    disabled={!(formObject.title)}
-                    onClick={handleFormSubmit}
-                >Update</FormBtn>
-                </form>  
-                </Col>: <></>}
-                <Col size={owner? "md-4 sm-12" : "9"}>
-                <h2>Grades</h2>
-                {studentList.filter(item => (classRoster.includes(item.id))).map((student) => 
-                <GradeCard 
-                name={student.firstName + " " + student.lastName} 
-                key={student.id}
-                StudentId={student.id}
-                AssignmentId={assignmentid}
-                readOnly={!owner}
-                />)}
 
-                </Col>
                     {owner ?
                         <Col size="md-4 sm-12">
                             <div id= "addAssmtDiv">
