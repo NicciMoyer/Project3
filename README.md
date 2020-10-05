@@ -1,3 +1,17 @@
+# School Box
+
+## This is an application which organized clases for students and teachers. Teachers can add classes and assignments, and add notes and update grades, while students can view a summary of their grades for each class and their grades for individual assignments.
+
+
+## contact-info: 
+email: 
+abtobey@gmail.com
+niccihendrix@yahoo.com
+
+github: 
+abtobey
+NicciMoyer
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
