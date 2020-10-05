@@ -21,12 +21,14 @@ function StudentDashboard() {
         let classItem = []
         axios.get("/api/classnames/" + userId)
             .then((res) => {
-                console.log(res.data.map(item => item.Class))
                 classItem = (res.data.map(item => item.Class))
+                console.log("Class Item")
+                console.log(classItem)
             })
             .then(
                 axios.get("/api/assignmentdata/" + userId)
                     .then((res) => {
+                        console.log(res.data)
                         setGradeList(res.data)
                         setFilteredGradeList(res.data)
                         let classSummary = classItem.map(item => {
@@ -39,13 +41,13 @@ function StudentDashboard() {
                                 if (classId === 0) {
                                     classId = current.Assignment.Class.id
                                 }
-                                if (teacher === "") {
+                                if (teacher === "" && item.id === current.Assignment.Class.id) {
                                     if (current.Assignment.User.prefix !== null) {
                                         teacher += current.Assignment.User.prefix + " "
                                     }
                                     teacher += current.Assignment.User.lastName
                                 }
-                                if (item.title === current.Assignment.Class.title && current.status === "Complete") {
+                                if (item.id === current.Assignment.Class.id && current.status === "Complete") {
                                     gradeSum += current.score * current.Assignment.weight
                                     weightSum += current.Assignment.weight * 100
                                 }
