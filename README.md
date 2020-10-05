@@ -6,6 +6,26 @@
 
 Create an account as a student or a teacher using the signup page. A student account is read-only, you will see a dashboard displaying your classes and grades. A teacher account will have the ability to create new classes, create new assignments and add/edit grades. 
 
+Teacher:
+
+Upon logging in, you will be directed to the teacher dashboard.
+
+![teacherdashboard](https://user-images.githubusercontent.com/65990371/95107226-3de86680-06ff-11eb-9025-393ef3577ff1.PNG)
+
+Use the form in the middle to create a new class or click the cards on the right to view existing classes.
+
+Clicking these will take you to a class page.
+
+![classpage](https://user-images.githubusercontent.com/65990371/95107449-899b1000-06ff-11eb-95fc-bb630b593fdc.PNG)
+
+The navigation bar on the left can take you to your other classes pages. The middle column displays your existing assignments and contains a form to add a new assignment. On the right, your students are listed and the dropdown contains all students not in the class. Students can be added with the Add Student button. 
+
+Click on the assignments to navigate to the assignment pages.
+
+![assignmentpage](https://user-images.githubusercontent.com/65990371/95107695-df6fb800-06ff-11eb-9c2e-71eb4649ec40.PNG)
+
+The nav bar on the left has all assignments for the selected class. The form in the middle can be used to edit the assignment details, and the forms on the right can be used to edit grades. If grades have already been submitted, they will show the current grades, otherwise they will show assigned for the status, 0 for the grade and the notes will be blank.
+
 
 
 ## contact-info: 
