@@ -92,9 +92,11 @@ function AssignmentPage() {
                 <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
                 <Dropdown eventKey="3" title="Classes" icon={<Icon icon="magic" />}>
                     {assignmentList.map(item =>(
-                      <Link to={"/assignments/" +item.id +"/" + classid} key={item.id}>
-                      <Dropdown.Item  eventKey={"3-"+item.id}>{item.title}</Dropdown.Item>
-                      </Link>   
+                      <a href={"/classes/"+item.id}>
+                          <li className="rs-dropdown-item">
+                              <div className="rs-dropdown-item-content" tabindex="-1">{item.title}</div>
+                              </li>
+                        </a>  
                     ))}
                 </Dropdown> 
                 </SideBar> 
