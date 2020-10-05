@@ -94,7 +94,7 @@ function AssignmentPage() {
                 <SideBar>
                 <NavItem eventkey={"1"} icon={"dashboard"} path={"/teacherdashboard"} navtext={"Dashboard"}/>
                 <NavItem eventkey={"2"} icon={"stop-circle"} path={"/login"} navtext={"Log Out"}/>
-                <Dropdown className= "navLi" eventKey="3" title="Classes" icon={<Icon icon="magic" />}>
+                <Dropdown className= "navLi" eventKey="3" title="Assignments" icon={<Icon icon="magic" />}>
                     {assignmentList.map(item =>(
                       <Link to={"/assignments/" + item.id + "/" + classid} key={item.id}>
                       <Dropdown.Item  eventKey={"3-"+item.id}>{item.title}</Dropdown.Item>

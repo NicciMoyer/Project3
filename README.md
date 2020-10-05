@@ -2,6 +2,11 @@
 
 ## This is an application which organized clases for students and teachers. Teachers can add classes and assignments, and add notes and update grades, while students can view a summary of their grades for each class and their grades for individual assignments.
 
+## usage:
+
+Create an account as a student or a teacher using the signup page. A student account is read-only, you will see a dashboard displaying your classes and grades. A teacher account will have the ability to create new classes, create new assignments and add/edit grades. 
+
+
 
 ## contact-info: 
 email: 
