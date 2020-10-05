@@ -39,7 +39,7 @@ function ClassPage() {
                 console.log(res.data)
                 setAssignmentList(res.data)
             })
-
+            makeRoster()
     }, [id])
 
     useEffect(() => {
